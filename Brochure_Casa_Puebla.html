@@ -1,0 +1,1168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brochure Residencial | Molino de Santo Domingo, Puebla</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+    :root {
+      --bg: #faf8f5;
+      --card: #ffffff;
+      --text: #1c1917;
+      --muted: #57534e;
+      --gold: #9a6f1a;
+      --gold-light: #f5efe1;
+      --gold-border: #dec692;
+      --border: #e7e2da;
+      --dark: #18181b;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    h1, h2, h3, .serif {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+    }
+
+    /* Top Bar (hidden on print) */
+    .top-bar {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text);
+    }
+
+    .brand-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 500;
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      transition: all 0.2s;
+    }
+
+    .nav-links a:hover {
+      background: var(--gold-light);
+      color: var(--gold);
+      border-color: var(--gold-border);
+    }
+
+    .btn-print {
+      background: var(--gold);
+      color: #fff;
+      border: none;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 8px 18px;
+      border-radius: 999px;
+      cursor: pointer;
+      letter-spacing: 0.04em;
+    }
+
+    .btn-print:hover {
+      background: #7c5813;
+    }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 36px 28px 64px;
+    }
+
+    /* Hero Cover */
+    .hero {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 5fr 7fr;
+      box-shadow: 0 12px 32px -12px rgba(28, 25, 23, 0.08);
+      margin-bottom: 48px;
+    }
+
+    .hero-content {
+      padding: 44px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .badge {
+      display: inline-block;
+      background: var(--gold-light);
+      color: var(--gold);
+      border: 1px solid var(--gold-border);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      padding: 6px 14px;
+      border-radius: 999px;
+      margin-bottom: 20px;
+      align-self: flex-start;
+    }
+
+    .subtitle-upper {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .hero-title {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.08;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+
+    .hero-location {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    .divider {
+      width: 56px;
+      height: 2px;
+      background: var(--gold);
+      margin-bottom: 20px;
+    }
+
+    .hero-desc {
+      font-size: 13.5px;
+      color: var(--muted);
+      line-height: 1.65;
+      margin-bottom: 28px;
+    }
+
+    .hero-desc strong {
+      color: var(--text);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+    }
+
+    .stat-box {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 12px 14px;
+    }
+
+    .stat-label {
+      font-size: 10.5px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+    }
+
+    .stat-value {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--text);
+      margin-top: 2px;
+    }
+
+    .stat-value span {
+      font-size: 13px;
+      color: var(--gold);
+      font-weight: 600;
+    }
+
+    .stat-note {
+      font-size: 11px;
+      color: var(--gold);
+      font-weight: 600;
+      margin-top: 2px;
+    }
+
+    .hero-image-wrap {
+      position: relative;
+      min-height: 520px;
+    }
+
+    .hero-image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      cursor: pointer;
+    }
+
+    .hero-caption {
+      position: absolute;
+      bottom: 16px;
+      right: 16px;
+      background: rgba(24, 24, 27, 0.78);
+      color: #fff;
+      font-size: 11.5px;
+      padding: 7px 16px;
+      border-radius: 999px;
+      backdrop-filter: blur(4px);
+    }
+
+    /* Highlight Banner */
+    .highlight-banner {
+      background: var(--gold-light);
+      border: 1px solid var(--gold-border);
+      border-radius: 20px;
+      padding: 28px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+      margin-bottom: 36px;
+    }
+
+    .highlight-text {
+      max-width: 640px;
+    }
+
+    .highlight-kicker {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+
+    .highlight-title {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .highlight-desc {
+      font-size: 13.5px;
+      color: var(--muted);
+    }
+
+    .compare-cards {
+      display: flex;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    .compare-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 14px 18px;
+      text-align: center;
+      min-width: 120px;
+    }
+
+    .compare-card.featured {
+      border: 2px solid var(--gold);
+      box-shadow: 0 6px 16px -4px rgba(154, 111, 26, 0.18);
+    }
+
+    .compare-card .c-label {
+      font-size: 11px;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .compare-card.featured .c-label {
+      color: var(--gold);
+    }
+
+    .compare-card .c-val {
+      font-size: 18px;
+      font-weight: 700;
+      margin-top: 4px;
+      color: var(--text);
+    }
+
+    .compare-card .c-val.strike {
+      color: var(--muted);
+      text-decoration: line-through;
+    }
+
+    /* Levels Grid */
+    .levels-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-bottom: 52px;
+    }
+
+    .level-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 24px;
+    }
+
+    .level-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .level-num {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--gold);
+    }
+
+    .level-tag {
+      font-size: 11px;
+      font-weight: 600;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      padding: 3px 10px;
+      border-radius: 999px;
+      color: var(--text);
+    }
+
+    .level-title {
+      font-size: 21px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+
+    .level-list {
+      list-style: none;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .level-list li {
+      position: relative;
+      padding-left: 14px;
+      margin-bottom: 8px;
+    }
+
+    .level-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    /* Section Headings */
+    .section-block {
+      margin-bottom: 52px;
+    }
+
+    .section-header {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 12px;
+      margin-bottom: 24px;
+    }
+
+    .section-kicker {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+    }
+
+    .section-title {
+      font-size: 30px;
+      font-weight: 700;
+      color: var(--text);
+      margin-top: 2px;
+    }
+
+    .section-subtitle {
+      font-size: 13.5px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .sub-heading {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--text);
+      margin: 28px 0 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .sub-heading::before {
+      content: "";
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+
+    /* Photo Grids */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .photo-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 14px -4px rgba(28, 25, 23, 0.05);
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    .photo-card img {
+      width: 100%;
+      height: 290px;
+      object-fit: cover;
+      display: block;
+      cursor: pointer;
+    }
+
+    .grid-3 .photo-card img {
+      height: 235px;
+    }
+
+    .photo-card figcaption {
+      padding: 14px 16px;
+    }
+
+    .photo-card h4 {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 3px;
+    }
+
+    .photo-card p {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
+    .feature-banner-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 7fr 5fr;
+      margin-bottom: 24px;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    .feature-banner-card img {
+      width: 100%;
+      height: 330px;
+      object-fit: cover;
+      display: block;
+      cursor: pointer;
+    }
+
+    .feature-banner-body {
+      padding: 28px 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    /* Footer Summary */
+    .footer-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 36px 40px;
+      display: grid;
+      grid-template-columns: 7fr 5fr;
+      gap: 32px;
+      align-items: center;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    .pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .pill {
+      font-size: 11.5px;
+      font-weight: 600;
+      background: var(--gold-light);
+      color: var(--gold);
+      border: 1px solid var(--gold-border);
+      padding: 5px 12px;
+      border-radius: 999px;
+    }
+
+    .summary-table {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px 24px;
+    }
+
+    .summary-table h4 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 12.5px;
+    }
+
+    .summary-row:last-child {
+      border-bottom: none;
+    }
+
+    .summary-row span:first-child {
+      color: var(--muted);
+    }
+
+    .summary-row span:last-child {
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    /* Lightbox */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.88);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
+      padding: 24px;
+    }
+
+    .lightbox.open {
+      display: flex;
+    }
+
+    .lightbox-inner {
+      max-width: 1000px;
+      text-align: center;
+    }
+
+    .lightbox-inner img {
+      max-height: 82vh;
+      max-width: 100%;
+      border-radius: 12px;
+    }
+
+    .lightbox-inner p {
+      color: #fff;
+      margin-top: 12px;
+      font-size: 14px;
+    }
+
+    /* Print optimization */
+    @media print {
+      @page {
+        size: letter;
+        margin: 10mm;
+      }
+      .no-print {
+        display: none !important;
+      }
+      body {
+        background: #ffffff;
+      }
+      .container {
+        padding: 0;
+        max-width: 100%;
+      }
+      .page-break {
+        page-break-before: always;
+      }
+      .hero {
+        margin-bottom: 24px;
+        box-shadow: none;
+      }
+      .hero-image-wrap {
+        min-height: 400px;
+      }
+      .photo-card img {
+        height: 220px;
+      }
+      .grid-3 .photo-card img {
+        height: 185px;
+      }
+      .section-block {
+        margin-bottom: 28px;
+      }
+    }
+
+    @media (max-width: 840px) {
+      .hero, .feature-banner-card, .footer-card, .levels-grid, .grid-2, .grid-3 {
+        grid-template-columns: 1fr;
+      }
+      .highlight-banner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Barra de Navegación (No se imprime en el PDF) -->
+  <header class="top-bar no-print">
+    <div class="brand">
+      <span class="brand-dot"></span>
+      <span>Molino de Santo Domingo · Puebla</span>
+    </div>
+    <nav class="nav-links">
+      <a href="#resumen">Ficha Técnica</a>
+      <a href="#exterior">Fachada y Condominio</a>
+      <a href="#social">Sala, Comedor y Jardín</a>
+      <a href="#cocina">Cocina y Lavado</a>
+      <a href="#recamaras">3 Recámaras y TV</a>
+      <a href="#roofgarden">Roof Garden</a>
+      <button class="btn-print" onclick="window.print()">Imprimir / Guardar PDF</button>
+    </nav>
+  </header>
+
+  <main class="container">
+
+    <!-- PORTADA / HERO -->
+    <section class="hero">
+      <div class="hero-content">
+        <div>
+          <span class="badge">Residencia en Venta · Puebla</span>
+          <p class="subtitle-upper">Fraccionamiento Residencial</p>
+          <h1 class="hero-title">Molino de Santo Domingo</h1>
+          <p class="hero-location">Blvd. Esteban de Antuñano, Zona Luz Obrera · Heroica Puebla de Zaragoza, Pue.</p>
+          <div class="divider"></div>
+          <p class="hero-desc">
+            Una propiedad única dentro del fraccionamiento gracias a su <strong>terreno excedente de 278.98 m²</strong> (~65% más grande que el lote tipo del condominio), desarrollada en <strong>276.37 m² de construcción</strong> en tres niveles con jardín privado, excelente iluminación natural, 3 recámaras con baño propio y un extraordinario Roof Garden equipado con cocineta y baño completo.
+          </p>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-box">
+            <div class="stat-label">Superficie Terreno</div>
+            <div class="stat-value">278.98 <span>m²</span></div>
+            <div class="stat-note">Terreno Excedente (+65%)</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-label">Construcción</div>
+            <div class="stat-value">276.37 <span>m²</span></div>
+            <div class="stat-note">3 Niveles Residenciales</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-label">Recámaras</div>
+            <div class="stat-value">3 <span>Suites</span></div>
+            <div class="stat-note">Cada una con baño propio</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-label">Baños Totales</div>
+            <div class="stat-value">4.5 <span>Baños</span></div>
+            <div class="stat-note">4 Completos + 1 Visitas</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-image-wrap">
+        <img src="fachada_principal_retocada_1792555180287.jpg" alt="Fachada Principal de la Residencia en Molino de Santo Domingo" onclick="openLightbox(this.src, this.alt)" />
+        <div class="hero-caption">Fachada contemporánea con cochera techada para 2 autos y doble altura</div>
+      </div>
+    </section>
+
+    <!-- RESUMEN Y DIFERENCIADOR DE TERRENO -->
+    <section id="resumen">
+      <div class="highlight-banner">
+        <div class="highlight-text">
+          <div class="highlight-kicker">★ Mayor Diferenciador en el Condominio</div>
+          <h2 class="highlight-title">Terreno Excedente de 278.98 m² con Amplio Jardín Privado</h2>
+          <p class="highlight-desc">
+            En el Fraccionamiento Molino de Santo Domingo la mayoría de los lotes tipo son de ~168 m². Contar con <strong>278.98 m² de terreno</strong> le otorga a esta residencia un jardín privado mucho más amplio y aprovechable, mayor privacidad entre colindancias, abundante luz natural y una cochera techada sumamente cómoda.
+          </p>
+        </div>
+        <div class="compare-cards">
+          <div class="compare-card">
+            <div class="c-label">Lote Estándar</div>
+            <div class="c-val strike">~168 m²</div>
+          </div>
+          <div class="compare-card featured">
+            <div class="c-label">Esta Propiedad</div>
+            <div class="c-val">278.98 m²</div>
+          </div>
+          <div class="compare-card">
+            <div class="c-label">Construcción</div>
+            <div class="c-val">276.37 m²</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DISTRIBUCIÓN EN 3 NIVELES -->
+      <div class="levels-grid">
+        <div class="level-card">
+          <div class="level-header">
+            <span class="level-num">Nivel 01</span>
+            <span class="level-tag">Planta Baja</span>
+          </div>
+          <h3 class="level-title">Área Social y Jardín</h3>
+          <ul class="level-list">
+            <li>Cochera techada para 2 automóviles y andador jardinado de acceso.</li>
+            <li>Estancia de Sala a doble altura con gran entrada de luz natural.</li>
+            <li>Comedor amplio con ventanales corredizos de piso a techo hacia el jardín.</li>
+            <li>Medio baño de visitas con cubierta de granito y lavabo de sobreponer.</li>
+            <li>Cocina integral con barras de granito, alacenas con cristal esmerilado y espacio para desayunador.</li>
+            <li>Amplio jardín privado con terraza y vegetación perimetral.</li>
+            <li>Cuarto de lavado y servicio independiente con gabinetes.</li>
+          </ul>
+        </div>
+
+        <div class="level-card">
+          <div class="level-header">
+            <span class="level-num">Nivel 02</span>
+            <span class="level-tag">Primer Piso</span>
+          </div>
+          <h3 class="level-title">Sala de TV y 3 Recámaras</h3>
+          <ul class="level-list">
+            <li>Puente distribuidor con barandal de cristal templado y vista a la doble altura.</li>
+            <li>Sala de TV / Family Room familiar.</li>
+            <li><strong>Recámara Principal:</strong> Gran amplitud, vestidor independiente (walk-in closet) y baño privado con doble lavabo en granito.</li>
+            <li><strong>Recámara 2:</strong> Clóset de piso a techo en madera y baño completo privado con cancel de cristal templado.</li>
+            <li><strong>Recámara 3:</strong> Clóset amplio de madera y baño completo privado con cubierta de granito.</li>
+          </ul>
+        </div>
+
+        <div class="level-card">
+          <div class="level-header">
+            <span class="level-num">Nivel 03</span>
+            <span class="level-tag">Azotea / Roof Garden</span>
+          </div>
+          <h3 class="level-title">Roof Garden Equipado</h3>
+          <ul class="level-list">
+            <li>Escalera arquitectónica de pasos flotantes en madera y muro en piedra.</li>
+            <li><strong>Cocineta interior de apoyo:</strong> Con tarja de acero inoxidable, barra y gabinetes para reuniones.</li>
+            <li><strong>4.º Baño Completo:</strong> Con lavabo de cristal sobre granito y regadera con cancel templado.</li>
+            <li><strong>Terraza Techada:</strong> Con pérgola para comedor exterior o lounge.</li>
+            <li><strong>Terraza Abierta:</strong> Amplio solárium panorámico.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 01 EXTERIOR Y CONDOMINIO -->
+    <section id="exterior" class="section-block page-break">
+      <div class="section-header">
+        <div class="section-kicker">01 · Exterior y Fraccionamiento</div>
+        <h2 class="section-title">Fachada, Cochera y Entorno Residencial</h2>
+        <p class="section-subtitle">Ubicada en la Privada "M" frente a áreas verdes arboladas y juegos infantiles, con calles adoquinadas y vigilancia.</p>
+      </div>
+
+      <div class="grid-2">
+        <figure class="photo-card">
+          <img src="fachada_principal_retocada_1792555180287.jpg" alt="Fachada Principal y Cochera Techada" onclick="openLightbox(this.src, this.alt)" />
+          <figcaption>
+            <h4>Fachada Principal y Cochera Techada</h4>
+            <p>Arquitectura contemporánea con cochera techada para 2 autos y ventanal de doble altura.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="photo-card">
+          <img src="acceso_cochera_retocado_1792555202327.jpg" alt="Andador de Acceso Principal" onclick="openLightbox(this.src, this.alt)" />
+          <figcaption>
+            <h4>Andador Peatonal de Acceso</h4>
+            <p>Acceso principal enmarcado por jardineras ornamentales perfectamente iluminadas.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="photo-card">
+          <img src="parque_areas_verdes_retocado_1792555242262.jpg" alt="Parque y Juegos Infantiles del Condominio" onclick="openLightbox(this.src, this.alt)" />
+          <figcaption>
+            <h4>Parque y Juegos Infantiles del Fraccionamiento</h4>
+            <p>Áreas verdes arboladas y zona infantil a unos pasos de la residencia.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="photo-card">
+          <img src="calle_condominio_retocada_1792555355309.jpg" alt="Vialidad Interna Adoquinada" onclick="openLightbox(this.src, this.alt)" />
+          <figcaption>
+            <h4>Privada Residencial Adoquinada</h4>
+            <p>Ambiente seguro, tranquilo y familiar sobre Blvd. Esteban de Antuñano.</p>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 02 SALA, COMEDOR, JARDÍN Y BAÑO DE VISITAS -->
+    <section id="social" class="section-block page-break">
+      <div class="section-header">
+        <div class="section-kicker">02 · Planta Baja · Área Social</div>
+        <h2 class="section-title">Sala, Comedor con Vista al Jardín y Baño de Visitas</h2>
+        <p class="section-subtitle">Estancia social luminosa con conexión directa a la terraza y al jardín privado mediante ventanales corredizos de piso a techo.</p>
+      </div>
+
+      <div class="grid-2">
+        <figure class="photo-card">
+          <img src="05_sala_1792555201074.jpg" alt="Estancia de Sala Principal" onclick="openLightbox(this.src, this.alt)" />
+          <figcaption>
+            <h4>Estancia de Sala</h4>
+            <p>Amplia sala con plafones de iluminación cálida indirecta y pisos cerámicos de gran formato.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="photo-card">
+          <img src="06_comedor_jardin_1792555234084.jpg" alt="Comedor con Salida al Jardín" onclick="openLightbox(this.src, this.alt)" />
+          <figcaption>
+            <h4>Comedor Integrado al Jardín</h4>
+            <p>Vista verde desde el comedor hacia el jardín privado excedente.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="photo-card">
+          <img src="07_estancia_comedor_1792555309720.jpg" alt="Perspectiva del Comedor y Terraza" onclick="openLightbox(this.src, this.alt)" />
+          <figcaption>
+            <h4>Amplitud y Luz Natural</h4>
+            <p>Conexión fluida entre la estancia social, la terraza exterior y la cocina.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="photo-card">
+          <img src="08_bano_visitas_1792555360197.jpg" alt="Medio Baño de Visitas" onclick="openLightbox(this.src, this.alt)" />
+          <figcaption>
+            <h4>Medio Baño de Visitas</h4>
+            <p>Cubierta de granito natural y lavabo de sobreponer contemporáneo.</p>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 03 COCINA INTEGRAL Y CUARTO DE LAVADO -->
+    <section id="cocina" class="section-block page-break">
+      <div class="section-header">
+        <div class="section-kicker">03 · Gastronomía y Servicios</div>
+        <h2 class="section-title">Cocina Integral Equipada y Cuarto de Lavado</h2>
+        <p class="section-subtitle">Barras de granito natural, alacenas de madera con puertas de cristal esmerilado, antecomedor central y cuarto de lavado independiente.</p>
+      </div>
+
+      <div class="grid-2">
+        <figure class="photo-card">
+          <img src="09_cocina_principal_1792555189835.jpg" alt="Cocina Integral con Desayunador" onclick="openLightbox(this.src, this.alt)" />
+          <figcaption>
+            <h4>Cocina Integral con Antecomedor</h4>
+            <p>Equipada con estufa, campana extractora, extensas cubiertas de granito y gabinetes superiores e inferiores.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="photo-card">
+          <img src="10_cocina_vista_jardin_1792555212079.jpg" alt="Cocina con Vista al Jardín" onclick="openLightbox(this.src, this.alt)" />
+          <figcaption>
+            <h4>Ventanales de Piso a Techo hacia el Jardín</h4>
+            <p>Área de tarja bañada por luz natural con vista directa a la vegetación del jardín.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="photo-card">
+          <img src="11_cocina_alacenas_1792555252732.jpg" alt="Barra Auxiliar de Granito y Alacenas" onclick="openLightbox(this.src, this.alt)" />
+          <figcaption>
+            <h4>Barra Auxiliar de Granito y Alacenas</h4>
+            <p>Gran capacidad de almacenamiento en cajoneras y alacenas con cristal esmerilado.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="photo-card">
+          <img src="12_cuarto_lavado_1792555316594.jpg" alt="Cuarto de Lavado y Servicio" onclick="openLightbox(this.src, this.alt)" />
+          <figcaption>
+            <h4>Cuarto de Lavado y Servicio Independiente</h4>
+            <p>Barra de granito con gabinetes blancos, lavadero, calentador e instalaciones para centro de lavado.</p>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 04 PRIMER PISO: SALA DE TV Y 3 RECÁMARAS -->
+    <section id="recamaras" class="section-block page-break">
+      <div class="section-header">
+        <div class="section-kicker">04 · Primer Piso · Área Familiar e Íntima</div>
+        <h2 class="section-title">Sala de TV y 3 Recámaras con Baño Privado</h2>
+        <p class="section-subtitle">Tres amplias habitaciones, cada una con baño completo propio con cancel de cristal templado.</p>
+      </div>
+
+      <div class="feature-banner-card">
+        <img src="13_sala_tv_pasillo_1792555211796.jpg" alt="Sala de TV y Pasillo con Barandal de Cristal Templado" onclick="openLightbox(this.src, this.alt)" />
+        <div class="feature-banner-body">
+          <div class="section-kicker">Family Room · Doble Altura</div>
+          <h3 class="level-title" style="margin-top:6px;">Sala de TV y Puente de Cristal Templado</h3>
+          <p class="hero-desc" style="margin-bottom:0;">
+            El distribuidor de primer nivel cuenta con barandales de cristal templado que miran hacia la doble altura de la estancia principal, integrando una acogedora sala de televisión familiar antes de ingresar a las recámaras.
+          </p>
+        </div>
+      </div>
+
+      <h3 class="sub-heading">Recámara Principal (Master Suite) con Vestidor y Doble Lavabo</h3>
+      <div class="grid-2">
+        <figure class="photo-card">
+          <img src="14_recamara_principal_1_1792555234084.jpg" alt="Recámara Principal Vista 1" onclick="openLightbox(this.src, this.alt)" />
+          <figcaption>
+            <h4>Recámara Principal · Estancia</h4>
+            <p>Amplia suite principal con espacio para cama King Size y sillón de lectura.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="photo-card">
+          <img src="15_recamara_principal_2_1792555339515.jpg" alt="Recámara Principal Vista 2" onclick="openLightbox(this.src, this.alt)" />
+          <figcaption>
+            <h4>Recámara Principal · Segundo Ángulo</h4>
+            <p>Ventanal de piso a techo e iluminación cálida perimetral en plafón.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="photo-card">
+          <img src="16_vestidor_principal_1792555389061.jpg" alt="Vestidor Walk-In de la Recámara Principal" onclick="openLightbox(this.src, this.alt)" />
+          <figcaption>
+            <h4>Vestidor Independiente (Walk-In Closet)</h4>
+            <p>Carpintería en madera de piso a techo en ambos lados y ventana con luz y ventilación natural.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="photo-card">
+          <img src="17_bano_principal_1792555448782.jpg" alt="Baño Principal con Doble Lavabo" onclick="openLightbox(this.src, this.alt)" />
+          <figcaption>
+            <h4>Baño Principal con Doble Lavabo</h4>
+            <p>Cubierta extendida de granito con dos lavabos, doble espejo, ducha con cancel templado y área de WC.</p>
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="page-break"></div>
+
+      <h3 class="sub-heading">Recámara Secundaria 2 con Clóset y Baño Privado</h3>
+      <div class="grid-3">
+        <figure class="photo-card">
+          <img src="18_recamara_2_closet_1792555214101.jpg" alt="Recámara 2 y Clóset de Piso a Techo" onclick="openLightbox(this.src, this.alt)" />
+          <figcaption>
+            <h4>Recámara 2 · Clóset de Piso a Techo</h4>
+            <p>Carpintería completa en madera con cajoneras y maletero superior.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="photo-card">
+          <img src="19_recamara_2_cama_1792555233518.jpg" alt="Recámara 2 Estancia" onclick="openLightbox(this.src, this.alt)" />
+          <figcaption>
+            <h4>Recámara 2 · Iluminación Natural</h4>
+            <p>Habitación sumamente iluminada y acogedora.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="photo-card">
+          <img src="20_bano_recamara_2_1792555315898.jpg" alt="Baño Completo Privado de Recámara 2" onclick="openLightbox(this.src, this.alt)" />
+          <figcaption>
+            <h4>Baño Privado (Recámara 2)</h4>
+            <p>Cubierta de granito, cancel de cristal templado y ventilación natural.</p>
+          </figcaption>
+        </figure>
+      </div>
+
+      <h3 class="sub-heading">Recámara Secundaria 3 con Clóset y Baño Privado</h3>
+      <div class="grid-2">
+        <figure class="photo-card">
+          <img src="21_recamara_3_closet_1792555356189.jpg" alt="Recámara 3 con Clóset y Baño Propio" onclick="openLightbox(this.src, this.alt)" />
+          <figcaption>
+            <h4>Recámara 3 con Clóset y Baño Integrado</h4>
+            <p>Amplia habitación con clóset de piso a techo y acceso directo a su baño privado.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="photo-card">
+          <img src="22_bano_recamara_3_1792555453975.jpg" alt="Baño Completo Privado de Recámara 3" onclick="openLightbox(this.src, this.alt)" />
+          <figcaption>
+            <h4>Baño Privado (Recámara 3)</h4>
+            <p>Lavabo en cubierta de granito y regadera con cancel de cristal templado.</p>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 05 ROOF GARDEN -->
+    <section id="roofgarden" class="section-block page-break">
+      <div class="section-header">
+        <div class="section-kicker">05 · Segundo Nivel · Roof Garden Social</div>
+        <h2 class="section-title">Azotea Tipo Roof Garden con Terrazas, Cocineta y Baño Completo</h2>
+        <p class="section-subtitle">Un tercer nivel completamente equipado para reuniones y eventos sociales, con cocineta interior, baño completo con regadera y dos terrazas (techada y abierta).</p>
+      </div>
+
+      <div class="grid-2" style="margin-bottom: 20px;">
+        <figure class="photo-card">
+          <img src="26_terraza_techada_1792555358947.jpg" alt="Terraza Techada con Pérgola en Roof Garden" onclick="openLightbox(this.src, this.alt)" />
+          <figcaption>
+            <h4>Terraza Techada con Pérgola</h4>
+            <p>Espacio techado ideal para comedor exterior o sala lounge con vista arbolada.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="photo-card">
+          <img src="27_terraza_abierta_1792555439020.jpg" alt="Terraza Abierta en Roof Garden" onclick="openLightbox(this.src, this.alt)" />
+          <figcaption>
+            <h4>Terraza Abierta Panorámica</h4>
+            <p>Amplio solárium a cielo abierto con piso cerámico y domos de luz natural.</p>
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="grid-3">
+        <figure class="photo-card">
+          <img src="24_cocineta_roof_garden_1792555249849.jpg" alt="Cocineta en Roof Garden" onclick="openLightbox(this.src, this.alt)" />
+          <figcaption>
+            <h4>Cocineta Equipada de Apoyo</h4>
+            <p>Barra con tarja y gabinetes inferiores para atender reuniones en el Roof Garden.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="photo-card">
+          <img src="25_bano_roof_garden_1792555307962.jpg" alt="Baño Completo en Roof Garden" onclick="openLightbox(this.src, this.alt)" />
+          <figcaption>
+            <h4>4.º Baño Completo en Roof Garden</h4>
+            <p>Lavabo sobre cubierta de granito y regadera completa con cancel.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="photo-card">
+          <img src="23_escalera_roof_garden_1792555213953.jpg" alt="Escalera Flotante al Roof Garden" onclick="openLightbox(this.src, this.alt)" />
+          <figcaption>
+            <h4>Escalera Flotante en Madera</h4>
+            <p>Muro recubierto en piedra natural, pasamanos de acero y barandal de cristal.</p>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- RESUMEN FINAL DE UBICACIÓN -->
+    <section class="footer-card">
+      <div>
+        <div class="section-kicker">Ubicación Privilegiada en Puebla</div>
+        <h3 class="section-title" style="font-size: 26px; margin-bottom: 10px;">Fraccionamiento Residencial Molino de Santo Domingo</h3>
+        <p class="hero-desc" style="margin-bottom: 8px;">
+          Ubicada sobre <strong>Blvd. Esteban de Antuñano</strong> (Zona Luz Obrera, Puebla, Pue.), con excelente conectividad hacia Av. Hermanos Serdán, Recta a Cholula, Autopista México–Puebla y Zavaleta.
+        </p>
+        <div class="pills">
+          <span class="pill">278.98 m² de Terreno</span>
+          <span class="pill">276.37 m² de Construcción</span>
+          <span class="pill">3 Recámaras con Baño</span>
+          <span class="pill">4.5 Baños</span>
+          <span class="pill">Jardín Excedente</span>
+          <span class="pill">Roof Garden con Cocineta y Baño</span>
+        </div>
+      </div>
+
+      <div class="summary-table">
+        <h4>Resumen General</h4>
+        <div class="summary-row"><span>Superficie de Terreno</span><span>278.98 m²</span></div>
+        <div class="summary-row"><span>Superficie de Construcción</span><span>276.37 m²</span></div>
+        <div class="summary-row"><span>Recámaras</span><span>3 (Principal c/ Vestidor)</span></div>
+        <div class="summary-row"><span>Baños</span><span>4 Completos + 1 Medio Baño</span></div>
+        <div class="summary-row"><span>Estacionamiento</span><span>Cochera Techada (2 Autos)</span></div>
+        <div class="summary-row"><span>Niveles</span><span>Planta Baja + 1.er Piso + Roof Garden</span></div>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="lightbox" class="lightbox no-print" onclick="closeLightbox()">
+    <div class="lightbox-inner">
+      <img id="lightbox-img" src="" alt="" />
+      <p id="lightbox-caption"></p>
+    </div>
+  </div>
+
+  <script>
+    function openLightbox(src, caption) {
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox-caption').textContent = caption;
+      document.getElementById('lightbox').classList.add('open');
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+    }
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeLightbox();
+    });
+  </script>
+</body>
+</html>

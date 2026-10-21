@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brochure Interactivo con Carruseles | Molino de Santo Domingo, Puebla</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+    :root {
+      --bg: #faf8f5;
+      --card: #ffffff;
+      --stage-bg: #f3efe8;
+      --text: #1c1917;
+      --muted: #57534e;
+      --gold: #9a6f1a;
+      --gold-hover: #7d5913;
+      --gold-light: #f6efe0;
+      --gold-border: #dec692;
+      --border: #e6e0d6;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.45;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, .serif {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+    }
+
+    /* Barra Superior Fija Compacta */
+    .top-bar {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      padding: 10px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      box-shadow: 0 2px 12px rgba(28, 25, 23, 0.04);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      font-size: 11.5px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text);
+    }
+
+    .brand-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+
+    .nav-pills {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .nav-pills a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 11.5px;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      transition: all 0.15s ease;
+    }
+
+    .nav-pills a:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+      background: var(--gold-light);
+    }
+
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 20px 20px 60px;
+    }
+
+    /* Portada Resumen Compacta */
+    .hero-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 24px 28px;
+      margin-bottom: 24px;
+      box-shadow: 0 6px 20px rgba(28, 25, 23, 0.04);
+      scroll-margin-top: 72px;
+    }
+
+    .hero-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 18px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: var(--gold-light);
+      color: var(--gold);
+      border: 1px solid var(--gold-border);
+      font-size: 10.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 6px;
+    }
+
+    .hero-title {
+      font-size: 34px;
+      font-weight: 700;
+      line-height: 1.08;
+      color: var(--text);
+    }
+
+    .hero-sub {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 3px;
+    }
+
+    .highlight-pill-box {
+      background: var(--gold-light);
+      border: 1px solid var(--gold-border);
+      border-radius: 14px;
+      padding: 10px 18px;
+      text-align: center;
+    }
+
+    .highlight-pill-box .kicker {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--gold);
+    }
+
+    .highlight-pill-box .big {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .highlight-pill-box .small {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .metrics-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .metric-item {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 12px 16px;
+    }
+
+    .metric-label {
+      font-size: 10.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+    }
+
+    .metric-val {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--text);
+      margin-top: 2px;
+    }
+
+    .metric-val span {
+      font-size: 13px;
+      color: var(--gold);
+    }
+
+    .metric-note {
+      font-size: 11px;
+      color: var(--gold);
+      font-weight: 600;
+      margin-top: 1px;
+    }
+
+    /* SECCIÓN CARRUSEL EN VISTA DIVIDIDA (CERO SCROLL PARA CAMBIAR DE FOTO) */
+    .carousel-section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      overflow: hidden;
+      margin-bottom: 26px;
+      box-shadow: 0 8px 24px rgba(28, 25, 23, 0.04);
+      /* Evita que la barra superior tape el título al navegar */
+      scroll-margin-top: 68px;
+    }
+
+    /* Cabecera compacta de cada sección */
+    .sec-header {
+      padding: 16px 24px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      background: #fdfcfa;
+    }
+
+    .sec-header-left {
+      flex: 1;
+      min-width: 260px;
+    }
+
+    .sec-kicker {
+      font-size: 10.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--gold);
+    }
+
+    .sec-title {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.15;
+      margin-top: 1px;
+    }
+
+    .sec-desc {
+      font-size: 12.5px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    /* Cuerpo dividido: Izquierda Foto Completa | Derecha Selector de Fotos a la Mano */
+    .carousel-split {
+      display: grid;
+      grid-template-columns: 64fr 36fr;
+      align-items: stretch;
+    }
+
+    /* Lado Izquierdo: Visor de Imagen + Flechas Laterales sobre la Foto + Pie de Foto */
+    .stage-column {
+      background: var(--stage-bg);
+      padding: 16px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-right: 1px solid var(--border);
+    }
+
+    .stage-frame {
+      position: relative;
+      width: 100%;
+      /* Altura calibrada para que SIEMPRE quepa entera en la pantalla de una laptop sin hacer scroll */
+      height: clamp(300px, 50vh, 430px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #ffffff;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      overflow: hidden;
+      padding: 6px;
+    }
+
+    .stage-frame img {
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      border-radius: 10px;
+      cursor: zoom-in;
+      transition: opacity 0.2s ease;
+    }
+
+    /* Botones Anterior / Siguiente flotantes directamente a los lados de la foto */
+    .stage-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-size: 18px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+      transition: all 0.15s ease;
+      z-index: 5;
+    }
+
+    .stage-arrow:hover {
+      background: var(--gold);
+      color: #ffffff;
+      border-color: var(--gold);
+      transform: translateY(-50%) scale(1.06);
+    }
+
+    .stage-arrow.prev {
+      left: 14px;
+    }
+
+    .stage-arrow.next {
+      right: 14px;
+    }
+
+    .zoom-hint {
+      position: absolute;
+      bottom: 12px;
+      right: 14px;
+      background: rgba(28, 25, 23, 0.72);
+      color: #fff;
+      font-size: 10.5px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 999px;
+      pointer-events: none;
+    }
+
+    .stage-caption-bar {
+      margin-top: 12px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .stage-caption-text h3 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .stage-caption-text p {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 1px;
+    }
+
+    .stage-counter {
+      flex-shrink: 0;
+      background: var(--gold-light);
+      color: var(--gold);
+      border: 1px solid var(--gold-border);
+      font-size: 11.5px;
+      font-weight: 700;
+      padding: 5px 12px;
+      border-radius: 999px;
+    }
+
+    /* Lado Derecho: Panel Selector de Fotos al Nivel de la Vista (Sin tener que bajar) */
+    .selector-column {
+      padding: 16px;
+      background: var(--card);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .selector-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .selector-header span {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+    }
+
+    .selector-nav-btns {
+      display: flex;
+      gap: 6px;
+    }
+
+    .btn-mini {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .btn-mini:hover {
+      background: var(--gold);
+      color: #fff;
+      border-color: var(--gold);
+    }
+
+    .thumb-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex: 1;
+      justify-content: center;
+    }
+
+    .thumb-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 7px 10px;
+      border-radius: 12px;
+      border: 1.5px solid var(--border);
+      background: var(--bg);
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.15s ease;
+      width: 100%;
+    }
+
+    .thumb-row:hover {
+      border-color: var(--gold-border);
+      background: #fdfaf3;
+    }
+
+    .thumb-row.active {
+      border-color: var(--gold);
+      background: var(--gold-light);
+      box-shadow: 0 2px 8px rgba(154, 111, 26, 0.12);
+    }
+
+    .thumb-img-box {
+      width: 64px;
+      height: 48px;
+      border-radius: 8px;
+      background: #fff;
+      border: 1px solid var(--border);
+      overflow: hidden;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .thumb-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .thumb-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .thumb-num {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--gold);
+    }
+
+    .thumb-title {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--text);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .thumb-sub {
+      font-size: 11px;
+      color: var(--muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* Lightbox Pantalla Completa */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      background: rgba(15, 14, 13, 0.92);
+      backdrop-filter: blur(6px);
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .lightbox.open {
+      display: flex;
+    }
+
+    .lightbox-close {
+      background: rgba(255, 255, 255, 0.15);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 7px 16px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-bottom: 12px;
+    }
+
+    .lightbox img {
+      max-width: 94vw;
+      max-height: 82vh;
+      object-fit: contain;
+      border-radius: 12px;
+      background: #fff;
+      padding: 4px;
+    }
+
+    .lightbox-caption {
+      color: #fff;
+      font-size: 14px;
+      font-weight: 600;
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    @media (max-width: 860px) {
+      .carousel-split {
+        grid-template-columns: 1fr;
+      }
+      .stage-column {
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+      }
+      .metrics-row {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Barra de Navegación Superior Fija -->
+  <header class="top-bar">
+    <div class="brand">
+      <span class="brand-dot"></span>
+      <span>Molino de Santo Domingo · Puebla</span>
+    </div>
+    <nav class="nav-pills">
+      <a href="#inicio">Ficha General</a>
+      <a href="#sec-exterior">1. Exterior</a>
+      <a href="#sec-social">2. Sala-Comedor</a>
+      <a href="#sec-cocina">3. Cocina y Lavado</a>
+      <a href="#sec-master">4. Recámara Principal</a>
+      <a href="#sec-secundarias">5. Recámaras 2 y 3</a>
+      <a href="#sec-roof">6. Roof Garden</a>
+      <a href="Brochure_Casa_Puebla_Fotos_Completas.html" style="border-color: var(--gold-border); background: var(--gold-light); color: var(--gold);">📖 Vista Editorial</a>
+      <a href="Brochure_Casa_Puebla_Molino_Santo_Domingo_Fotos_Completas.pdf" target="_blank" style="background: var(--gold); color: #fff; border-color: var(--gold);">📄 Descargar PDF</a>
+    </nav>
+  </header>
+
+  <main class="container">
+
+    <!-- PORTADA RESUMEN -->
+    <section id="inicio" class="hero-card">
+      <div class="hero-top">
+        <div>
+          <span class="badge">Residencia en Venta · Puebla</span>
+          <h1 class="hero-title">Fraccionamiento Molino de Santo Domingo</h1>
+          <p class="hero-sub">Blvd. Esteban de Antuñano, Zona Luz Obrera · Heroica Puebla de Zaragoza, Pue.</p>
+        </div>
+        <div class="highlight-pill-box">
+          <div class="kicker">★ Diferenciador Único</div>
+          <div class="big">+65% Terreno Excedente</div>
+          <div class="small">278.98 m² vs ~168 m² lote tipo</div>
+        </div>
+      </div>
+
+      <div class="metrics-row">
+        <div class="metric-item">
+          <div class="metric-label">Superficie Terreno</div>
+          <div class="metric-val">278.98 <span>m²</span></div>
+          <div class="metric-note">Con amplio jardín privado</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-label">Construcción</div>
+          <div class="metric-val">276.37 <span>m²</span></div>
+          <div class="metric-note">3 Niveles residenciales</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-label">Recámaras</div>
+          <div class="metric-val">3 <span>Suites</span></div>
+          <div class="metric-note">Cada una con baño propio</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-label">Baños Totales</div>
+          <div class="metric-val">4.5 <span>Baños</span></div>
+          <div class="metric-note">Incluye baño en Roof Garden</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CARRUSELES CON SELECTOR LATERAL (SIN TENER QUE SUBIR Y BAJAR) -->
+    <div id="carousels-root"></div>
+
+  </main>
+
+  <!-- Visor Pantalla Completa -->
+  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <button class="lightbox-close" onclick="closeLightbox()">Cerrar pantalla completa ✕</button>
+    <img id="lightbox-img" src="" alt="" />
+    <div id="lightbox-caption" class="lightbox-caption"></div>
+  </div>
+
+  <script>
+    const sections = [
+      {
+        id: "sec-exterior",
+        kicker: "Área 01 · Exterior y Condominio",
+        title: "Fachada Principal, Cochera Techada y Parques del Fraccionamiento",
+        desc: "Ubicada frente a las áreas verdes y juegos infantiles de la Privada 'M', con cochera techada para 2 autos y vigilancia 24/7.",
+        slides: [
+          {
+            src: "fachada_principal_retocada_1792555180287.jpg",
+            title: "Fachada Principal Contemporánea",
+            caption: "Cochera techada para 2 automóviles, ventanal a doble altura y acceso peatonal jardinado."
+          },
+          {
+            src: "acceso_cochera_retocado_1792555202327.jpg",
+            title: "Andador de Acceso Principal",
+            caption: "Pasillo de entrada enmarcado por vegetación ornamental e iluminación natural."
+          },
+          {
+            src: "parque_areas_verdes_retocado_1792555242262.jpg",
+            title: "Parque y Juegos Infantiles del Condominio",
+            caption: "Extensas áreas verdes arboladas y juegos infantiles justo frente a la privada."
+          },
+          {
+            src: "calle_condominio_retocada_1792555355309.jpg",
+            title: "Vialidad Interna Adoquinada",
+            caption: "Privada tranquila, limpia y segura sobre Blvd. Esteban de Antuñano."
+          }
+        ]
+      },
+      {
+        id: "sec-social",
+        kicker: "Área 02 · Planta Baja · Estancia Social",
+        title: "Sala a Doble Altura, Comedor con Salida al Jardín y Baño de Visitas",
+        desc: "Estancia social luminosa con ventanales corredizos de piso a techo que integran el comedor con el jardín privado excedente.",
+        slides: [
+          {
+            src: "05_sala_1792555201074.jpg",
+            title: "Estancia Principal de Sala",
+            caption: "Amplio espacio social con iluminación cálida indirecta y doble altura."
+          },
+          {
+            src: "06_comedor_jardin_1792555234084.jpg",
+            title: "Comedor Integrado al Jardín Privado",
+            caption: "Ventanales corredizos de piso a techo con vista y salida directa al jardín."
+          },
+          {
+            src: "07_estancia_comedor_1792555309720.jpg",
+            title: "Perspectiva del Comedor y Terraza",
+            caption: "Conexión fluida entre sala, comedor, jardín privado y acceso a la cocina."
+          },
+          {
+            src: "08_bano_visitas_1792555360197.jpg",
+            title: "Medio Baño de Visitas",
+            caption: "Cubierta de granito natural, lavabo de sobreponer e iluminación ambiental."
+          }
+        ]
+      },
+      {
+        id: "sec-cocina",
+        kicker: "Área 03 · Gastronomía y Servicios",
+        title: "Cocina Integral con Vista al Jardín y Cuarto de Lavado",
+        desc: "Equipada con extensas barras de granito natural, alacenas con cristal esmerilado, antecomedor central y cuarto de lavado independiente.",
+        slides: [
+          {
+            src: "09_cocina_principal_1792555189835.jpg",
+            title: "Cocina Integral con Antecomedor",
+            caption: "Estufa con campana extractora, cubiertas de granito, refrigerador y desayunador central."
+          },
+          {
+            src: "10_cocina_vista_jardin_1792555212079.jpg",
+            title: "Cocina con Ventanales hacia el Jardín",
+            caption: "Área de fregadero frente a ventanal de piso a techo con vista verde."
+          },
+          {
+            src: "11_cocina_alacenas_1792555252732.jpg",
+            title: "Barra Auxiliar de Granito y Alacenas",
+            caption: "Amplio espacio de guardado en gabinetes superiores e inferiores."
+          },
+          {
+            src: "12_cuarto_lavado_1792555316594.jpg",
+            title: "Cuarto de Lavado Independiente",
+            caption: "Barra de granito, gabinetes blancos, lavadero, calentador e instalaciones de lavado."
+          }
+        ]
+      },
+      {
+        id: "sec-master",
+        kicker: "Área 04 · Primer Piso · Sala de TV y Master Suite",
+        title: "Sala de TV, Puente de Doble Altura y Recámara Principal",
+        desc: "Sala de TV con barandales de cristal templado y Recámara Principal con vestidor walk-in y baño privado de doble lavabo.",
+        slides: [
+          {
+            src: "13_sala_tv_pasillo_1792555211796.jpg",
+            title: "Sala de TV y Puente de Doble Altura",
+            caption: "Barandales de cristal templado con vista hacia la sala y escalera flotante."
+          },
+          {
+            src: "14_recamara_principal_1_1792555234084.jpg",
+            title: "Recámara Principal · Vista 1",
+            caption: "Gran amplitud para cama King Size, sillón de lectura y mobiliario completo."
+          },
+          {
+            src: "15_recamara_principal_2_1792555339515.jpg",
+            title: "Recámara Principal · Vista 2",
+            caption: "Ventanal amplio con cortinas e iluminación cálida en plafón."
+          },
+          {
+            src: "16_vestidor_principal_1792555389061.jpg",
+            title: "Vestidor Independiente (Walk-In)",
+            caption: "Carpintería de madera en ambos muros con cajoneras, colgadores y luz natural."
+          },
+          {
+            src: "17_bano_principal_1792555448782.jpg",
+            title: "Baño Principal con Doble Lavabo",
+            caption: "Barra extendida de granito con dos lavabos, doble espejo y ducha con cancel templado."
+          }
+        ]
+      },
+      {
+        id: "sec-secundarias",
+        kicker: "Área 05 · Primer Piso · Recámaras Secundarias",
+        title: "Recámara 2 y Recámara 3 con Clóset y Baño Privado",
+        desc: "Ambas habitaciones secundarias cuentan con clósets de piso a techo en madera y su propio baño completo privado.",
+        slides: [
+          {
+            src: "18_recamara_2_closet_1792555214101.jpg",
+            title: "Recámara 2 · Clóset de Piso a Techo",
+            caption: "Amplia carpintería en madera con cajoneras centrales y puertas abatibles."
+          },
+          {
+            src: "19_recamara_2_cama_1792555233518.jpg",
+            title: "Recámara 2 · Área de Descanso",
+            caption: "Excelente entrada de luz natural por ventanal y acabados impecables."
+          },
+          {
+            src: "20_bano_recamara_2_1792555315898.jpg",
+            title: "Baño Completo Privado (Recámara 2)",
+            caption: "Cubierta de granito, cancel de cristal templado y ventilación natural."
+          },
+          {
+            src: "21_recamara_3_closet_1792555356189.jpg",
+            title: "Recámara 3 con Clóset y Baño",
+            caption: "Espacio versátil con clóset completo de madera y baño privado integrado."
+          },
+          {
+            src: "22_bano_recamara_3_1792555453975.jpg",
+            title: "Baño Completo Privado (Recámara 3)",
+            caption: "Lavabo en cubierta de granito y regadera con cancel de cristal templado."
+          }
+        ]
+      },
+      {
+        id: "sec-roof",
+        kicker: "Área 06 · Segundo Nivel · Roof Garden Equipado",
+        title: "Azotea Tipo Roof Garden con Terrazas, Cocineta y 4.º Baño Completo",
+        desc: "Nivel social equipado con cocineta propia con tarja, baño completo con regadera, terraza techada con pérgola y terraza abierta.",
+        slides: [
+          {
+            src: "26_terraza_techada_1792555358947.jpg",
+            title: "Terraza Techada con Pérgola",
+            caption: "Ideal para comedor exterior o sala lounge disfrutando de las vistas arboladas."
+          },
+          {
+            src: "27_terraza_abierta_1792555439020.jpg",
+            title: "Terraza Abierta Panorámica",
+            caption: "Amplio solárium a cielo abierto con piso cerámico y domos de luz."
+          },
+          {
+            src: "24_cocineta_roof_garden_1792555249849.jpg",
+            title: "Cocineta Equipada en Roof Garden",
+            caption: "Barra con tarja de acero inoxidable y gabinetes inferiores de apoyo."
+          },
+          {
+            src: "25_bano_roof_garden_1792555307962.jpg",
+            title: "4.º Baño Completo en Roof Garden",
+            caption: "Con lavabo sobre cubierta de granito y regadera con cancel templado."
+          },
+          {
+            src: "23_escalera_roof_garden_1792555213953.jpg",
+            title: "Escalera Flotante en Madera",
+            caption: "Escalones en madera sólida, muro recubierto en piedra y barandal de cristal."
+          }
+        ]
+      }
+    ];
+
+    const state = {};
+
+    function renderCarousels() {
+      const root = document.getElementById('carousels-root');
+      root.innerHTML = sections.map((sec, sIdx) => {
+        state[sIdx] = 0;
+        const first = sec.slides[0];
+        return `
+          <section id="${sec.id}" class="carousel-section">
+            <div class="sec-header">
+              <div class="sec-header-left">
+                <div class="sec-kicker">${sec.kicker}</div>
+                <h2 class="sec-title">${sec.title}</h2>
+                <p class="sec-desc">${sec.desc}</p>
+              </div>
+            </div>
+
+            <div class="carousel-split">
+              <!-- Columna Izquierda: Foto Principal Completa + Flechas sobre la foto -->
+              <div class="stage-column">
+                <div class="stage-frame">
+                  <button class="stage-arrow prev" onclick="prevSlide(${sIdx})" title="Foto anterior">‹</button>
+                  <img
+                    id="main-img-${sIdx}"
+                    src="${first.src}"
+                    alt="${first.title}"
+                    onclick="openLightbox(this.src, document.getElementById('title-${sIdx}').textContent)"
+                  />
+                  <button class="stage-arrow next" onclick="nextSlide(${sIdx})" title="Siguiente foto">›</button>
+                  <span class="zoom-hint">🔍 Clic para ampliar</span>
+                </div>
+
+                <div class="stage-caption-bar">
+                  <div class="stage-caption-text">
+                    <h3 id="title-${sIdx}">${first.title}</h3>
+                    <p id="caption-${sIdx}">${first.caption}</p>
+                  </div>
+                  <span id="counter-${sIdx}" class="stage-counter">Foto 1 de ${sec.slides.length}</span>
+                </div>
+              </div>
+
+              <!-- Columna Derecha: Lista de Fotos al lado para cambiar sin hacer scroll -->
+              <div class="selector-column">
+                <div class="selector-header">
+                  <span>Selecciona una fotografía (${sec.slides.length})</span>
+                  <div class="selector-nav-btns">
+                    <button class="btn-mini" onclick="prevSlide(${sIdx})">← Anterior</button>
+                    <button class="btn-mini" onclick="nextSlide(${sIdx})">Siguiente →</button>
+                  </div>
+                </div>
+
+                <div class="thumb-list">
+                  ${sec.slides.map((sl, i) => `
+                    <button
+                      id="thumb-${sIdx}-${i}"
+                      class="thumb-row ${i === 0 ? 'active' : ''}"
+                      onclick="goToSlide(${sIdx}, ${i})"
+                    >
+                      <div class="thumb-img-box">
+                        <img src="${sl.src}" alt="${sl.title}" />
+                      </div>
+                      <div class="thumb-info">
+                        <div class="thumb-num">Fotografía 0${i + 1}</div>
+                        <div class="thumb-title">${sl.title}</div>
+                        <div class="thumb-sub">${sl.caption}</div>
+                      </div>
+                    </button>
+                  `).join('')}
+                </div>
+              </div>
+            </div>
+          </section>
+        `;
+      }).join('');
+    }
+
+    function updateSlideUI(sIdx) {
+      const sec = sections[sIdx];
+      const idx = state[sIdx];
+      const slide = sec.slides[idx];
+
+      const img = document.getElementById(`main-img-${sIdx}`);
+      img.src = slide.src;
+      img.alt = slide.title;
+
+      document.getElementById(`title-${sIdx}`).textContent = slide.title;
+      document.getElementById(`caption-${sIdx}`).textContent = slide.caption;
+      document.getElementById(`counter-${sIdx}`).textContent = `Foto ${idx + 1} de ${sec.slides.length}`;
+
+      sec.slides.forEach((_, i) => {
+        const thumb = document.getElementById(`thumb-${sIdx}-${i}`);
+        if (i === idx) {
+          thumb.classList.add('active');
+        } else {
+          thumb.classList.remove('active');
+        }
+      });
+    }
+
+    function nextSlide(sIdx) {
+      const len = sections[sIdx].slides.length;
+      state[sIdx] = (state[sIdx] + 1) % len;
+      updateSlideUI(sIdx);
+    }
+
+    function prevSlide(sIdx) {
+      const len = sections[sIdx].slides.length;
+      state[sIdx] = (state[sIdx] - 1 + len) % len;
+      updateSlideUI(sIdx);
+    }
+
+    function goToSlide(sIdx, i) {
+      state[sIdx] = i;
+      updateSlideUI(sIdx);
+    }
+
+    function openLightbox(src, caption) {
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox-caption').textContent = caption;
+      document.getElementById('lightbox').classList.add('open');
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeLightbox();
+    });
+
+    renderCarousels();
+  </script>
+</body>
+</html>
