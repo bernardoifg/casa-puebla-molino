@@ -45,7 +45,7 @@
     }
 
     /* ==========================================
-       BARRA SUPERIOR FIJA (ADAPTADA A MOBILE Y DESKTOP)
+       BARRA SUPERIOR FIJA (MOBILE + DESKTOP)
        ========================================== */
     .top-bar {
       position: sticky;
@@ -125,7 +125,7 @@
       color: var(--muted);
       font-size: 11.5px;
       font-weight: 600;
-      padding: 6px 12px;
+      padding: 6px 11px;
       border-radius: 999px;
       border: 1px solid var(--border);
       background: var(--card);
@@ -161,6 +161,10 @@
     .btn-pdf:hover {
       background: var(--gold-hover);
       transform: translateY(-1px);
+    }
+
+    .mobile-only-pdf {
+      display: none;
     }
 
     .container {
@@ -289,7 +293,6 @@
       margin-top: 2px;
     }
 
-    /* Distribución en 3 Niveles */
     .levels-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -351,6 +354,7 @@
       margin-bottom: 24px;
       box-shadow: 0 8px 24px rgba(28, 25, 23, 0.04);
       scroll-margin-top: 86px;
+      width: 100%;
     }
 
     .sec-header {
@@ -381,11 +385,12 @@
       margin-top: 3px;
     }
 
-    /* En Desktop: Vista Dividida (64% Foto | 36% Selector Lateral) */
+    /* En Desktop: Vista Dividida con minmax(0, ...) para evitar desbordamientos */
     .carousel-split {
       display: grid;
-      grid-template-columns: 64fr 36fr;
+      grid-template-columns: minmax(0, 64fr) minmax(0, 36fr);
       align-items: stretch;
+      width: 100%;
     }
 
     .stage-column {
@@ -395,33 +400,31 @@
       flex-direction: column;
       justify-content: space-between;
       border-right: 1px solid var(--border);
+      min-width: 0;
+      width: 100%;
     }
 
+    /* Contenedor de imagen de tamaño uniforme tanto para fotos horizontales como verticales */
     .stage-frame {
       position: relative;
       width: 100%;
-      height: clamp(270px, 48vh, 420px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      height: 400px;
       background: #ffffff;
       border-radius: 14px;
       border: 1px solid var(--border);
       overflow: hidden;
-      padding: 6px;
       user-select: none;
       touch-action: pan-y pinch-zoom;
     }
 
+    /* CLAVE: width: 100% y height: 100% con object-fit: contain garantiza que las fotos verticales (3:4) y horizontales (4:3) se adapten exactamente al mismo recuadro que el Carrusel 1 */
     .stage-frame img {
-      max-width: 100%;
-      max-height: 100%;
-      width: auto;
-      height: auto;
+      width: 100%;
+      height: 100%;
       object-fit: contain;
-      border-radius: 8px;
+      display: block;
+      padding: 6px;
       cursor: zoom-in;
-      transition: opacity 0.18s ease;
     }
 
     .stage-arrow {
@@ -483,6 +486,7 @@
       align-items: center;
       justify-content: space-between;
       gap: 10px;
+      width: 100%;
     }
 
     .stage-caption-text {
@@ -514,7 +518,7 @@
       border-radius: 999px;
     }
 
-    /* Columna Derecha (en Desktop) / Tira Horizontal Compacta (en Mobile) */
+    /* Columna Derecha (Selector de Fotos) */
     .selector-column {
       padding: 14px 16px;
       background: var(--card);
@@ -522,6 +526,8 @@
       flex-direction: column;
       justify-content: space-between;
       gap: 8px;
+      min-width: 0;
+      width: 100%;
     }
 
     .selector-header {
@@ -570,6 +576,7 @@
       gap: 7px;
       flex: 1;
       justify-content: center;
+      width: 100%;
     }
 
     .thumb-row {
@@ -584,6 +591,7 @@
       text-align: left;
       transition: all 0.15s ease;
       width: 100%;
+      min-width: 0;
     }
 
     .thumb-row:hover {
@@ -605,15 +613,13 @@
       border: 1px solid var(--border);
       overflow: hidden;
       flex-shrink: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
     }
 
     .thumb-img-box img {
       width: 100%;
       height: 100%;
       object-fit: contain;
+      display: block;
     }
 
     .thumb-info {
@@ -721,12 +727,17 @@
     }
 
     /* ==========================================
-       ADAPTACIÓN ESPECÍFICA PARA CELULAR (MOBILE)
-       Cero scroll arriba/abajo para cambiar de foto:
-       Las miniaturas pasan a ser una tira horizontal
-       compacta justo debajo de la foto principal.
+       DISEÑO MOBILE UNIFORME PARA TODOS LOS CARRUSELES
        ========================================== */
     @media (max-width: 860px) {
+      .mobile-only-pdf {
+        display: inline-flex !important;
+      }
+
+      .desktop-only-pdf {
+        display: none !important;
+      }
+
       .top-bar {
         padding: 8px 12px;
       }
@@ -734,7 +745,7 @@
       .top-bar-inner {
         flex-direction: column;
         align-items: stretch;
-        gap: 8px;
+        gap: 7px;
       }
 
       .brand-row {
@@ -753,7 +764,7 @@
 
       .nav-pills a {
         font-size: 11px;
-        padding: 5px 11px;
+        padding: 5px 10px;
       }
 
       .btn-pdf {
@@ -826,19 +837,30 @@
         font-size: 11.5px;
       }
 
+      /* En mobile usamos bloque 100% de ancho para que ningún carrusel se deforme ni desborde */
       .carousel-split {
-        grid-template-columns: 1fr;
+        display: block;
+        width: 100%;
       }
 
       .stage-column {
-        padding: 10px 10px 8px;
+        display: block;
+        width: 100%;
+        padding: 10px;
         border-right: none;
         border-bottom: 1px solid var(--border);
       }
 
-      /* Altura calibrada en celular para ver foto + pie + tira de miniaturas todo junto en pantalla */
+      /* Todos los carruseles (1 al 7) tienen exactamente 260px de alto en mobile, ya sea foto horizontal o vertical */
       .stage-frame {
-        height: clamp(230px, 38vh, 310px);
+        width: 100%;
+        height: 260px;
+      }
+
+      .stage-frame img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
         padding: 4px;
       }
 
@@ -874,14 +896,16 @@
         padding: 3px 8px;
       }
 
-      /* Selector en Celular: Tira horizontal deslizable de miniaturas (sin apilar renglones hacia abajo) */
+      /* En mobile: todas las miniaturas (4 o 5) se reparten en una sola fila exacta del 100% del ancho sin desbordar */
       .selector-column {
-        padding: 8px 10px 12px;
-        gap: 6px;
+        display: block;
+        width: 100%;
+        padding: 10px;
       }
 
       .selector-header {
-        padding-bottom: 4px;
+        margin-bottom: 8px;
+        padding-bottom: 5px;
       }
 
       .selector-header span {
@@ -889,43 +913,37 @@
       }
 
       .thumb-list {
-        flex-direction: row;
-        overflow-x: auto;
-        justify-content: flex-start;
-        gap: 8px;
-        padding: 2px 2px 4px;
-        scrollbar-width: none;
-        -ms-overflow-style: none;
-      }
-
-      .thumb-list::-webkit-scrollbar {
-        display: none;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(48px, 1fr));
+        gap: 6px;
+        width: 100%;
       }
 
       .thumb-row {
-        width: auto;
+        width: 100%;
+        min-width: 0;
         flex-direction: column;
         align-items: center;
-        padding: 5px;
-        gap: 4px;
-        flex-shrink: 0;
-        border-radius: 10px;
+        justify-content: center;
+        padding: 4px;
+        gap: 3px;
+        border-radius: 9px;
       }
 
       .thumb-img-box {
-        width: 68px;
-        height: 50px;
+        width: 100%;
+        height: 44px;
       }
 
       .thumb-info {
         text-align: center;
+        width: 100%;
       }
 
       .thumb-num {
         font-size: 9px;
       }
 
-      /* En celular ocultamos texto largo de la miniatura para que quepan todas las fotos en una sola tira compacta */
       .thumb-title,
       .thumb-sub {
         display: none;
@@ -939,7 +957,7 @@
 </head>
 <body>
 
-  <!-- Barra Superior Fija: En celular tiene 1 fila con Título + Botón PDF y 1 fila deslizable con las secciones -->
+  <!-- Barra Superior Fija -->
   <header class="top-bar">
     <div class="top-bar-inner">
       <div class="brand-row">
@@ -947,20 +965,21 @@
           <span class="brand-dot"></span>
           <span>Molino de Santo Domingo · Puebla</span>
         </a>
-        <a href="Brochure_Casa_Puebla_Molino_Santo_Domingo_Fotos_Completas.pdf" target="_blank" download class="btn-pdf mobile-only-pdf" style="display: none;">
+        <a href="Brochure_Casa_Puebla_Molino_Santo_Domingo_Fotos_Completas.pdf" target="_blank" download class="btn-pdf mobile-only-pdf">
           📄 Descargar PDF
         </a>
       </div>
 
       <div class="nav-wrapper">
         <nav class="nav-pills">
-          <a href="#inicio">Ficha General</a>
+          <a href="#inicio">Ficha</a>
           <a href="#sec-exterior">1. Exterior</a>
           <a href="#sec-social">2. Sala-Comedor</a>
-          <a href="#sec-cocina">3. Cocina y Lavado</a>
-          <a href="#sec-master">4. Rec. Principal</a>
-          <a href="#sec-secundarias">5. Recámaras 2 y 3</a>
-          <a href="#sec-roof">6. Roof Garden</a>
+          <a href="#sec-cocina">3. Cocina</a>
+          <a href="#sec-tv">4. Sala de TV</a>
+          <a href="#sec-master">5. Rec. Principal</a>
+          <a href="#sec-secundarias">6. Recámaras 2 y 3</a>
+          <a href="#sec-roof">7. Roof Garden</a>
         </nav>
         <a href="Brochure_Casa_Puebla_Molino_Santo_Domingo_Fotos_Completas.pdf" target="_blank" download class="btn-pdf desktop-only-pdf">
           📄 Descargar PDF
@@ -968,13 +987,6 @@
       </div>
     </div>
   </header>
-
-  <style>
-    @media (max-width: 860px) {
-      .mobile-only-pdf { display: inline-flex !important; }
-      .desktop-only-pdf { display: none !important; }
-    }
-  </style>
 
   <main class="container">
 
@@ -1033,7 +1045,7 @@
             <span class="tag">Primer Piso</span>
           </div>
           <h3>Sala de TV y 3 Suites</h3>
-          <p>Puente a doble altura con cristal templado, Sala de TV familiar, Recámara Principal con vestidor walk-in y doble lavabo, y Recámaras 2 y 3 con clóset y baño propio.</p>
+          <p>Puente a doble altura con cristal templado, Sala de TV familiar independiente, Recámara Principal con vestidor walk-in y doble lavabo, y Recámaras 2 y 3 con baño propio.</p>
         </div>
         <div class="level-box">
           <div class="level-head">
@@ -1157,16 +1169,24 @@
         ]
       },
       {
-        id: "sec-master",
-        kicker: "Área 04 · Primer Piso · Sala de TV y Master Suite",
-        title: "Sala de TV, Puente de Doble Altura y Recámara Principal",
-        desc: "Sala de TV con barandales de cristal templado y Recámara Principal con vestidor walk-in y baño privado de doble lavabo.",
+        id: "sec-tv",
+        kicker: "Área 04 · Primer Piso · Área Familiar",
+        title: "Sala de TV y Pasillo con Barandal de Cristal Templado a Doble Altura",
+        desc: "Distribuidor en primer piso con vista hacia la doble altura de la estancia principal, barandales de cristal templado y acogedora Sala de TV familiar.",
         slides: [
           {
             src: "13_sala_tv_pasillo_1792555211796.jpg",
-            title: "Sala de TV y Puente de Doble Altura",
-            caption: "Barandales de cristal templado con vista hacia la sala y escalera flotante."
-          },
+            title: "Sala de TV Familiar y Puente de Doble Altura",
+            caption: "Barandales de cristal templado con vista hacia la estancia de planta baja y escalera flotante en madera."
+          }
+        ]
+      },
+      {
+        id: "sec-master",
+        kicker: "Área 05 · Primer Piso · Master Suite",
+        title: "Recámara Principal con Vestidor Walk-In y Baño de Doble Lavabo",
+        desc: "Amplia suite principal con espacio para cama King Size y sillón de lectura, vestidor walk-in independiente y baño privado con doble lavabo sobre granito.",
+        slides: [
           {
             src: "14_recamara_principal_1_1792555234084.jpg",
             title: "Recámara Principal · Vista 1",
@@ -1191,7 +1211,7 @@
       },
       {
         id: "sec-secundarias",
-        kicker: "Área 05 · Primer Piso · Recámaras Secundarias",
+        kicker: "Área 06 · Primer Piso · Recámaras Secundarias",
         title: "Recámara 2 y Recámara 3 con Clóset y Baño Privado",
         desc: "Ambas habitaciones secundarias cuentan con clósets de piso a techo en madera y su propio baño completo privado.",
         slides: [
@@ -1224,7 +1244,7 @@
       },
       {
         id: "sec-roof",
-        kicker: "Área 06 · Segundo Nivel · Roof Garden Equipado",
+        kicker: "Área 07 · Segundo Nivel · Roof Garden Equipado",
         title: "Azotea Tipo Roof Garden con Terrazas, Cocineta y 4.º Baño Completo",
         desc: "Nivel social equipado con cocineta propia con tarja, baño completo con regadera, terraza techada con pérgola y terraza abierta.",
         slides: [
@@ -1264,6 +1284,7 @@
       root.innerHTML = sections.map((sec, sIdx) => {
         state[sIdx] = 0;
         const first = sec.slides[0];
+        const hasMultiple = sec.slides.length > 1;
         return `
           <section id="${sec.id}" class="carousel-section">
             <div class="sec-header">
@@ -1276,14 +1297,14 @@
               <!-- Visor Principal Completo + Soporte Swipe Táctil en Celular -->
               <div class="stage-column">
                 <div class="stage-frame" data-sidx="${sIdx}">
-                  <button class="stage-arrow prev" onclick="prevSlide(${sIdx})" aria-label="Foto anterior">‹</button>
+                  ${hasMultiple ? `<button class="stage-arrow prev" onclick="prevSlide(${sIdx})" aria-label="Foto anterior">‹</button>` : ''}
                   <img
                     id="main-img-${sIdx}"
                     src="${first.src}"
                     alt="${first.title}"
                     onclick="openLightbox(this.src, document.getElementById('title-${sIdx}').textContent)"
                   />
-                  <button class="stage-arrow next" onclick="nextSlide(${sIdx})" aria-label="Siguiente foto">›</button>
+                  ${hasMultiple ? `<button class="stage-arrow next" onclick="nextSlide(${sIdx})" aria-label="Siguiente foto">›</button>` : ''}
                   <span class="zoom-hint">🔍 Ampliar</span>
                 </div>
 
@@ -1296,14 +1317,15 @@
                 </div>
               </div>
 
-              <!-- Selector de Fotos: Columna Lateral en Desktop / Tira Horizontal Compacta en Mobile -->
+              <!-- Selector de Fotos: Columna Lateral en Desktop / Grilla Compacta 100% Ancho en Mobile -->
               <div class="selector-column">
                 <div class="selector-header">
-                  <span>Selecciona foto (${sec.slides.length})</span>
+                  <span>${hasMultiple ? `Selecciona foto (${sec.slides.length})` : `Fotografía de la sección (1)`}</span>
+                  ${hasMultiple ? `
                   <div class="selector-nav-btns">
                     <button class="btn-mini" onclick="prevSlide(${sIdx})">← Ant.</button>
                     <button class="btn-mini" onclick="nextSlide(${sIdx})">Sig. →</button>
-                  </div>
+                  </div>` : ''}
                 </div>
 
                 <div class="thumb-list" id="thumblist-${sIdx}">
@@ -1373,8 +1395,6 @@
         const thumb = document.getElementById(`thumb-${sIdx}-${i}`);
         if (i === idx) {
           thumb.classList.add('active');
-          // En mobile, centra suavemente la miniatura activa dentro de la tira horizontal
-          thumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
         } else {
           thumb.classList.remove('active');
         }
