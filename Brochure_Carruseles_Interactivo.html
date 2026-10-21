@@ -2,8 +2,8 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Brochure Interactivo con Carruseles | Molino de Santo Domingo, Puebla</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>Residencia en Venta | Molino de Santo Domingo, Puebla</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
 
@@ -24,6 +24,7 @@
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+      -webkit-tap-highlight-color: transparent;
     }
 
     html {
@@ -36,38 +37,55 @@
       color: var(--text);
       line-height: 1.45;
       -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
     }
 
     h1, h2, h3, .serif {
       font-family: 'Cormorant Garamond', Georgia, serif;
     }
 
-    /* Barra Superior Fija Compacta */
+    /* ==========================================
+       BARRA SUPERIOR FIJA (ADAPTADA A MOBILE Y DESKTOP)
+       ========================================== */
     .top-bar {
       position: sticky;
       top: 0;
       z-index: 40;
       background: rgba(255, 255, 255, 0.96);
-      backdrop-filter: blur(10px);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
-      padding: 10px 24px;
+      padding: 10px 20px;
+      box-shadow: 0 2px 12px rgba(28, 25, 23, 0.05);
+    }
+
+    .top-bar-inner {
+      max-width: 1180px;
+      margin: 0 auto;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .brand-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       gap: 10px;
-      box-shadow: 0 2px 12px rgba(28, 25, 23, 0.04);
+      flex-shrink: 0;
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 9px;
+      gap: 8px;
       font-size: 11.5px;
       font-weight: 700;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--text);
+      text-decoration: none;
     }
 
     .brand-dot {
@@ -75,13 +93,31 @@
       height: 9px;
       border-radius: 50%;
       background: var(--gold);
+      flex-shrink: 0;
+    }
+
+    .nav-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex: 1;
+      justify-content: flex-end;
+      min-width: 0;
     }
 
     .nav-pills {
       display: flex;
       align-items: center;
       gap: 6px;
-      flex-wrap: wrap;
+      overflow-x: auto;
+      white-space: nowrap;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      padding: 2px 0;
+    }
+
+    .nav-pills::-webkit-scrollbar {
+      display: none;
     }
 
     .nav-pills a {
@@ -94,29 +130,56 @@
       border: 1px solid var(--border);
       background: var(--card);
       transition: all 0.15s ease;
+      flex-shrink: 0;
     }
 
-    .nav-pills a:hover {
+    .nav-pills a:hover,
+    .nav-pills a:active {
       border-color: var(--gold);
       color: var(--gold);
       background: var(--gold-light);
     }
 
+    .btn-pdf {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--gold);
+      color: #ffffff !important;
+      border: 1px solid var(--gold);
+      font-size: 11.5px;
+      font-weight: 700;
+      padding: 7px 14px;
+      border-radius: 999px;
+      text-decoration: none;
+      flex-shrink: 0;
+      box-shadow: 0 2px 8px rgba(154, 111, 26, 0.25);
+      transition: background 0.15s ease, transform 0.15s ease;
+      white-space: nowrap;
+    }
+
+    .btn-pdf:hover {
+      background: var(--gold-hover);
+      transform: translateY(-1px);
+    }
+
     .container {
       max-width: 1180px;
       margin: 0 auto;
-      padding: 20px 20px 60px;
+      padding: 20px 16px 56px;
     }
 
-    /* Portada Resumen Compacta */
+    /* ==========================================
+       PORTADA Y FICHA TÉCNICA
+       ========================================== */
     .hero-card {
       background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 24px 28px;
+      border-radius: 22px;
+      padding: 24px 26px;
       margin-bottom: 24px;
       box-shadow: 0 6px 20px rgba(28, 25, 23, 0.04);
-      scroll-margin-top: 72px;
+      scroll-margin-top: 90px;
     }
 
     .hero-top {
@@ -145,16 +208,16 @@
     }
 
     .hero-title {
-      font-size: 34px;
+      font-size: clamp(26px, 4.5vw, 36px);
       font-weight: 700;
-      line-height: 1.08;
+      line-height: 1.1;
       color: var(--text);
     }
 
     .hero-sub {
       font-size: 13px;
       color: var(--muted);
-      margin-top: 3px;
+      margin-top: 4px;
     }
 
     .highlight-pill-box {
@@ -163,6 +226,7 @@
       border-radius: 14px;
       padding: 10px 18px;
       text-align: center;
+      flex-shrink: 0;
     }
 
     .highlight-pill-box .kicker {
@@ -188,17 +252,18 @@
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 12px;
+      margin-bottom: 18px;
     }
 
     .metric-item {
       background: var(--bg);
       border: 1px solid var(--border);
       border-radius: 14px;
-      padding: 12px 16px;
+      padding: 12px 14px;
     }
 
     .metric-label {
-      font-size: 10.5px;
+      font-size: 10px;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.08em;
@@ -206,14 +271,14 @@
     }
 
     .metric-val {
-      font-size: 22px;
+      font-size: clamp(18px, 3vw, 22px);
       font-weight: 700;
       color: var(--text);
       margin-top: 2px;
     }
 
     .metric-val span {
-      font-size: 13px;
+      font-size: 12.5px;
       color: var(--gold);
     }
 
@@ -221,71 +286,111 @@
       font-size: 11px;
       color: var(--gold);
       font-weight: 600;
-      margin-top: 1px;
+      margin-top: 2px;
     }
 
-    /* SECCIÓN CARRUSEL EN VISTA DIVIDIDA (CERO SCROLL PARA CAMBIAR DE FOTO) */
+    /* Distribución en 3 Niveles */
+    .levels-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .level-box {
+      background: #fdfcfa;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 14px 16px;
+    }
+
+    .level-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 6px;
+    }
+
+    .level-head span.num {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--gold);
+    }
+
+    .level-head span.tag {
+      font-size: 10px;
+      font-weight: 600;
+      background: var(--gold-light);
+      color: var(--gold);
+      padding: 2px 8px;
+      border-radius: 999px;
+    }
+
+    .level-box h3 {
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: var(--text);
+    }
+
+    .level-box p {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
+    /* ==========================================
+       CARRUSELES INTERACTIVOS POR ÁREA
+       ========================================== */
     .carousel-section {
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: 22px;
       overflow: hidden;
-      margin-bottom: 26px;
+      margin-bottom: 24px;
       box-shadow: 0 8px 24px rgba(28, 25, 23, 0.04);
-      /* Evita que la barra superior tape el título al navegar */
-      scroll-margin-top: 68px;
+      scroll-margin-top: 86px;
     }
 
-    /* Cabecera compacta de cada sección */
     .sec-header {
-      padding: 16px 24px;
+      padding: 14px 22px;
       border-bottom: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      flex-wrap: wrap;
       background: #fdfcfa;
     }
 
-    .sec-header-left {
-      flex: 1;
-      min-width: 260px;
-    }
-
     .sec-kicker {
-      font-size: 10.5px;
+      font-size: 10px;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.16em;
+      letter-spacing: 0.15em;
       color: var(--gold);
     }
 
     .sec-title {
-      font-size: 24px;
+      font-size: clamp(20px, 3.5vw, 25px);
       font-weight: 700;
       color: var(--text);
       line-height: 1.15;
-      margin-top: 1px;
-    }
-
-    .sec-desc {
-      font-size: 12.5px;
-      color: var(--muted);
       margin-top: 2px;
     }
 
-    /* Cuerpo dividido: Izquierda Foto Completa | Derecha Selector de Fotos a la Mano */
+    .sec-desc {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 3px;
+    }
+
+    /* En Desktop: Vista Dividida (64% Foto | 36% Selector Lateral) */
     .carousel-split {
       display: grid;
       grid-template-columns: 64fr 36fr;
       align-items: stretch;
     }
 
-    /* Lado Izquierdo: Visor de Imagen + Flechas Laterales sobre la Foto + Pie de Foto */
     .stage-column {
       background: var(--stage-bg);
-      padding: 16px 20px;
+      padding: 14px 18px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -295,8 +400,7 @@
     .stage-frame {
       position: relative;
       width: 100%;
-      /* Altura calibrada para que SIEMPRE quepa entera en la pantalla de una laptop sin hacer scroll */
-      height: clamp(300px, 50vh, 430px);
+      height: clamp(270px, 48vh, 420px);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -305,6 +409,8 @@
       border: 1px solid var(--border);
       overflow: hidden;
       padding: 6px;
+      user-select: none;
+      touch-action: pan-y pinch-zoom;
     }
 
     .stage-frame img {
@@ -313,82 +419,86 @@
       width: auto;
       height: auto;
       object-fit: contain;
-      border-radius: 10px;
+      border-radius: 8px;
       cursor: zoom-in;
-      transition: opacity 0.2s ease;
+      transition: opacity 0.18s ease;
     }
 
-    /* Botones Anterior / Siguiente flotantes directamente a los lados de la foto */
     .stage-arrow {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      width: 40px;
-      height: 40px;
+      width: 38px;
+      height: 38px;
       border-radius: 50%;
-      background: rgba(255, 255, 255, 0.92);
+      background: rgba(255, 255, 255, 0.94);
       border: 1px solid var(--border);
       color: var(--text);
-      font-size: 18px;
+      font-size: 20px;
       font-weight: 700;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.14);
       transition: all 0.15s ease;
       z-index: 5;
     }
 
-    .stage-arrow:hover {
+    .stage-arrow:hover,
+    .stage-arrow:active {
       background: var(--gold);
       color: #ffffff;
       border-color: var(--gold);
-      transform: translateY(-50%) scale(1.06);
     }
 
     .stage-arrow.prev {
-      left: 14px;
+      left: 10px;
     }
 
     .stage-arrow.next {
-      right: 14px;
+      right: 10px;
     }
 
     .zoom-hint {
       position: absolute;
-      bottom: 12px;
-      right: 14px;
+      bottom: 10px;
+      right: 10px;
       background: rgba(28, 25, 23, 0.72);
       color: #fff;
-      font-size: 10.5px;
+      font-size: 10px;
       font-weight: 600;
-      padding: 4px 10px;
+      padding: 3px 9px;
       border-radius: 999px;
       pointer-events: none;
     }
 
     .stage-caption-bar {
-      margin-top: 12px;
+      margin-top: 10px;
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: 12px;
-      padding: 10px 16px;
+      padding: 10px 14px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 12px;
+      gap: 10px;
+    }
+
+    .stage-caption-text {
+      min-width: 0;
+      flex: 1;
     }
 
     .stage-caption-text h3 {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 14px;
+      font-size: 13.5px;
       font-weight: 700;
       color: var(--text);
     }
 
     .stage-caption-text p {
-      font-size: 12px;
+      font-size: 11.5px;
       color: var(--muted);
       margin-top: 1px;
     }
@@ -398,35 +508,35 @@
       background: var(--gold-light);
       color: var(--gold);
       border: 1px solid var(--gold-border);
-      font-size: 11.5px;
+      font-size: 11px;
       font-weight: 700;
-      padding: 5px 12px;
+      padding: 4px 10px;
       border-radius: 999px;
     }
 
-    /* Lado Derecho: Panel Selector de Fotos al Nivel de la Vista (Sin tener que bajar) */
+    /* Columna Derecha (en Desktop) / Tira Horizontal Compacta (en Mobile) */
     .selector-column {
-      padding: 16px;
+      padding: 14px 16px;
       background: var(--card);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      gap: 10px;
+      gap: 8px;
     }
 
     .selector-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding-bottom: 8px;
+      padding-bottom: 6px;
       border-bottom: 1px solid var(--border);
     }
 
     .selector-header span {
-      font-size: 11px;
+      font-size: 10.5px;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.08em;
       color: var(--muted);
     }
 
@@ -447,7 +557,8 @@
       transition: all 0.15s ease;
     }
 
-    .btn-mini:hover {
+    .btn-mini:hover,
+    .btn-mini:active {
       background: var(--gold);
       color: #fff;
       border-color: var(--gold);
@@ -456,7 +567,7 @@
     .thumb-list {
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 7px;
       flex: 1;
       justify-content: center;
     }
@@ -464,9 +575,9 @@
     .thumb-row {
       display: flex;
       align-items: center;
-      gap: 12px;
-      padding: 7px 10px;
-      border-radius: 12px;
+      gap: 10px;
+      padding: 6px 9px;
+      border-radius: 11px;
       border: 1.5px solid var(--border);
       background: var(--bg);
       cursor: pointer;
@@ -483,13 +594,13 @@
     .thumb-row.active {
       border-color: var(--gold);
       background: var(--gold-light);
-      box-shadow: 0 2px 8px rgba(154, 111, 26, 0.12);
+      box-shadow: 0 2px 8px rgba(154, 111, 26, 0.14);
     }
 
     .thumb-img-box {
-      width: 64px;
-      height: 48px;
-      border-radius: 8px;
+      width: 60px;
+      height: 45px;
+      border-radius: 7px;
       background: #fff;
       border: 1px solid var(--border);
       overflow: hidden;
@@ -511,7 +622,7 @@
     }
 
     .thumb-num {
-      font-size: 10px;
+      font-size: 9.5px;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.08em;
@@ -519,7 +630,7 @@
     }
 
     .thumb-title {
-      font-size: 12.5px;
+      font-size: 12px;
       font-weight: 700;
       color: var(--text);
       white-space: nowrap;
@@ -528,11 +639,38 @@
     }
 
     .thumb-sub {
-      font-size: 11px;
+      font-size: 10.5px;
       color: var(--muted);
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+    }
+
+    /* Pie de Página Resumen */
+    .footer-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 24px 26px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 18px;
+      box-shadow: 0 6px 20px rgba(28, 25, 23, 0.04);
+    }
+
+    .footer-card h3 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-top: 2px;
+    }
+
+    .footer-card p {
+      font-size: 12.5px;
+      color: var(--muted);
+      max-width: 640px;
+      margin-top: 4px;
     }
 
     /* Lightbox Pantalla Completa */
@@ -540,13 +678,13 @@
       position: fixed;
       inset: 0;
       z-index: 100;
-      background: rgba(15, 14, 13, 0.92);
+      background: rgba(15, 14, 13, 0.94);
       backdrop-filter: blur(6px);
       display: none;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 20px;
+      padding: 16px;
     }
 
     .lightbox.open {
@@ -554,10 +692,10 @@
     }
 
     .lightbox-close {
-      background: rgba(255, 255, 255, 0.15);
+      background: rgba(255, 255, 255, 0.16);
       color: #fff;
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      padding: 7px 16px;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      padding: 8px 18px;
       border-radius: 999px;
       font-size: 12px;
       font-weight: 600;
@@ -566,60 +704,281 @@
     }
 
     .lightbox img {
-      max-width: 94vw;
-      max-height: 82vh;
+      max-width: 95vw;
+      max-height: 80vh;
       object-fit: contain;
-      border-radius: 12px;
+      border-radius: 10px;
       background: #fff;
-      padding: 4px;
+      padding: 3px;
     }
 
     .lightbox-caption {
       color: #fff;
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 600;
       margin-top: 10px;
       text-align: center;
     }
 
+    /* ==========================================
+       ADAPTACIÓN ESPECÍFICA PARA CELULAR (MOBILE)
+       Cero scroll arriba/abajo para cambiar de foto:
+       Las miniaturas pasan a ser una tira horizontal
+       compacta justo debajo de la foto principal.
+       ========================================== */
     @media (max-width: 860px) {
+      .top-bar {
+        padding: 8px 12px;
+      }
+
+      .top-bar-inner {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+      }
+
+      .brand-row {
+        width: 100%;
+      }
+
+      .nav-wrapper {
+        width: 100%;
+        justify-content: flex-start;
+      }
+
+      .nav-pills {
+        width: 100%;
+        padding-bottom: 2px;
+      }
+
+      .nav-pills a {
+        font-size: 11px;
+        padding: 5px 11px;
+      }
+
+      .btn-pdf {
+        font-size: 11px;
+        padding: 6px 12px;
+      }
+
+      .container {
+        padding: 12px 10px 44px;
+      }
+
+      .hero-card {
+        padding: 16px;
+        border-radius: 18px;
+        margin-bottom: 16px;
+        scroll-margin-top: 96px;
+      }
+
+      .hero-top {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding-bottom: 14px;
+        margin-bottom: 14px;
+      }
+
+      .highlight-pill-box {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        text-align: left;
+        padding: 10px 14px;
+      }
+
+      .highlight-pill-box .big {
+        font-size: 16px;
+      }
+
+      .metrics-row {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+        margin-bottom: 12px;
+      }
+
+      .metric-item {
+        padding: 10px 12px;
+      }
+
+      .levels-grid {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .level-box {
+        padding: 11px 13px;
+      }
+
+      .carousel-section {
+        border-radius: 18px;
+        margin-bottom: 18px;
+        scroll-margin-top: 96px;
+      }
+
+      .sec-header {
+        padding: 12px 14px;
+      }
+
+      .sec-desc {
+        font-size: 11.5px;
+      }
+
       .carousel-split {
         grid-template-columns: 1fr;
       }
+
       .stage-column {
+        padding: 10px 10px 8px;
         border-right: none;
         border-bottom: 1px solid var(--border);
       }
-      .metrics-row {
-        grid-template-columns: repeat(2, 1fr);
+
+      /* Altura calibrada en celular para ver foto + pie + tira de miniaturas todo junto en pantalla */
+      .stage-frame {
+        height: clamp(230px, 38vh, 310px);
+        padding: 4px;
+      }
+
+      .stage-arrow {
+        width: 34px;
+        height: 34px;
+        font-size: 18px;
+      }
+
+      .stage-arrow.prev {
+        left: 6px;
+      }
+
+      .stage-arrow.next {
+        right: 6px;
+      }
+
+      .stage-caption-bar {
+        margin-top: 8px;
+        padding: 8px 11px;
+      }
+
+      .stage-caption-text h3 {
+        font-size: 12.5px;
+      }
+
+      .stage-caption-text p {
+        font-size: 11px;
+      }
+
+      .stage-counter {
+        font-size: 10px;
+        padding: 3px 8px;
+      }
+
+      /* Selector en Celular: Tira horizontal deslizable de miniaturas (sin apilar renglones hacia abajo) */
+      .selector-column {
+        padding: 8px 10px 12px;
+        gap: 6px;
+      }
+
+      .selector-header {
+        padding-bottom: 4px;
+      }
+
+      .selector-header span {
+        font-size: 10px;
+      }
+
+      .thumb-list {
+        flex-direction: row;
+        overflow-x: auto;
+        justify-content: flex-start;
+        gap: 8px;
+        padding: 2px 2px 4px;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+      }
+
+      .thumb-list::-webkit-scrollbar {
+        display: none;
+      }
+
+      .thumb-row {
+        width: auto;
+        flex-direction: column;
+        align-items: center;
+        padding: 5px;
+        gap: 4px;
+        flex-shrink: 0;
+        border-radius: 10px;
+      }
+
+      .thumb-img-box {
+        width: 68px;
+        height: 50px;
+      }
+
+      .thumb-info {
+        text-align: center;
+      }
+
+      .thumb-num {
+        font-size: 9px;
+      }
+
+      /* En celular ocultamos texto largo de la miniatura para que quepan todas las fotos en una sola tira compacta */
+      .thumb-title,
+      .thumb-sub {
+        display: none;
+      }
+
+      .footer-card {
+        padding: 18px 16px;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- Barra de Navegación Superior Fija -->
+  <!-- Barra Superior Fija: En celular tiene 1 fila con Título + Botón PDF y 1 fila deslizable con las secciones -->
   <header class="top-bar">
-    <div class="brand">
-      <span class="brand-dot"></span>
-      <span>Molino de Santo Domingo · Puebla</span>
+    <div class="top-bar-inner">
+      <div class="brand-row">
+        <a href="#inicio" class="brand">
+          <span class="brand-dot"></span>
+          <span>Molino de Santo Domingo · Puebla</span>
+        </a>
+        <a href="Brochure_Casa_Puebla_Molino_Santo_Domingo_Fotos_Completas.pdf" target="_blank" download class="btn-pdf mobile-only-pdf" style="display: none;">
+          📄 Descargar PDF
+        </a>
+      </div>
+
+      <div class="nav-wrapper">
+        <nav class="nav-pills">
+          <a href="#inicio">Ficha General</a>
+          <a href="#sec-exterior">1. Exterior</a>
+          <a href="#sec-social">2. Sala-Comedor</a>
+          <a href="#sec-cocina">3. Cocina y Lavado</a>
+          <a href="#sec-master">4. Rec. Principal</a>
+          <a href="#sec-secundarias">5. Recámaras 2 y 3</a>
+          <a href="#sec-roof">6. Roof Garden</a>
+        </nav>
+        <a href="Brochure_Casa_Puebla_Molino_Santo_Domingo_Fotos_Completas.pdf" target="_blank" download class="btn-pdf desktop-only-pdf">
+          📄 Descargar PDF
+        </a>
+      </div>
     </div>
-    <nav class="nav-pills">
-      <a href="#inicio">Ficha General</a>
-      <a href="#sec-exterior">1. Exterior</a>
-      <a href="#sec-social">2. Sala-Comedor</a>
-      <a href="#sec-cocina">3. Cocina y Lavado</a>
-      <a href="#sec-master">4. Recámara Principal</a>
-      <a href="#sec-secundarias">5. Recámaras 2 y 3</a>
-      <a href="#sec-roof">6. Roof Garden</a>
-      <a href="Brochure_Casa_Puebla_Fotos_Completas.html" style="border-color: var(--gold-border); background: var(--gold-light); color: var(--gold);">📖 Vista Editorial</a>
-      <a href="Brochure_Casa_Puebla_Molino_Santo_Domingo_Fotos_Completas.pdf" target="_blank" style="background: var(--gold); color: #fff; border-color: var(--gold);">📄 Descargar PDF</a>
-    </nav>
   </header>
+
+  <style>
+    @media (max-width: 860px) {
+      .mobile-only-pdf { display: inline-flex !important; }
+      .desktop-only-pdf { display: none !important; }
+    }
+  </style>
 
   <main class="container">
 
-    <!-- PORTADA RESUMEN -->
+    <!-- PORTADA Y FICHA TÉCNICA -->
     <section id="inicio" class="hero-card">
       <div class="hero-top">
         <div>
@@ -628,8 +987,10 @@
           <p class="hero-sub">Blvd. Esteban de Antuñano, Zona Luz Obrera · Heroica Puebla de Zaragoza, Pue.</p>
         </div>
         <div class="highlight-pill-box">
-          <div class="kicker">★ Diferenciador Único</div>
-          <div class="big">+65% Terreno Excedente</div>
+          <div>
+            <div class="kicker">★ Diferenciador Único</div>
+            <div class="big">+65% Terreno Excedente</div>
+          </div>
           <div class="small">278.98 m² vs ~168 m² lote tipo</div>
         </div>
       </div>
@@ -638,7 +999,7 @@
         <div class="metric-item">
           <div class="metric-label">Superficie Terreno</div>
           <div class="metric-val">278.98 <span>m²</span></div>
-          <div class="metric-note">Con amplio jardín privado</div>
+          <div class="metric-note">Amplio jardín privado</div>
         </div>
         <div class="metric-item">
           <div class="metric-label">Construcción</div>
@@ -648,18 +1009,57 @@
         <div class="metric-item">
           <div class="metric-label">Recámaras</div>
           <div class="metric-val">3 <span>Suites</span></div>
-          <div class="metric-note">Cada una con baño propio</div>
+          <div class="metric-note">Cada una c/ baño propio</div>
         </div>
         <div class="metric-item">
           <div class="metric-label">Baños Totales</div>
           <div class="metric-val">4.5 <span>Baños</span></div>
-          <div class="metric-note">Incluye baño en Roof Garden</div>
+          <div class="metric-note">4 Completos + 1 Visitas</div>
+        </div>
+      </div>
+
+      <div class="levels-grid">
+        <div class="level-box">
+          <div class="level-head">
+            <span class="num">Nivel 01</span>
+            <span class="tag">Planta Baja</span>
+          </div>
+          <h3>Área Social y Jardín</h3>
+          <p>Cochera techada (2 autos), sala a doble altura, comedor con salida al jardín excedente, baño de visitas, cocina equipada con granito y cuarto de lavado.</p>
+        </div>
+        <div class="level-box">
+          <div class="level-head">
+            <span class="num">Nivel 02</span>
+            <span class="tag">Primer Piso</span>
+          </div>
+          <h3>Sala de TV y 3 Suites</h3>
+          <p>Puente a doble altura con cristal templado, Sala de TV familiar, Recámara Principal con vestidor walk-in y doble lavabo, y Recámaras 2 y 3 con clóset y baño propio.</p>
+        </div>
+        <div class="level-box">
+          <div class="level-head">
+            <span class="num">Nivel 03</span>
+            <span class="tag">Roof Garden</span>
+          </div>
+          <h3>Azotea Social Equipada</h3>
+          <p>Escalera en madera, cocineta interior con tarja, 4.º baño completo con regadera, terraza techada con pérgola y amplia terraza abierta panorámica.</p>
         </div>
       </div>
     </section>
 
-    <!-- CARRUSELES CON SELECTOR LATERAL (SIN TENER QUE SUBIR Y BAJAR) -->
+    <!-- CARRUSELES POR ÁREA -->
     <div id="carousels-root"></div>
+
+    <!-- PIE DE PÁGINA CON DESCARGA DIRECTA DEL PDF -->
+    <section class="footer-card">
+      <div>
+        <div class="sec-kicker">Documentación Completa</div>
+        <h3>Brochure Descargable en PDF (Imágenes 100% Completas)</h3>
+        <p>Descarga el documento editorial en formato PDF (9 páginas) listo para enviar por WhatsApp, correo electrónico o imprimir.</p>
+      </div>
+      <a href="Brochure_Casa_Puebla_Molino_Santo_Domingo_Fotos_Completas.pdf" target="_blank" download class="btn-pdf" style="padding: 11px 20px; font-size: 13px;">
+        📄 Descargar Brochure en PDF
+      </a>
+    </section>
 
   </main>
 
@@ -867,26 +1267,24 @@
         return `
           <section id="${sec.id}" class="carousel-section">
             <div class="sec-header">
-              <div class="sec-header-left">
-                <div class="sec-kicker">${sec.kicker}</div>
-                <h2 class="sec-title">${sec.title}</h2>
-                <p class="sec-desc">${sec.desc}</p>
-              </div>
+              <div class="sec-kicker">${sec.kicker}</div>
+              <h2 class="sec-title">${sec.title}</h2>
+              <p class="sec-desc">${sec.desc}</p>
             </div>
 
             <div class="carousel-split">
-              <!-- Columna Izquierda: Foto Principal Completa + Flechas sobre la foto -->
+              <!-- Visor Principal Completo + Soporte Swipe Táctil en Celular -->
               <div class="stage-column">
-                <div class="stage-frame">
-                  <button class="stage-arrow prev" onclick="prevSlide(${sIdx})" title="Foto anterior">‹</button>
+                <div class="stage-frame" data-sidx="${sIdx}">
+                  <button class="stage-arrow prev" onclick="prevSlide(${sIdx})" aria-label="Foto anterior">‹</button>
                   <img
                     id="main-img-${sIdx}"
                     src="${first.src}"
                     alt="${first.title}"
                     onclick="openLightbox(this.src, document.getElementById('title-${sIdx}').textContent)"
                   />
-                  <button class="stage-arrow next" onclick="nextSlide(${sIdx})" title="Siguiente foto">›</button>
-                  <span class="zoom-hint">🔍 Clic para ampliar</span>
+                  <button class="stage-arrow next" onclick="nextSlide(${sIdx})" aria-label="Siguiente foto">›</button>
+                  <span class="zoom-hint">🔍 Ampliar</span>
                 </div>
 
                 <div class="stage-caption-bar">
@@ -894,21 +1292,21 @@
                     <h3 id="title-${sIdx}">${first.title}</h3>
                     <p id="caption-${sIdx}">${first.caption}</p>
                   </div>
-                  <span id="counter-${sIdx}" class="stage-counter">Foto 1 de ${sec.slides.length}</span>
+                  <span id="counter-${sIdx}" class="stage-counter">1 / ${sec.slides.length}</span>
                 </div>
               </div>
 
-              <!-- Columna Derecha: Lista de Fotos al lado para cambiar sin hacer scroll -->
+              <!-- Selector de Fotos: Columna Lateral en Desktop / Tira Horizontal Compacta en Mobile -->
               <div class="selector-column">
                 <div class="selector-header">
-                  <span>Selecciona una fotografía (${sec.slides.length})</span>
+                  <span>Selecciona foto (${sec.slides.length})</span>
                   <div class="selector-nav-btns">
-                    <button class="btn-mini" onclick="prevSlide(${sIdx})">← Anterior</button>
-                    <button class="btn-mini" onclick="nextSlide(${sIdx})">Siguiente →</button>
+                    <button class="btn-mini" onclick="prevSlide(${sIdx})">← Ant.</button>
+                    <button class="btn-mini" onclick="nextSlide(${sIdx})">Sig. →</button>
                   </div>
                 </div>
 
-                <div class="thumb-list">
+                <div class="thumb-list" id="thumblist-${sIdx}">
                   ${sec.slides.map((sl, i) => `
                     <button
                       id="thumb-${sIdx}-${i}"
@@ -916,10 +1314,10 @@
                       onclick="goToSlide(${sIdx}, ${i})"
                     >
                       <div class="thumb-img-box">
-                        <img src="${sl.src}" alt="${sl.title}" />
+                        <img src="${sl.src}" alt="${sl.title}" loading="lazy" />
                       </div>
                       <div class="thumb-info">
-                        <div class="thumb-num">Fotografía 0${i + 1}</div>
+                        <div class="thumb-num">Foto 0${i + 1}</div>
                         <div class="thumb-title">${sl.title}</div>
                         <div class="thumb-sub">${sl.caption}</div>
                       </div>
@@ -931,6 +1329,31 @@
           </section>
         `;
       }).join('');
+
+      // Activar gestos táctiles (swipe izquierda/derecha) sobre cada visor para celular
+      document.querySelectorAll('.stage-frame').forEach(frame => {
+        let startX = 0;
+        let startY = 0;
+        const sIdx = Number(frame.dataset.sidx);
+
+        frame.addEventListener('touchstart', (e) => {
+          if (e.touches.length === 1) {
+            startX = e.touches[0].clientX;
+            startY = e.touches[0].clientY;
+          }
+        }, { passive: true });
+
+        frame.addEventListener('touchend', (e) => {
+          if (e.changedTouches.length === 1) {
+            const dx = e.changedTouches[0].clientX - startX;
+            const dy = e.changedTouches[0].clientY - startY;
+            if (Math.abs(dx) > 42 && Math.abs(dx) > Math.abs(dy)) {
+              if (dx < 0) nextSlide(sIdx);
+              else prevSlide(sIdx);
+            }
+          }
+        }, { passive: true });
+      });
     }
 
     function updateSlideUI(sIdx) {
@@ -944,12 +1367,14 @@
 
       document.getElementById(`title-${sIdx}`).textContent = slide.title;
       document.getElementById(`caption-${sIdx}`).textContent = slide.caption;
-      document.getElementById(`counter-${sIdx}`).textContent = `Foto ${idx + 1} de ${sec.slides.length}`;
+      document.getElementById(`counter-${sIdx}`).textContent = `${idx + 1} / ${sec.slides.length}`;
 
       sec.slides.forEach((_, i) => {
         const thumb = document.getElementById(`thumb-${sIdx}-${i}`);
         if (i === idx) {
           thumb.classList.add('active');
+          // En mobile, centra suavemente la miniatura activa dentro de la tira horizontal
+          thumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
         } else {
           thumb.classList.remove('active');
         }
