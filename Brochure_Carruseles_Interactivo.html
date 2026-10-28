@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
   <title>Residencia en Venta | Molino de Santo Domingo, Puebla</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
@@ -1024,7 +1027,7 @@
           <span class="brand-dot"></span>
           <span>Molino de Santo Domingo · Puebla</span>
         </a>
-        <a href="Brochure_Casa_Puebla_Molino_Santo_Domingo_Fotos_Completas.pdf" target="_blank" download class="btn-pdf mobile-only-pdf">
+        <a href="Brochure_Casa_Puebla_Molino_Santo_Domingo_Fotos_Completas.pdf?v=20261028b" target="_blank" download class="btn-pdf mobile-only-pdf">
           📄 Descargar PDF
         </a>
       </div>
@@ -1042,7 +1045,7 @@
           <a href="#sec-roof">8. Roof Garden</a>
           <a href="#sec-planos">9. Planos</a>
         </nav>
-        <a href="Brochure_Casa_Puebla_Molino_Santo_Domingo_Fotos_Completas.pdf" target="_blank" download class="btn-pdf desktop-only-pdf">
+        <a href="Brochure_Casa_Puebla_Molino_Santo_Domingo_Fotos_Completas.pdf?v=20261028b" target="_blank" download class="btn-pdf desktop-only-pdf">
           📄 Descargar PDF
         </a>
       </div>
@@ -1129,7 +1132,7 @@
         <h3>Brochure Descargable en PDF (Imágenes Completas + Planos Arquitectónicos)</h3>
         <p>Descarga el documento editorial en formato PDF listo para enviar por WhatsApp, correo electrónico o imprimir.</p>
       </div>
-      <a href="Brochure_Casa_Puebla_Molino_Santo_Domingo_Fotos_Completas.pdf" target="_blank" download class="btn-pdf" style="padding: 11px 20px; font-size: 13px;">
+      <a href="Brochure_Casa_Puebla_Molino_Santo_Domingo_Fotos_Completas.pdf?v=20261028b" target="_blank" download class="btn-pdf" style="padding: 11px 20px; font-size: 13px;">
         📄 Descargar Brochure en PDF
       </a>
     </section>
@@ -1464,6 +1467,7 @@
       }
     ];
 
+    const CACHE_BUST = '?v=20261028b';
     const state = {};
 
     function renderCarousels() {
@@ -1487,7 +1491,7 @@
                   ${hasMultiple ? `<button class="stage-arrow prev" onclick="prevSlide(${sIdx})" aria-label="Foto anterior">‹</button>` : ''}
                   <img
                     id="main-img-${sIdx}"
-                    src="${first.src}"
+                    src="${first.src}${CACHE_BUST}"
                     alt="${first.title}"
                     onclick="openLightbox(this.src, document.getElementById('title-${sIdx}').textContent)"
                   />
@@ -1523,7 +1527,7 @@
                       onclick="goToSlide(${sIdx}, ${i})"
                     >
                       <div class="thumb-img-box">
-                        <img src="${sl.src}" alt="${sl.title}" loading="lazy" />
+                        <img src="${sl.src}${CACHE_BUST}" alt="${sl.title}" loading="lazy" />
                       </div>
                       <div class="thumb-info">
                         <div class="thumb-num">Vista ${String(i + 1).padStart(2, '0')}</div>
@@ -1571,7 +1575,7 @@
       const slide = sec.slides[idx];
 
       const img = document.getElementById(`main-img-${sIdx}`);
-      img.src = slide.src;
+      img.src = slide.src + CACHE_BUST;
       img.alt = slide.title;
 
       document.getElementById(`title-${sIdx}`).textContent = slide.title;
