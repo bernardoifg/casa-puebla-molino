@@ -123,7 +123,7 @@
     .nav-pills a {
       text-decoration: none;
       color: var(--muted);
-      font-size: 11.5px;
+      font-size: 11px;
       font-weight: 600;
       padding: 6px 11px;
       border-radius: 999px;
@@ -138,6 +138,13 @@
       border-color: var(--gold);
       color: var(--gold);
       background: var(--gold-light);
+    }
+
+    .nav-pills a.video-pill {
+      border-color: var(--gold-border);
+      background: var(--gold-light);
+      color: var(--gold);
+      font-weight: 700;
     }
 
     .btn-pdf {
@@ -344,6 +351,48 @@
     }
 
     /* ==========================================
+       SECCIÓN DE VIDEO TOUR VIRTUAL PROFESIONAL
+       ========================================== */
+    .video-section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      overflow: hidden;
+      margin-bottom: 24px;
+      box-shadow: 0 8px 24px rgba(28, 25, 23, 0.05);
+      scroll-margin-top: 86px;
+    }
+
+    .video-header {
+      padding: 16px 22px;
+      border-bottom: 1px solid var(--border);
+      background: #fdfcfa;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .video-stage {
+      background: #141210;
+      padding: 16px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .video-stage video {
+      width: 100%;
+      max-width: 980px;
+      max-height: 540px;
+      border-radius: 14px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+      background: #000;
+      display: block;
+    }
+
+    /* ==========================================
        CARRUSELES INTERACTIVOS POR ÁREA
        ========================================== */
     .carousel-section {
@@ -385,7 +434,7 @@
       margin-top: 3px;
     }
 
-    /* En Desktop: Vista Dividida con minmax(0, ...) para evitar desbordamientos */
+    /* En Desktop: Vista Dividida con minmax(0, ...) */
     .carousel-split {
       display: grid;
       grid-template-columns: minmax(0, 64fr) minmax(0, 36fr);
@@ -404,11 +453,10 @@
       width: 100%;
     }
 
-    /* Contenedor de imagen de tamaño uniforme tanto para fotos horizontales como verticales */
     .stage-frame {
       position: relative;
       width: 100%;
-      height: 400px;
+      height: 410px;
       background: #ffffff;
       border-radius: 14px;
       border: 1px solid var(--border);
@@ -417,7 +465,6 @@
       touch-action: pan-y pinch-zoom;
     }
 
-    /* CLAVE: width: 100% y height: 100% con object-fit: contain garantiza que las fotos verticales (3:4) y horizontales (4:3) se adapten exactamente al mismo recuadro que el Carrusel 1 */
     .stage-frame img {
       width: 100%;
       height: 100%;
@@ -524,10 +571,11 @@
       background: var(--card);
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      justify-content: flex-start;
       gap: 8px;
       min-width: 0;
       width: 100%;
+      max-height: 495px;
     }
 
     .selector-header {
@@ -536,6 +584,7 @@
       justify-content: space-between;
       padding-bottom: 6px;
       border-bottom: 1px solid var(--border);
+      flex-shrink: 0;
     }
 
     .selector-header span {
@@ -573,9 +622,10 @@
     .thumb-list {
       display: flex;
       flex-direction: column;
-      gap: 7px;
+      gap: 6px;
       flex: 1;
-      justify-content: center;
+      overflow-y: auto;
+      padding-right: 2px;
       width: 100%;
     }
 
@@ -592,6 +642,7 @@
       transition: all 0.15s ease;
       width: 100%;
       min-width: 0;
+      flex-shrink: 0;
     }
 
     .thumb-row:hover {
@@ -606,8 +657,8 @@
     }
 
     .thumb-img-box {
-      width: 60px;
-      height: 45px;
+      width: 58px;
+      height: 44px;
       border-radius: 7px;
       background: #fff;
       border: 1px solid var(--border);
@@ -823,14 +874,20 @@
         padding: 11px 13px;
       }
 
+      .video-section,
       .carousel-section {
         border-radius: 18px;
         margin-bottom: 18px;
         scroll-margin-top: 96px;
       }
 
+      .video-header,
       .sec-header {
         padding: 12px 14px;
+      }
+
+      .video-stage {
+        padding: 8px;
       }
 
       .sec-desc {
@@ -851,7 +908,7 @@
         border-bottom: 1px solid var(--border);
       }
 
-      /* Todos los carruseles (1 al 7) tienen exactamente 260px de alto en mobile, ya sea foto horizontal o vertical */
+      /* Todos los carruseles (1 al 8) tienen exactamente 260px de alto en mobile, ya sea foto horizontal o vertical */
       .stage-frame {
         width: 100%;
         height: 260px;
@@ -896,11 +953,12 @@
         padding: 3px 8px;
       }
 
-      /* En mobile: todas las miniaturas (4 o 5) se reparten en una sola fila exacta del 100% del ancho sin desbordar */
+      /* En mobile: grilla compacta 100% del ancho de la tarjeta (sin desbordar) */
       .selector-column {
         display: block;
         width: 100%;
         padding: 10px;
+        max-height: none;
       }
 
       .selector-header {
@@ -914,9 +972,10 @@
 
       .thumb-list {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(48px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(56px, 1fr));
         gap: 6px;
         width: 100%;
+        overflow: visible;
       }
 
       .thumb-row {
@@ -973,13 +1032,15 @@
       <div class="nav-wrapper">
         <nav class="nav-pills">
           <a href="#inicio">Ficha</a>
+          <a href="#tour-virtual" class="video-pill">🎬 Video Tour</a>
           <a href="#sec-exterior">1. Exterior</a>
-          <a href="#sec-social">2. Sala-Comedor</a>
+          <a href="#sec-social">2. Sala y Doble Altura</a>
           <a href="#sec-cocina">3. Cocina</a>
-          <a href="#sec-tv">4. Sala de TV</a>
+          <a href="#sec-tv">4. Sala TV y Escaleras</a>
           <a href="#sec-master">5. Rec. Principal</a>
           <a href="#sec-secundarias">6. Recámaras 2 y 3</a>
           <a href="#sec-roof">7. Roof Garden</a>
+          <a href="#sec-planos">8. Planos</a>
         </nav>
         <a href="Brochure_Casa_Puebla_Molino_Santo_Domingo_Fotos_Completas.pdf" target="_blank" download class="btn-pdf desktop-only-pdf">
           📄 Descargar PDF
@@ -1036,15 +1097,15 @@
             <span class="num">Nivel 01</span>
             <span class="tag">Planta Baja</span>
           </div>
-          <h3>Área Social y Jardín</h3>
-          <p>Cochera techada (2 autos), sala a doble altura, comedor con salida al jardín excedente, baño de visitas, cocina equipada con granito y cuarto de lavado.</p>
+          <h3>Doble Altura, Área Social y Jardín</h3>
+          <p>Cochera techada (2 autos), vestíbulo a doble altura con gran ventanal, sala-comedor con salida al jardín excedente, baño de visitas, cocina equipada con granito y cuarto de lavado.</p>
         </div>
         <div class="level-box">
           <div class="level-head">
             <span class="num">Nivel 02</span>
             <span class="tag">Primer Piso</span>
           </div>
-          <h3>Sala de TV y 3 Suites</h3>
+          <h3>Sala de TV, Puente y 3 Suites</h3>
           <p>Puente a doble altura con cristal templado, Sala de TV familiar independiente, Recámara Principal con vestidor walk-in y doble lavabo, y Recámaras 2 y 3 con baño propio.</p>
         </div>
         <div class="level-box">
@@ -1053,8 +1114,28 @@
             <span class="tag">Roof Garden</span>
           </div>
           <h3>Azotea Social Equipada</h3>
-          <p>Escalera en madera, cocineta interior con tarja, 4.º baño completo con regadera, terraza techada con pérgola y amplia terraza abierta panorámica.</p>
+          <p>Escalera en madera con domos de luz y muro de piedra, cocineta interior con tarja y ventana, 4.º baño completo con regadera, terraza techada con pérgola y terraza abierta.</p>
         </div>
+      </div>
+    </section>
+
+    <!-- VIDEO TOUR VIRTUAL PROFESIONAL -->
+    <section id="tour-virtual" class="video-section">
+      <div class="video-header">
+        <div>
+          <div class="sec-kicker">🎬 Recorrido Audiovisual Completo</div>
+          <h2 class="sec-title">Tour Virtual Profesional · Residencia Molino de Santo Domingo</h2>
+          <p class="sec-desc">Recorrido editado y limpio por los 3 niveles: Fachada, Doble Altura, Estancia, Jardín Excedente, Cocina, Sala de TV, 3 Suites y Roof Garden.</p>
+        </div>
+        <a href="Tour_Virtual_Casa_Puebla.mp4" download class="btn-pdf">
+          ⬇ Descargar Video MP4
+        </a>
+      </div>
+      <div class="video-stage">
+        <video controls playsinline preload="metadata" poster="41_estancia_panoramica_planta_baja.jpg">
+          <source src="Tour_Virtual_Casa_Puebla.mp4" type="video/mp4" />
+          Tu navegador no soporta reproducción de video HTML5.
+        </video>
       </div>
     </section>
 
@@ -1065,8 +1146,8 @@
     <section class="footer-card">
       <div>
         <div class="sec-kicker">Documentación Completa</div>
-        <h3>Brochure Descargable en PDF (Imágenes 100% Completas)</h3>
-        <p>Descarga el documento editorial en formato PDF (9 páginas) listo para enviar por WhatsApp, correo electrónico o imprimir.</p>
+        <h3>Brochure Descargable en PDF (Imágenes Completas + Planos Arquitectónicos)</h3>
+        <p>Descarga el documento editorial en formato PDF listo para enviar por WhatsApp, correo electrónico o imprimir.</p>
       </div>
       <a href="Brochure_Casa_Puebla_Molino_Santo_Domingo_Fotos_Completas.pdf" target="_blank" download class="btn-pdf" style="padding: 11px 20px; font-size: 13px;">
         📄 Descargar Brochure en PDF
@@ -1087,8 +1168,8 @@
       {
         id: "sec-exterior",
         kicker: "Área 01 · Exterior y Condominio",
-        title: "Fachada Principal, Cochera Techada y Parques del Fraccionamiento",
-        desc: "Ubicada frente a las áreas verdes y juegos infantiles de la Privada 'M', con cochera techada para 2 autos y vigilancia 24/7.",
+        title: "Fachada Principal, Cochera Techada, Jardín y Parques del Fraccionamiento",
+        desc: "Ubicada frente a las áreas verdes y juegos infantiles de la Privada 'M', con cochera techada para 2 autos, jardín excedente y vigilancia 24/7.",
         slides: [
           {
             src: "fachada_principal_retocada_1792555180287.jpg",
@@ -1099,6 +1180,11 @@
             src: "acceso_cochera_retocado_1792555202327.jpg",
             title: "Andador de Acceso Principal",
             caption: "Pasillo de entrada enmarcado por vegetación ornamental e iluminación natural."
+          },
+          {
+            src: "30_vista_cenital_jardin.jpg",
+            title: "Vista Cenital del Jardín Privado y Terraza",
+            caption: "Perspectiva desde el Roof Garden hacia el patio, terraza y jardín privado con bugambilias."
           },
           {
             src: "parque_areas_verdes_retocado_1792555242262.jpg",
@@ -1114,19 +1200,34 @@
       },
       {
         id: "sec-social",
-        kicker: "Área 02 · Planta Baja · Estancia Social",
-        title: "Sala a Doble Altura, Comedor con Salida al Jardín y Baño de Visitas",
-        desc: "Estancia social luminosa con ventanales corredizos de piso a techo que integran el comedor con el jardín privado excedente.",
+        kicker: "Área 02 · Planta Baja · Doble Altura y Estancia Social",
+        title: "Vestíbulo a Doble Altura, Ventanal de Entrada, Sala, Comedor y Jardín",
+        desc: "Impresionante recibidor a doble altura bañado de sol por su gran ventanal frontal, conectado en concepto abierto con la sala, el comedor, el jardín privado y el baño de visitas.",
         slides: [
+          {
+            src: "41_estancia_panoramica_planta_baja.jpg",
+            title: "Vista Panorámica de Estancia en Planta Baja",
+            caption: "Amplitud total desde la doble altura integrando la sala principal, el comedor y el jardín al fondo."
+          },
+          {
+            src: "40_vestibulo_doble_altura_entrada.jpg",
+            title: "Vestíbulo de Acceso y Gran Ventanal Frontal",
+            caption: "Puerta principal en madera sólida y ventanal de doble altura que inunda de luz natural toda la planta baja."
+          },
+          {
+            src: "39_doble_altura_vista_aerea.jpg",
+            title: "Doble Altura y Entrada Principal (Vista desde Puente)",
+            caption: "Perspectiva aérea desde el puente de cristal templado del primer piso hacia el acceso principal."
+          },
           {
             src: "05_sala_1792555201074.jpg",
             title: "Estancia Principal de Sala",
-            caption: "Amplio espacio social con iluminación cálida indirecta y doble altura."
+            caption: "Amplio espacio social con iluminación cálida indirecta y pisos cerámicos de gran formato."
           },
           {
             src: "06_comedor_jardin_1792555234084.jpg",
             title: "Comedor Integrado al Jardín Privado",
-            caption: "Ventanales corredizos de piso a techo con vista y salida directa al jardín."
+            caption: "Ventanales corredizos de piso a techo con vista y salida directa al jardín excedente."
           },
           {
             src: "07_estancia_comedor_1792555309720.jpg",
@@ -1170,14 +1271,44 @@
       },
       {
         id: "sec-tv",
-        kicker: "Área 04 · Primer Piso · Área Familiar",
-        title: "Sala de TV y Pasillo con Barandal de Cristal Templado a Doble Altura",
-        desc: "Distribuidor en primer piso con vista hacia la doble altura de la estancia principal, barandales de cristal templado y acogedora Sala de TV familiar.",
+        kicker: "Área 04 · Primer Piso · Sala de TV, Pasillos y Escaleras",
+        title: "Sala de TV en Planta Alta, Puente de Doble Altura y Escaleras con Muro de Piedra",
+        desc: "El corazón familiar del primer piso: Sala de TV rodeada de barandales de cristal templado, puente distribuidor entre la Recámara Principal y las Recámaras 2 y 3, y escaleras flotantes con domos de luz.",
         slides: [
           {
+            src: "37_sala_tv_muro_piedra_pasillo.jpg",
+            title: "Sala de TV, Muro de Piedra y Pasillo hacia Recámaras",
+            caption: "Vista amplia de la Sala de TV mostrando las escaleras flotantes, el muro de piedra y el pasillo a las recámaras."
+          },
+          {
+            src: "35_sala_tv_escaleras.jpg",
+            title: "Sala de TV Familiar y Escalera Flotante",
+            caption: "Estancia de televisión en primer piso junto a la escalera de madera hacia el Roof Garden."
+          },
+          {
+            src: "36_sala_tv_puente_ventanal.jpg",
+            title: "Sala de TV y Puente hacia la Doble Altura",
+            caption: "Barandal de cristal templado con vista e iluminación natural desde el gran ventanal frontal."
+          },
+          {
             src: "13_sala_tv_pasillo_1792555211796.jpg",
-            title: "Sala de TV Familiar y Puente de Doble Altura",
-            caption: "Barandales de cristal templado con vista hacia la estancia de planta baja y escalera flotante en madera."
+            title: "Perspectiva de Sala de TV y Puente de Cristal",
+            caption: "Conexión visual abierta con la doble altura de planta baja y acceso a la Master Suite."
+          },
+          {
+            src: "38_puente_cristal_recamaras.jpg",
+            title: "Puente Distribuidor hacia la Recámara Principal",
+            caption: "Pasillo con barandal de cristal templado que comunica las recámaras secundarias con la recámara principal."
+          },
+          {
+            src: "34_escalera_flotante_vertical.jpg",
+            title: "Escalera Flotante en Madera y Muro de Piedra",
+            caption: "Huellas de madera sólida en cantiléver, barandal de cristal y muro recubierto en piedra natural."
+          },
+          {
+            src: "33_escalera_domos_luz.jpg",
+            title: "Cubo de Escaleras con Domos de Luz Natural",
+            caption: "Vista superior de la escalera bañada de sol a través de los domos del Roof Garden."
           }
         ]
       },
@@ -1246,8 +1377,18 @@
         id: "sec-roof",
         kicker: "Área 07 · Segundo Nivel · Roof Garden Equipado",
         title: "Azotea Tipo Roof Garden con Terrazas, Cocineta y 4.º Baño Completo",
-        desc: "Nivel social equipado con cocineta propia con tarja, baño completo con regadera, terraza techada con pérgola y terraza abierta.",
+        desc: "Extraordinario tercer nivel social con amplias terrazas panorámicas, pérgola techada, domos de luz, cocineta propia con ventana y baño completo con regadera.",
         slides: [
+          {
+            src: "29_roof_garden_domos_pergola.jpg",
+            title: "Roof Garden · Vista Panorámica con Domos y Pérgola",
+            caption: "Gran dimensión de la terraza superior mostrando bancas perimetrales, domos de luz y pérgola techada al fondo."
+          },
+          {
+            src: "28_roof_garden_panoramico_1.jpg",
+            title: "Roof Garden · Solárium Abierto hacia Terraza Techada",
+            caption: "Extensa superficie con piso cerámico ideal para eventos sociales al aire libre."
+          },
           {
             src: "26_terraza_techada_1792555358947.jpg",
             title: "Terraza Techada con Pérgola",
@@ -1256,22 +1397,65 @@
           {
             src: "27_terraza_abierta_1792555439020.jpg",
             title: "Terraza Abierta Panorámica",
-            caption: "Amplio solárium a cielo abierto con piso cerámico y domos de luz."
+            caption: "Amplio solárium a cielo abierto con bancas integradas."
+          },
+          {
+            src: "31_cocineta_roof_ventana.jpg",
+            title: "Cocineta del Roof Garden · Vista con Ventanal",
+            caption: "Barra completa con tarja, gabinetes blancos inferiores y ventana directa hacia la terraza."
           },
           {
             src: "24_cocineta_roof_garden_1792555249849.jpg",
-            title: "Cocineta Equipada en Roof Garden",
-            caption: "Barra con tarja de acero inoxidable y gabinetes inferiores de apoyo."
+            title: "Cocineta Equipada · Detalle de Barra y Alacena",
+            caption: "Espacio interior de servicio para atender reuniones en el Roof Garden sin bajar a planta baja."
+          },
+          {
+            src: "32_bano_roof_vertical.jpg",
+            title: "4.º Baño Completo en Roof Garden · Vista Integral",
+            caption: "Baño completo con cubierta de granito, WC, ventilación natural y ducha con cancel."
           },
           {
             src: "25_bano_roof_garden_1792555307962.jpg",
-            title: "4.º Baño Completo en Roof Garden",
-            caption: "Con lavabo sobre cubierta de granito y regadera con cancel templado."
+            title: "4.º Baño Completo · Detalle de Lavabo y Ducha",
+            caption: "Lavabo de sobreponer sobre granito y regadera independiente."
           },
           {
             src: "23_escalera_roof_garden_1792555213953.jpg",
-            title: "Escalera Flotante en Madera",
+            title: "Acceso Interior por Escalera de Madera",
             caption: "Escalones en madera sólida, muro recubierto en piedra y barandal de cristal."
+          }
+        ]
+      },
+      {
+        id: "sec-planos",
+        kicker: "Área 08 · Planos Arquitectónicos",
+        title: "Plantas Arquitectónicas (3 Niveles), Fachada y Corte Longitudinal",
+        desc: "Distribución arquitectónica acotada de Planta Baja, Planta Alta, Planta Azotea (Roof Garden), Alzado de Fachada Principal y Corte Longitudinal de la doble altura.",
+        slides: [
+          {
+            src: "42_plano_planta_baja.jpg",
+            title: "Plano Arquitectónico · Planta Baja (P. BAJA)",
+            caption: "Cochera techada para 2 autos, vestíbulo de acceso, sala, comedor, cocina, baño de visitas, cuarto de lavado y jardín trasero."
+          },
+          {
+            src: "43_plano_planta_alta.jpg",
+            title: "Plano Arquitectónico · Planta Alta (P. ALTA)",
+            caption: "Vacío de doble altura, Sala de TV, puente distribuidor, Recámara Principal con vestidor y baño, y Recámaras 2 y 3 con baño."
+          },
+          {
+            src: "44_plano_planta_azotea.jpg",
+            title: "Plano Arquitectónico · Planta Azotea (Roof Garden)",
+            caption: "Terrazas abiertas y techadas, cubo de escalera, cocineta de apoyo y 4.º baño completo."
+          },
+          {
+            src: "45_plano_alzado_fachada.jpg",
+            title: "Alzado Arquitectónico · Fachada Principal",
+            caption: "Niveles N.P.T. ±0.00, +2.35, +4.70 y +7.00 m con ventanal de doble altura y cochera."
+          },
+          {
+            src: "46_plano_corte_longitudinal.jpg",
+            title: "Corte Longitudinal · Doble Altura y 3 Niveles",
+            caption: "Sección constructiva mostrando la espacialidad de la doble altura, escaleras y los 3 niveles residenciales."
           }
         ]
       }
@@ -1320,7 +1504,7 @@
               <!-- Selector de Fotos: Columna Lateral en Desktop / Grilla Compacta 100% Ancho en Mobile -->
               <div class="selector-column">
                 <div class="selector-header">
-                  <span>${hasMultiple ? `Selecciona foto (${sec.slides.length})` : `Fotografía de la sección (1)`}</span>
+                  <span>Selecciona vista (${sec.slides.length})</span>
                   ${hasMultiple ? `
                   <div class="selector-nav-btns">
                     <button class="btn-mini" onclick="prevSlide(${sIdx})">← Ant.</button>
@@ -1339,7 +1523,7 @@
                         <img src="${sl.src}" alt="${sl.title}" loading="lazy" />
                       </div>
                       <div class="thumb-info">
-                        <div class="thumb-num">Foto 0${i + 1}</div>
+                        <div class="thumb-num">Vista ${String(i + 1).padStart(2, '0')}</div>
                         <div class="thumb-title">${sl.title}</div>
                         <div class="thumb-sub">${sl.caption}</div>
                       </div>
