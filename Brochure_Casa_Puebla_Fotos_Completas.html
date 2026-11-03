@@ -1,0 +1,1428 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brochure Residencial (Imágenes Completas) | Molino de Santo Domingo, Puebla</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+    :root {
+      --bg: #faf8f5;
+      --card: #ffffff;
+      --text: #1c1917;
+      --muted: #57534e;
+      --gold: #9a6f1a;
+      --gold-light: #f5efe1;
+      --gold-border: #dec692;
+      --border: #e7e2da;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    h1, h2, h3, .serif {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+    }
+
+    .top-bar {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text);
+    }
+
+    .brand-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 500;
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+    }
+
+    .btn-print {
+      background: var(--gold);
+      color: #fff;
+      border: none;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 8px 18px;
+      border-radius: 999px;
+      cursor: pointer;
+    }
+
+    .container {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 28px 24px 56px;
+    }
+
+    /* Portada con imagen 100% completa */
+    .hero {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      overflow: hidden;
+      padding: 32px;
+      margin-bottom: 28px;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    .hero-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 24px;
+      margin-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 18px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: var(--gold-light);
+      color: var(--gold);
+      border: 1px solid var(--gold-border);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      padding: 5px 14px;
+      border-radius: 999px;
+      margin-bottom: 10px;
+    }
+
+    .hero-title {
+      font-size: 38px;
+      font-weight: 700;
+      line-height: 1.08;
+      color: var(--text);
+    }
+
+    .hero-location {
+      font-size: 13.5px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .hero-image-full {
+      width: 100%;
+      background: #f4f1ea;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    /* NINGUNA IMAGEN SE RECORTA: width 100%, height auto */
+    .hero-image-full img {
+      width: 100%;
+      max-height: 460px;
+      height: auto;
+      object-fit: contain;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .hero-desc {
+      font-size: 13.5px;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .stat-box {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 12px 14px;
+    }
+
+    .stat-label {
+      font-size: 10.5px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+    }
+
+    .stat-value {
+      font-size: 21px;
+      font-weight: 700;
+      color: var(--text);
+      margin-top: 2px;
+    }
+
+    .stat-value span {
+      font-size: 13px;
+      color: var(--gold);
+    }
+
+    .stat-note {
+      font-size: 11px;
+      color: var(--gold);
+      font-weight: 600;
+      margin-top: 2px;
+    }
+
+    /* Highlight Banner */
+    .highlight-banner {
+      background: var(--gold-light);
+      border: 1px solid var(--gold-border);
+      border-radius: 18px;
+      padding: 22px 26px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 24px;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    .highlight-kicker {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--gold);
+      margin-bottom: 4px;
+    }
+
+    .highlight-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+
+    .highlight-desc {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .compare-cards {
+      display: flex;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .compare-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px 16px;
+      text-align: center;
+      min-width: 110px;
+    }
+
+    .compare-card.featured {
+      border: 2px solid var(--gold);
+    }
+
+    .compare-card .c-label {
+      font-size: 10.5px;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .compare-card.featured .c-label {
+      color: var(--gold);
+    }
+
+    .compare-card .c-val {
+      font-size: 17px;
+      font-weight: 700;
+      margin-top: 3px;
+      color: var(--text);
+    }
+
+    .compare-card .c-val.strike {
+      color: var(--muted);
+      text-decoration: line-through;
+    }
+
+    /* Levels Grid */
+    .levels-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 36px;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    .level-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+    }
+
+    .level-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .level-num {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--gold);
+    }
+
+    .level-tag {
+      font-size: 11px;
+      font-weight: 600;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      padding: 2px 9px;
+      border-radius: 999px;
+    }
+
+    .level-title {
+      font-size: 19px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .level-list {
+      list-style: none;
+      font-size: 12.5px;
+      color: var(--muted);
+    }
+
+    .level-list li {
+      position: relative;
+      padding-left: 13px;
+      margin-bottom: 6px;
+    }
+
+    .level-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    /* Sections */
+    .section-block {
+      margin-bottom: 40px;
+    }
+
+    .section-header {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+      break-after: avoid;
+      page-break-after: avoid;
+    }
+
+    .section-kicker {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--gold);
+    }
+
+    .section-title {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--text);
+      margin-top: 2px;
+    }
+
+    .section-subtitle {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 3px;
+    }
+
+    .sub-heading {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text);
+      margin: 22px 0 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      break-after: avoid;
+      page-break-after: avoid;
+    }
+
+    .sub-heading::before {
+      content: "";
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+
+    /* Grillas de Fotos COMPLETAS (Sin recortar absolutamente nada) */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      align-items: start;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      align-items: start;
+    }
+
+    .photo-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      break-inside: avoid;
+      page-break-inside: avoid;
+      margin-bottom: 4px;
+    }
+
+    .photo-frame {
+      width: 100%;
+      background: #f4f1ea;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* CERO RECORTE: width: 100%; height: auto; object-fit: contain; */
+    .photo-frame img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: contain;
+    }
+
+    /* Para fotos verticales en columnas de 2, mantenemos su proporción 3:4 íntegra con una altura controlada para que quepan 2 filas por página de PDF sin cortarse */
+    .photo-frame.portrait img {
+      max-height: 360px;
+      width: auto;
+      max-width: 100%;
+      margin: 0 auto;
+    }
+
+    .photo-card figcaption {
+      padding: 12px 15px;
+    }
+
+    .photo-card h4 {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 2px;
+    }
+
+    .photo-card p {
+      font-size: 11.5px;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    .footer-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 28px 32px;
+      display: grid;
+      grid-template-columns: 7fr 5fr;
+      gap: 28px;
+      align-items: center;
+      break-inside: avoid;
+      page-break-inside: avoid;
+      margin-top: 28px;
+    }
+
+    .pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 14px;
+    }
+
+    .pill {
+      font-size: 11px;
+      font-weight: 600;
+      background: var(--gold-light);
+      color: var(--gold);
+      border: 1px solid var(--gold-border);
+      padding: 4px 11px;
+      border-radius: 999px;
+    }
+
+    .summary-table {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px 20px;
+    }
+
+    .summary-table h4 {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 14px;
+      padding: 6px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 12px;
+    }
+
+    .summary-row:last-child {
+      border-bottom: none;
+    }
+
+    .summary-row span:first-child {
+      color: var(--muted);
+    }
+
+    .summary-row span:last-child {
+      font-weight: 700;
+      text-align: right;
+    }
+
+
+    .price-hero-box {
+      background: linear-gradient(135deg, #1c1917 0%, #2c2620 100%);
+      border: 2px solid var(--gold);
+      border-radius: 16px;
+      padding: 12px 22px;
+      text-align: right;
+      flex-shrink: 0;
+    }
+    .price-hero-box .kicker {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #e8c27c;
+    }
+    .price-hero-box .val {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 30px;
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.1;
+      margin: 2px 0;
+    }
+    .price-hero-box .val span {
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: 12px;
+      color: #e8c27c;
+    }
+    .price-hero-box .sub {
+      font-size: 11px;
+      color: #d6d0c6;
+    }
+    .pdf-credit-box {
+      background: #ffffff;
+      border: 1.5px solid var(--gold-border);
+      border-radius: 18px;
+      padding: 20px 24px;
+      margin-bottom: 24px;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+    .pdf-credit-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 14px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    .pdf-credit-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--text);
+      margin-top: 2px;
+    }
+    .pdf-credit-desc {
+      font-size: 12.5px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+    .pdf-banks-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .pdf-bank-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .pdf-bank-logo {
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+    }
+    .pdf-bank-logo img {
+      max-width: 130px;
+      max-height: 32px;
+      width: auto;
+      height: auto;
+      display: block;
+    }
+    .pdf-bank-tag {
+      font-size: 9.5px;
+      font-weight: 600;
+      color: var(--gold);
+      background: var(--gold-light);
+      border: 1px solid var(--gold-border);
+      padding: 2px 8px;
+      border-radius: 999px;
+    }
+    .pdf-credit-perks {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+    .pdf-credit-perk {
+      background: var(--gold-light);
+      border: 1px solid var(--gold-border);
+      border-radius: 10px;
+      padding: 7px 12px;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    @media print {
+      @page {
+        size: letter;
+        margin: 10mm;
+      }
+      .no-print {
+        display: none !important;
+      }
+      body {
+        background: #ffffff;
+      }
+      .container {
+        padding: 0;
+        max-width: 100%;
+      }
+      .page-break {
+        page-break-before: always;
+      }
+      .photo-frame.portrait img {
+        max-height: 310px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="top-bar no-print">
+    <div class="brand">
+      <span class="brand-dot"></span>
+      <span>Molino de Santo Domingo · Puebla (Imágenes Completas)</span>
+    </div>
+    <nav class="nav-links">
+      <a href="index.html" style="border-color: var(--gold-border); background: var(--gold-light); color: var(--gold); font-weight: 700;">🎠 Vista Carruseles Interactivos</a>
+      <a href="#resumen">Ficha Técnica</a>
+      <a href="#exterior">1. Exterior</a>
+      <a href="#social">2. Sala-Comedor</a>
+      <a href="#cocina">3. Cocina</a>
+      <a href="#recamaras">4. Recámaras</a>
+      <a href="#roofgarden">5. Roof Garden</a>
+      <a href="Brochure_Casa_Puebla_Molino_Santo_Domingo_Fotos_Completas.pdf" target="_blank" class="btn-print" style="text-decoration: none;">📄 Descargar PDF</a>
+    </nav>
+  </header>
+
+  <main class="container">
+
+    <!-- PORTADA CON FACHADA COMPLETA SIN RECORTES -->
+    <section class="hero">
+      <div class="hero-top">
+        <div>
+          <span class="badge">Residencia en Venta · Puebla</span>
+          <h1 class="hero-title">Fraccionamiento Molino de Santo Domingo</h1>
+          <p class="hero-location">Blvd. Esteban de Antuñano, Zona Luz Obrera · Heroica Puebla de Zaragoza, Pue.</p>
+        </div>
+        <div class="price-hero-box">
+          <div class="kicker">Valor de la Propiedad</div>
+          <div class="val">$5,490,000.00 <span>MXN</span></div>
+          <div class="sub">Aceptamos y tramitamos tu crédito bancario</div>
+        </div>
+      </div>
+
+      <div class="hero-image-full">
+        <img src="fachada_principal_retocada_1792555180287.jpg" alt="Fachada Principal Completa" />
+      </div>
+
+      <p class="hero-desc">
+        Una propiedad única dentro del fraccionamiento gracias a su <strong>terreno excedente de 278.98 m²</strong> (~65% más grande que el lote tipo del condominio), desarrollada en <strong>276.37 m² de construcción</strong> en tres niveles con jardín privado, excelente iluminación natural, 3 recámaras con baño propio y un extraordinario Roof Garden equipado con cocineta y baño completo.
+      </p>
+
+      <div class="stats-grid">
+        <div class="stat-box">
+          <div class="stat-label">Superficie Terreno</div>
+          <div class="stat-value">278.98 <span>m²</span></div>
+          <div class="stat-note">Terreno Excedente (+65%)</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">Construcción</div>
+          <div class="stat-value">276.37 <span>m²</span></div>
+          <div class="stat-note">3 Niveles Residenciales</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">Recámaras</div>
+          <div class="stat-value">3 <span>Suites</span></div>
+          <div class="stat-note">Cada una con baño propio</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">Baños Totales</div>
+          <div class="stat-value">4.5 <span>Baños</span></div>
+          <div class="stat-note">4 Completos + 1 Visitas</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PÁGINA 2: FICHA TÉCNICA + EXTERIOR -->
+    <div class="page-break"></div>
+
+    <section id="resumen">
+      <div class="highlight-banner">
+        <div>
+          <div class="highlight-kicker">★ Mayor Diferenciador en el Condominio</div>
+          <h2 class="highlight-title">Terreno Excedente de 278.98 m² con Amplio Jardín Privado</h2>
+          <p class="highlight-desc">
+            Mientras que la mayoría de los lotes en Molino de Santo Domingo son de ~168 m², contar con <strong>278.98 m² de terreno</strong> le brinda un jardín privado mucho más amplio, mayor privacidad, abundante luz natural y una cochera techada sumamente cómoda.
+          </p>
+        </div>
+        <div class="compare-cards">
+          <div class="compare-card">
+            <div class="c-label">Lote Estándar</div>
+            <div class="c-val strike">~168 m²</div>
+          </div>
+          <div class="compare-card featured">
+            <div class="c-label">Esta Propiedad</div>
+            <div class="c-val">278.98 m²</div>
+          </div>
+          <div class="compare-card">
+            <div class="c-label">Construcción</div>
+            <div class="c-val">276.37 m²</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="levels-grid">
+        <div class="level-card">
+          <div class="level-header">
+            <span class="level-num">Nivel 01</span>
+            <span class="level-tag">Planta Baja</span>
+          </div>
+          <h3 class="level-title">Área Social y Jardín</h3>
+          <ul class="level-list">
+            <li>Cochera techada para 2 autos y andador jardinado.</li>
+            <li>Sala a doble altura muy iluminada.</li>
+            <li>Comedor con ventanal corredizo hacia el jardín.</li>
+            <li>Medio baño de visitas con cubierta de granito.</li>
+            <li>Cocina integral con granito y desayunador.</li>
+            <li>Amplio jardín privado excedente.</li>
+            <li>Cuarto de lavado y servicio independiente.</li>
+          </ul>
+        </div>
+
+        <div class="level-card">
+          <div class="level-header">
+            <span class="level-num">Nivel 02</span>
+            <span class="level-tag">Primer Piso</span>
+          </div>
+          <h3 class="level-title">Sala de TV y 3 Suites</h3>
+          <ul class="level-list">
+            <li>Pasillo con barandal de cristal templado a doble altura.</li>
+            <li>Sala de TV familiar.</li>
+            <li><strong>Recámara Principal:</strong> Con vestidor walk-in y baño privado de doble lavabo.</li>
+            <li><strong>Recámara 2:</strong> Con clóset de piso a techo y baño completo privado.</li>
+            <li><strong>Recámara 3:</strong> Con clóset de madera y baño completo privado.</li>
+          </ul>
+        </div>
+
+        <div class="level-card">
+          <div class="level-header">
+            <span class="level-num">Nivel 03</span>
+            <span class="level-tag">Roof Garden</span>
+          </div>
+          <h3 class="level-title">Azotea Social Equipada</h3>
+          <ul class="level-list">
+            <li>Escalera flotante en madera y muro de piedra.</li>
+            <li><strong>Cocineta interior:</strong> Con tarja y gabinetes de apoyo.</li>
+            <li><strong>4.º Baño Completo:</strong> Con lavabo sobre granito y regadera con cancel.</li>
+            <li><strong>Terraza Techada:</strong> Con pérgola para comedor exterior.</li>
+            <li><strong>Terraza Abierta:</strong> Amplio solárium panorámico.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pdf-credit-box">
+        <div class="pdf-credit-head">
+          <div>
+            <div class="highlight-kicker">🏦 Asesoría y Gestión Hipotecaria Sin Costo</div>
+            <h3 class="pdf-credit-title">Te Ayudamos a Tramitar tu Crédito Hipotecario</h3>
+            <p class="pdf-credit-desc">Gestionamos tu financiamiento de principio a fin con las principales instituciones bancarias del país:</p>
+          </div>
+          <div class="compare-card featured" style="min-width: 175px;">
+            <div class="c-label">Valor de Venta</div>
+            <div class="c-val">$5,490,000.00 MXN</div>
+          </div>
+        </div>
+        <div class="pdf-banks-grid">
+        <div class="pdf-bank-card">
+          <div class="pdf-bank-logo"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyMi4wLjEsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4KCjxzdmcKICAgdmVyc2lvbj0iMS4xIgogICBpZD0iU2FudGFuZGVyIgogICB4PSIwcHgiCiAgIHk9IjBweCIKICAgdmlld0JveD0iMCAwIDIzOC4yIDQxLjUiCiAgIHhtbDpzcGFjZT0icHJlc2VydmUiCiAgIHNvZGlwb2RpOmRvY25hbWU9IkJhbmNvX1NhbnRhbmRlcl9Mb2dvdGlwby5zdmciCiAgIHdpZHRoPSIyMzguMiIKICAgaGVpZ2h0PSI0MS41IgogICBpbmtzY2FwZTp2ZXJzaW9uPSIxLjEgKGM2OGUyMmMzODcsIDIwMjEtMDUtMjMpIgogICB4bWxuczppbmtzY2FwZT0iaHR0cDovL3d3dy5pbmtzY2FwZS5vcmcvbmFtZXNwYWNlcy9pbmtzY2FwZSIKICAgeG1sbnM6c29kaXBvZGk9Imh0dHA6Ly9zb2RpcG9kaS5zb3VyY2Vmb3JnZS5uZXQvRFREL3NvZGlwb2RpLTAuZHRkIgogICB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCiAgIHhtbG5zOnN2Zz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCiAgIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyIKICAgeG1sbnM6Y2M9Imh0dHA6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL25zIyIKICAgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIj48ZGVmcwogICBpZD0iZGVmczEzIiAvPjxzb2RpcG9kaTpuYW1lZHZpZXcKICAgaWQ9Im5hbWVkdmlldzExIgogICBwYWdlY29sb3I9IiNmZmZmZmYiCiAgIGJvcmRlcmNvbG9yPSIjNjY2NjY2IgogICBib3JkZXJvcGFjaXR5PSIxLjAiCiAgIGlua3NjYXBlOnBhZ2VzaGFkb3c9IjIiCiAgIGlua3NjYXBlOnBhZ2VvcGFjaXR5PSIwLjAiCiAgIGlua3NjYXBlOnBhZ2VjaGVja2VyYm9hcmQ9IjAiCiAgIHNob3dncmlkPSJmYWxzZSIKICAgZml0LW1hcmdpbi10b3A9IjAiCiAgIGZpdC1tYXJnaW4tbGVmdD0iMCIKICAgZml0LW1hcmdpbi1yaWdodD0iMCIKICAgZml0LW1hcmdpbi1ib3R0b209IjAiCiAgIGlua3NjYXBlOnpvb209IjIuMzU3NTg4NCIKICAgaW5rc2NhcGU6Y3g9IjEwNS44Mjg0OCIKICAgaW5rc2NhcGU6Y3k9IjQ2LjQ0NTc2NyIKICAgaW5rc2NhcGU6d2luZG93LXdpZHRoPSIxOTIwIgogICBpbmtzY2FwZTp3aW5kb3ctaGVpZ2h0PSIxMDE3IgogICBpbmtzY2FwZTp3aW5kb3cteD0iMTkxMiIKICAgaW5rc2NhcGU6d2luZG93LXk9Ii04IgogICBpbmtzY2FwZTp3aW5kb3ctbWF4aW1pemVkPSIxIgogICBpbmtzY2FwZTpjdXJyZW50LWxheWVyPSJTYW50YW5kZXIiIC8+CjxzdHlsZQogICB0eXBlPSJ0ZXh0L2NzcyIKICAgaWQ9InN0eWxlMiI+Cgkuc3Qwe2ZpbGw6I0VBMUQyNTt9Cjwvc3R5bGU+Cjx0aXRsZQogICBpZD0idGl0bGU0Ij5TYW50YW5kZXI8L3RpdGxlPiAgICAKPGcKICAgaWQ9Imc4IgogICB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwLC0wLjQpIj4KCTxwYXRoCiAgIGNsYXNzPSJzdDAiCiAgIGQ9Ik0gMzEuNSwxOS41IEMgMzEuNCwxOCAzMSwxNi41IDMwLjIsMTUuMiBMIDIzLjQsMy4zIEMgMjIuOSwyLjQgMjIuNSwxLjQgMjIuMywwLjQgTCAyMiwwLjkgYyAtMS43LDIuOSAtMS43LDYuNiAwLDkuNSBsIDUuNSw5LjUgYyAxLjcsMi45IDEuNyw2LjYgMCw5LjUgbCAtMC4zLDAuNSBjIC0wLjIsLTEgLTAuNiwtMiAtMS4xLC0yLjkgbCAtNSwtOC43IC0zLjIsLTUuNiBDIDE3LjQsMTEuOCAxNywxMC44IDE2LjgsOS44IGwgLTAuMywwLjUgYyAtMS43LDIuOSAtMS43LDYuNSAwLDkuNSB2IDAgbCA1LjUsOS41IGMgMS43LDIuOSAxLjcsNi42IDAsOS41IGwgLTAuMywwLjUgYyAtMC4yLC0xIC0wLjYsLTIgLTEuMSwtMi45IEwgMTMuNywyNC41IEMgMTIuOCwyMi45IDEyLjQsMjEuMSAxMi40LDE5LjMgNS4xLDIxLjIgMCwyNS4zIDAsMzAgMCwzNi42IDkuOCw0MS45IDIxLjksNDEuOSAzNCw0MS45IDQzLjgsMzYuNiA0My44LDMwIDQzLjksMjUuNSAzOC45LDIxLjQgMzEuNSwxOS41IFogbSAyMC43LDIwLjMgYyAwLjEsLTEuNyAwLjMsLTIuOCAwLjgsLTQuMiAyLjMsMS4xIDUuMywxLjYgNy41LDEuNiAzLjgsMCA2LC0xLjIgNiwtMy43IDAsLTIuNCAtMS42LC0zLjUgLTUuNCwtNS4yIEwgNTksMjcuNSBjIC0zLjksLTEuNyAtNi41LC0zLjkgLTYuNSwtOC4yIDAsLTQuNyAzLjMsLTcuNyA5LjksLTcuNyAyLjcsMCA1LjIsMC40IDcuNSwxLjIgLTAuMSwxLjYgLTAuNCwyLjkgLTAuOCw0LjEgLTIuMiwtMC44IC00LjksLTEuMiAtNi44LC0xLjIgLTMuNiwwIC01LjIsMS40IC01LjIsMy42IDAsMi4xIDEuNiwzLjQgNC41LDQuNiBsIDIuMiwwLjkgYyA1LjIsMi4yIDcuNCw0LjYgNy40LDguNiAwLDQuNyAtMy42LDggLTEwLjYsOCAtMy4zLDAgLTYuMSwtMC41IC04LjQsLTEuNiB6IE0gOTMuMywyMC4xIHYgMjAuNiBoIC00LjIgbCAtMC4yLC0yLjUgYyAtMS4yLDEuOCAtMi45LDMgLTUuOCwzIC01LjQsMCAtOS4xLC00IC05LjEsLTEwLjkgMCwtNy4yIDMuOSwtMTEuNCAxMS41LC0xMS40IDMsMC4xIDUuNSwwLjQgNy44LDEuMiB6IE0gODguOCwzNiBWIDIzLjEgYyAtMC45LC0wLjIgLTIsLTAuMiAtMy4zLC0wLjIgLTQuNywwIC02LjksMi45IC02LjksNy41IDAsNC4yIDEuNyw3LjIgNS43LDcuMiAxLjksLTAuMSAzLjMsLTAuNyA0LjUsLTEuNiB6IG0gMjcuNywtOS4xIFYgNDAuNyBIIDExMiB2IC0xMyBjIDAsLTMuMyAtMS4xLC00LjggLTUuNiwtNC44IC0xLjEsMCAtMi4zLDAuMSAtMy42LDAuMyBWIDQwLjcgSCA5OC4zIFYgMjAuMSBjIDIuOSwtMC43IDYuMSwtMS4yIDguMiwtMS4yIDcuNiwwLjEgMTAsMyAxMCw4IHogbSAxMi42LDEwLjUgYyAxLjMsMCAyLjYsLTAuMiAzLjUsLTAuNiAtMC4xLDEuMiAtMC4zLDIuNiAtMC41LDMuOCAtMS4yLDAuNSAtMi42LDAuNyAtMy44LDAuNyAtNC40LDAgLTcuMiwtMiAtNy4yLC03IFYgMTIuNiBjIDEuNCwtMC41IDMuMSwtMC43IDQuNSwtMC43IHYgNy44IGggNy4yIGMgLTAuMSwxLjQgLTAuMiwyLjcgLTAuNCwzLjkgaCAtNi44IHYgMTAuMSBjIDAsMi42IDEuMywzLjcgMy41LDMuNyB6IG0gMjQuMywtMTcuMyB2IDIwLjYgaCAtNC4yIEwgMTQ5LDM4LjIgYyAtMS4yLDEuOCAtMi45LDMgLTUuOCwzIC01LjQsMCAtOS4xLC00IC05LjEsLTEwLjkgMCwtNy4yIDMuOSwtMTEuNCAxMS41LC0xMS40IDMsMC4xIDUuNCwwLjQgNy44LDEuMiB6IE0gMTQ4LjgsMzYgViAyMy4xIGMgLTAuOSwtMC4yIC0yLC0wLjIgLTMuMywtMC4yIC00LjcsMCAtNi45LDIuOSAtNi45LDcuNSAwLDQuMiAxLjcsNy4yIDUuNyw3LjIgMS45LC0wLjEgMy40LC0wLjcgNC41LC0xLjYgeiBtIDI3LjgsLTkuMSBWIDQwLjcgSCAxNzIgdiAtMTMgYyAwLC0zLjMgLTEuMSwtNC44IC01LjYsLTQuOCAtMS4xLDAgLTIuMywwLjEgLTMuNiwwLjMgdiAxNy41IGggLTQuNSBWIDIwLjEgYyAyLjksLTAuNyA2LjEsLTEuMiA4LjIsLTEuMiA3LjYsMC4xIDEwLjEsMyAxMC4xLDggeiBtIDIyLjksLTE1IHYgMjguOCBoIC00LjIgbCAtMC4yLC0yLjYgYyAtMS4yLDEuOSAtMi45LDMuMSAtNS45LDMuMSAtNS40LDAgLTkuMSwtNCAtOS4xLC0xMC45IDAsLTcuMiAzLjksLTExLjQgMTEuNSwtMTEuNCAxLjIsMCAyLjMsMC4xIDMuNCwwLjMgdiAtNi44IGMgMS40LC0wLjQgMywtMC41IDQuNSwtMC41IHogTSAxOTUsMzYgViAyMy4zIGMgLTEuMiwtMC4yIC0yLjQsLTAuNCAtMy42LC0wLjQgLTQuNSwwIC02LjYsMi44IC02LjYsNy41IDAsNC4yIDEuNyw3LjIgNS43LDcuMiAxLjgsLTAuMSAzLjMsLTAuNyA0LjUsLTEuNiB6IG0gMjcuMywtNC4xIGggLTE0LjUgYyAwLjYsMy43IDIuNyw1LjQgNi44LDUuNCAyLjUsMCA1LC0wLjUgNy4yLC0xLjYgLTAuMiwxLjIgLTAuNCwyLjggLTAuNyw0LjEgLTIuMSwwLjkgLTQuMiwxLjMgLTYuNywxLjMgLTcuNiwwIC0xMS4yLC00LjIgLTExLjIsLTExLjIgMCwtNi4xIDIuOCwtMTEgMTAsLTExIDYuNSwwIDkuMyw0LjIgOS4zLDkuNCAwLDEuNCAwLDIuNCAtMC4yLDMuNiB6IE0gMjA3LjgsMjguMSBIIDIxOCBjIDAsLTMuNCAtMS44LC01LjQgLTQuOSwtNS40IC0zLjMsMC4xIC01LDEuOSAtNS4zLDUuNCB6IG0gMzAuNCwtOC45IGMgMCwxLjQgLTAuMiwzIC0wLjQsMy45IC0xLjEsLTAuMSAtMi4xLC0wLjIgLTMuNCwtMC4yIC0xLjEsMCAtMi4yLDAuMSAtMy4zLDAuMiB2IDE3LjYgaCAtNC41IFYgMjAuMSBjIDEuOSwtMC43IDUuMiwtMS4yIDcuNywtMS4yIDEuMywwLjEgMi45LDAuMSAzLjksMC4zIHoiCiAgIGlkPSJwYXRoNiIgLz4KPC9nPgo8bWV0YWRhdGEKICAgaWQ9Im1ldGFkYXRhODMwIj48cmRmOlJERj48Y2M6V29yawogICAgICAgcmRmOmFib3V0PSIiPjxkYzp0aXRsZT5TYW50YW5kZXI8L2RjOnRpdGxlPjwvY2M6V29yaz48L3JkZjpSREY+PC9tZXRhZGF0YT48L3N2Zz4K" alt="Santander" /></div>
+          <span class="pdf-bank-tag">Crédito Hipotecario</span>
+        </div>
+        <div class="pdf-bank-card">
+          <div class="pdf-bank-logo"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxOS4yLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iSFNCQ19NQVNURVJCUkFORF9MT0dPX1dXX1JHQiINCgkgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiIHZpZXdCb3g9IjAgMCAzMTUuOSA4NSINCgkgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMzE1LjkgODU7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxyZWN0IHg9IjQyLjYiIHdpZHRoPSI4NSIgaGVpZ2h0PSI4NSIgZmlsbD0iI2ZmZmZmZiIvPg0KPHRpdGxlPkhTQkNfTUFTVEVSQlJBTkRfTE9HT19XV19SR0I8L3RpdGxlPg0KPHBvbHlnb24gcG9pbnRzPSIxNzAuMSw0Mi42IDEyNy42LDAgMTI3LjYsODUuMSIgZmlsbD0iI2RiMDAxMSIvPg0KPHBvbHlnb24gcG9pbnRzPSI4NS4xLDQyLjYgMTI3LjYsMCA0Mi42LDAiIGZpbGw9IiNkYjAwMTEiLz4NCjxwb2x5Z29uIHBvaW50cz0iMCw0Mi42IDQyLjYsODUuMSA0Mi42LDAiIGZpbGw9IiNkYjAwMTEiLz4NCjxwb2x5Z29uIHBvaW50cz0iODUuMSw0Mi42IDQyLjYsODUuMSAxMjcuNiw4NS4xIiBmaWxsPSIjZGIwMDExIi8+DQo8cGF0aCBkPSJNMjA3LjQsNDUuMUgxOTJ2MTUuMmgtNy43VjI0LjdoNy43djE0LjZoMTUuNFYyNC43aDcuN3YzNS42aC03LjdWNDUuMXoiLz4NCjxwYXRoIGQ9Ik0yMzMuNyw2MWMtNy43LDAtMTQtMy4xLTE0LjEtMTEuNmg3LjdjMC4xLDMuOCwyLjMsNi4xLDYuNSw2LjFjMy4xLDAsNi43LTEuNiw2LjctNS4xYzAtMi44LTIuNC0zLjYtNi40LTQuOGwtMi42LTAuNw0KCWMtNS42LTEuNi0xMS4yLTMuOC0xMS4yLTEwLjJjMC03LjksNy40LTEwLjYsMTQuMS0xMC42YzYuOSwwLDEyLjksMi40LDEzLDEwLjNoLTcuN2MtMC4zLTMuMi0yLjItNS4xLTUuOC01LjENCgljLTIuOSwwLTUuNywxLjUtNS43LDQuN2MwLDIuNiwyLjQsMy40LDcuNCw1bDMsMC45YzYuMSwxLjksMTAsNCwxMCwxMEMyNDguNSw1Ny45LDI0MC43LDYxLDIzMy43LDYxeiIvPg0KPHBhdGggZD0iTTI1Mi45LDI0LjhoMTIuNGMyLjMtMC4xLDQuNywwLDcsMC40YzQuMywxLDcuNiwzLjgsNy42LDguNmMwLDQuNi0yLjksNi45LTcuMSw4YzQuOCwwLjksOC40LDMuMyw4LjQsOC42DQoJYzAsOC4xLTgsOS45LTE0LjIsOS45aC0xNEwyNTIuOSwyNC44eiBNMjY1LjMsMzkuNmMzLjQsMCw2LjktMC43LDYuOS00LjhjMC0zLjctMy4yLTQuNy02LjQtNC43aC01LjR2OS41SDI2NS4zeiBNMjY2LDU1DQoJYzMuNiwwLDcuMS0wLjgsNy4xLTUuMnMtMy01LjItNi43LTUuMmgtNi4xVjU1SDI2NnoiLz4NCjxwYXRoIGQ9Ik0zMDEuMiw2MWMtMTEuNSwwLTE2LjYtNy4zLTE2LjYtMTguMnM1LjctMTguOCwxNy0xOC44YzcuMSwwLDE0LDMuMiwxNC4yLDExLjJoLThjLTAuNC0zLjYtMi44LTUuNC02LjItNS40DQoJYy03LDAtOS4xLDcuNS05LjEsMTMuMmMwLDUuNywyLjEsMTIuMyw4LjgsMTIuM2MzLjUsMCw2LjEtMS45LDYuNi01LjVoOEMzMTUuMSw1OCwzMDguNiw2MSwzMDEuMiw2MXoiLz4NCjwvc3ZnPg0K" alt="HSBC" /></div>
+          <span class="pdf-bank-tag">Crédito Hipotecario</span>
+        </div>
+        <div class="pdf-bank-card">
+          <div class="pdf-bank-logo"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcKICAgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIgogICB4bWxuczpjYz0iaHR0cDovL2NyZWF0aXZlY29tbW9ucy5vcmcvbnMjIgogICB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiCiAgIHhtbG5zOnN2Zz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCiAgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICAgd2lkdGg9IjI3Mi42MzU0NCIKICAgaGVpZ2h0PSIzOS42OTUwMzgiCiAgIHZpZXdCb3g9IjAgMCA3Mi4xMzQ3OTkgMTAuNTAyNjQ1IgogICB2ZXJzaW9uPSIxLjEiCiAgIGlkPSJzdmc4Ij4KICA8ZwogICAgIGlkPSJnMTIyIj4KICAgIDxwYXRoCiAgICAgICBpZD0icGF0aDEwMzY0IgogICAgICAgZD0iTSA2LjczMDMzNTQsOC4zNjgwNTg3IEMgNi44OTI5NDM4LDcuOTcyNTYxNyA2Ljk3MTQ5MjIsNy41NDY3NDc5IDYuOTYwNDY3OSw3LjExOTU1NjIgNi45NzU2MjY4LDYuNDkxMTcwOCA2Ljc1OTI3NDEsNS44Nzc5NDM1IDYuMzUyNzUyOCw1LjM5NzAwODIgNS44OTkzNzgyLDQuODk4MTU4MiA1LjEyMzU0MjYsNC40ODMzNjg3IDQuMDQ4NjcyNyw0LjE2Nzc5ODEgMy44NDA1ODkyLDQuMTE0MDU0NSAzLjYzODAxNzUsNC4wNDEwMTg1IDMuNDQyMzM1OSwzLjk1MTQ0NjEgMy4yNzI4MzcxLDMuODY4NzYzOCAzLjEyMTI1MzEsMy43NTU3NjQ1IDIuOTkzMDk1NiwzLjYxNzk2MDcgMi44NTk0MjYsMy40NjYzNzY3IDIuNzg5MTQ1OSwzLjI2OTMxNzEgMi43OTg3OTE5LDMuMDY2NzQ1NCBjIDAuMDA0MTMsLTAuMjk0OSAwLjE2OTQ5ODgsLTAuNTY0OTk1NSAwLjQzMTMyNjMsLTAuNzAxNDIxNCAwLjUzNjA1NjgsLTAuMjM1NjQ0NiAxLjE0NjUyNzgsLTAuMjM1NjQ0NiAxLjY4MTIwNjcsMCAwLjIzODQwMDUsMC4wODY4MTYgMC40NjcxNTQ3LDAuMTk0MzAzMyAwLjY4NjI2MjksMC4zMjEwODI4IEwgNi41MDAyMDI5LDAuODg4MDY2OTYgQyA2LjA5NjQzNzgsMC42Mzg2NDIxMiA1LjY2MjM1NTcsMC40NDcwOTQ3MSA1LjIwNjIyNDksMC4zMTYxODA5OCA0LjczNjMxMzksMC4xOTQ5MTM2MSA0LjI1NDAwMDQsMC4xMzI5MDE5OCAzLjc2ODkzMDksMC4xMzI5MDE5OCAzLjMwNzI4ODMsMC4xMjQ2MzM3NSAyLjg0ODQwMTcsMC4yMDA0MjU3NyAyLjQxNDMxOTUsMC4zNTYxNDQwMSAyLjAyODQ2ODgsMC41MDYzNTA0NCAxLjY3NzA2OSwwLjczNjQ4MjkyIDEuMzgzNTQ2OSwxLjAyODYyNjcgMS4wODg2NDY1LDEuMzIzNTI3MSAwLjg1NDM4MDE5LDEuNjc0OTI2OSAwLjY5NzI4MzY1LDIuMDYwNzc3NiAwLjU0MTU2NTQxLDIuNDU3NjUyNiAwLjQ2NDM5NTI3LDIuODgyMDg4NCAwLjQ2NzE1MTUyLDMuMzA3OTAyMiAwLjQ5MTk1NjAzLDMuOTg4NjUzMyAwLjc3OTk2NTk0LDQuNjMyMTk2OSAxLjI2Nzc5MTcsNS4xMDYyNDIgMS43MzM1Njg0LDUuNTE0MTQxNCAyLjI3OTI3MTYsNS44MjAwNjYxIDIuODcwNDUwMyw2LjAwMTk2NzEgMy4xNTE1Njk3LDYuMTA5NDUzOSAzLjQ2MzAwNjYsNi4yMDU5MTY4IDMuNjYxNDQ0MSw2LjI4MTcwOSBjIDAuMjAzOTQ5NiwwLjA3NzE3IDAuMzk5NjMxMywwLjE3NTAxMDYgMC41ODE1MzIsMC4yOTQ5IDAuMTMwOTEzNywwLjA5MzcwNyAwLjIzNzAyMjksMC4yMTYzNTE5IDAuMzEwMDU4OCwwLjM1OTY2NzkgMC4wNjMzOSwwLjEzNjQyNTkgMC4wODY4MTYsMC4yODY2MzE5IDAuMDY3NTI0LDAuNDM1NDYwMSBDIDQuNTk5ODg5NSw3LjU5NzczNTMgNC40OTEwMjMzLDcuODA3MTk3MSA0LjMxODc2ODMsNy45NTQ2NDczIDQuMDM2MjcwNSw4LjE1OTk3NDkgMy42ODkwMDQ4LDguMjU1MDU5OCAzLjM0MTczOTIsOC4yMjMzNjQ4IDIuOTMxMDgzNiw4LjIxMjM0MDUgMi41MjczMTg1LDguMTE1ODc3NyAyLjE1NTI0ODMsNy45Mzk0ODg4IDEuODMwMDMxMyw3Ljc4Mzc3MDUgMS41MTQ0NjA2LDcuNjA4NzU5NiAxLjIwOTkxMzksNy40MTQ0NTYzIEwgMC4xMzIyODgxMyw5LjI2NjUzOTcgYyAwLjg1MDI0OTUzLDAuNjk4NjY1NSAxLjkxMjcxNzE3LDEuMDg1ODk0MyAzLjAxMTAxMzU3LDEuMDk2OTE4MyAwLjU0NDMyNTIsMCAxLjA4NTg5NDEsLTAuMDg1NDQgMS42MDI2NTg2LC0wLjI1NDkzNyBDIDUuMTkxMDY2NCw5Ljk1OTY5MzEgNS42MDMwOTk5LDkuNzI5NTYwNiA1Ljk2MTM4OTksOS40MjkxNDggNi4yODkzNjMyLDkuMTMyODcwMSA2LjU1MTE5MDMsOC43NzE4MjM5IDYuNzMwMzM1NCw4LjM2ODA1ODcgWiBtIDAsMCIKICAgICAgIHN0eWxlPSJmaWxsOiNlYjBmMTk7ZmlsbC1vcGFjaXR5OjE7ZmlsbC1ydWxlOm5vbnplcm87c3Ryb2tlOm5vbmU7c3Ryb2tlLXdpZHRoOjAuMzUyNzc4IiAvPgogICAgPHBhdGgKICAgICAgIGlkPSJwYXRoMTAzNzAiCiAgICAgICBkPSJNIDEyLjU0ODQxMyw3Ljc4OTI4MjcgQyAxMi4wMDY4NDQsOC40NjQ1MjE2IDExLjAyMTU0Niw4LjU3MzM4NjQgMTAuMzQ2MzA4LDguMDMzMTk1NCA5LjY3MTA2ODksNy40OTE2MjY0IDkuNTYwODI1OSw2LjUwNDk1MSAxMC4xMDEwMTcsNS44Mjk3MTI0IGMgMC41NDE1NjksLTAuNjc2NjE2OSAxLjUyNjg2NiwtMC43ODU0ODIgMi4yMDIxMDUsLTAuMjQ1MjkxIDAuMDg5NTcsMC4wNzE2NTggMC4xNzIyNTUsMC4xNTI5NjI0IDAuMjQ1MjkxLDAuMjQxMTU2OCBMIDEzLjk1MjYzNCw0LjQxNTg0NSBDIDEzLjI4MTUyOSwzLjY3NDQ2MDIgMTIuMzI2NTQ5LDMuMjUyNzgwNiAxMS4zMjYwOTMsMy4yNTQxNTg2IDkuMzY3OTAwNSwzLjI0NzI2ODUgNy42Nzg0MjU4LDQuNjQ1OTc3NCA3LjY3ODQyNTgsNi44MDM5ODUyIGMgMCwyLjE1NjYzMDIgMS43MDczODk1LDMuNTU5NDcyOCAzLjY2NTU4MjIsMy41NTk0NzI4IDEuMDAxODMzLDAgMS45NTY4MTQsLTAuNDIzMDU3NyAyLjYzMDY3NSwtMS4xNjQ0NDIxIHogbSAwLDAiCiAgICAgICBzdHlsZT0iZmlsbDojZWIwZjE5O2ZpbGwtb3BhY2l0eToxO2ZpbGwtcnVsZTpub256ZXJvO3N0cm9rZTpub25lO3N0cm9rZS13aWR0aDowLjM1Mjc3OCIgLz4KICAgIDxwYXRoCiAgICAgICBpZD0icGF0aDEwMzUyIgogICAgICAgZD0ibSAxNy41OTYxNjcsMy4yNDcyNjg1IGMgLTEuOTY1MDgzLC0wLjAwMjc2IC0zLjU1OTQ3MywxLjU5MDI1NjMgLTMuNTYwODUxLDMuNTU2NzE2NyAtMC4wMDE0LDEuOTY3ODM4NyAxLjU5MTYzNSwzLjU2MjIyODggMy41NTY3MTcsMy41NjM2MDY4IDEuOTY1MDgzLDAgMy41NTgwOTUsLTEuNTk0Mzg5OCAzLjU1ODA5NSwtMy41NjA4NTA1IDAsLTEuOTY1MDgyOCAtMS41OTAyNTYsLTMuNTU4MDk1MSAtMy41NTM5NjEsLTMuNTU5NDczIHogbSAwLDUuMTI3NjgwNCBjIC0wLjg2NTQwOCwtMC4wMDU1MSAtMS41NjI2OTUsLTAuNzEyNDQ1OCAtMS41NTg1NjEsLTEuNTc5MjMxNyAwLjAwNDEsLTAuODY1NDA4MSAwLjcwODMxMiwtMS41NjU0NTE1IDEuNTczNzIsLTEuNTY0MDczNiAwLjg2NTQwOCwwLjAwMjc1IDEuNTY2ODI5LDAuNzA1NTU1NiAxLjU2NjgyOSwxLjU3MjM0MTYgMCwwLjQxNzU0NTcgLTAuMTY2NzQyLDAuODE5OTMyOSAtMC40NjQzOTksMS4xMTQ4MzI5IC0wLjI5NjI3OCwwLjI5NDkwMDQgLTAuNjk4NjY1LDAuNDU4ODg3IC0xLjExNzU4OSwwLjQ1NjEzMDggeiBtIDAsMCIKICAgICAgIHN0eWxlPSJmaWxsOiNlYjBmMTk7ZmlsbC1vcGFjaXR5OjE7ZmlsbC1ydWxlOm5vbnplcm87c3Ryb2tlOm5vbmU7c3Ryb2tlLXdpZHRoOjAuMzUyNzc4IiAvPgogICAgPHBhdGgKICAgICAgIGlkPSJwYXRoMTAzNTQiCiAgICAgICBkPSJNIDI1LjY4MjQ5NiwzLjQxNTM4OTMgSCAyNC43MTIzNTcgViAxLjMxNjYzNyBoIC0yLjEyNzY5MSB2IDIuMDk4NzUyMyBoIC0wLjk3MDEzOSB2IDEuOTI3ODc1MyBoIDAuOTcwMTM5IHYgNC44NTA2OTQ0IGggMi4xMjc2OTEgViA1LjM0MzI2NDYgaCAwLjk3MDEzOSB6IG0gMCwwIgogICAgICAgc3R5bGU9ImZpbGw6I2ViMGYxOTtmaWxsLW9wYWNpdHk6MTtmaWxsLXJ1bGU6bm9uemVybztzdHJva2U6bm9uZTtzdHJva2Utd2lkdGg6MC4zNTI3NzgiIC8+CiAgICA8cGF0aAogICAgICAgaWQ9InBhdGgxMDM1OCIKICAgICAgIGQ9Im0gMjcuNzE5MjM3LDAuMTMyOTAxOTggYyAtMC40Nzk1NTgsLTAuMDAxMzc4IC0wLjkxMzY0LDAuMjg2NjMxOTYgLTEuMDk4Mjk3LDAuNzMwMzYwMTEgLTAuMTg0NjU3LDAuNDQyMzUwNTEgLTAuMDg0MDYsMC45NTM2MDI4MSAwLjI1NDkzNywxLjI5Mzk3ODAxIDAuMzM4OTk3LDAuMzQwMzc1NiAwLjg1MDI1LDAuNDQyMzUwNiAxLjI5MjYsMC4yNTkwNzEyIDAuNDQzNzI4LC0wLjE4MzI3OSAwLjczMzExNiwtMC42MTU5ODMyIDAuNzMzMTE2LC0xLjA5NjkxODQgMCwtMC42NTMxOTAwMiAtMC41Mjc3ODksLTEuMTg1MTEyODggLTEuMTgyMzU2LC0xLjE4NjQ5MDkyIHogbSAwLDAiCiAgICAgICBzdHlsZT0iZmlsbDojZWIwZjE5O2ZpbGwtb3BhY2l0eToxO2ZpbGwtcnVsZTpub256ZXJvO3N0cm9rZTpub25lO3N0cm9rZS13aWR0aDowLjM1Mjc3OCIgLz4KICAgIDxwYXRoCiAgICAgICBpZD0icGF0aDEwMzU2IgogICAgICAgZD0ibSAyNi42NTUzOTEsMy40MTUzODkzIGggMi4xMjQ5MzUgdiA2Ljc3NTgxMzcgaCAtMi4xMjQ5MzUgeiBtIDAsMCIKICAgICAgIHN0eWxlPSJmaWxsOiNlYjBmMTk7ZmlsbC1vcGFjaXR5OjE7ZmlsbC1ydWxlOm5vbnplcm87c3Ryb2tlOm5vbmU7c3Ryb2tlLXdpZHRoOjAuMzUyNzc4IiAvPgogICAgPHBhdGgKICAgICAgIGlkPSJwYXRoMTAzNzIiCiAgICAgICBkPSJNIDM3LjA5MTI3MywxMC4yMDIyMjggViAzLjQxNTM4OTMgaCAtMi4wNjk4MSBWIDQuMTM0NzI1MSBMIDM0LjgyNzE1OCwzLjk2NjYwNDcgQyAzNC4zNDQ4NDUsMy41MDM1ODM4IDMzLjY5OTkyMiwzLjI0NDUxMjIgMzMuMDMxNTc0LDMuMjQ3MjY4NSBjIC0xLjgzMDAzNSwwIC0zLjM3NDgxNiwxLjYyODg0MTEgLTMuMzc0ODE2LDMuNTU2NzE2NyAwLDEuOTI2NDk3NyAxLjU0ODkxNSwzLjU1OTQ3MjggMy4zNzQ4MTYsMy41NTk0NzI4IDAuNjY4MzQ4LDAuMDAxNCAxLjMxMzI3MSwtMC4yNTYzMTUgMS43OTU1ODQsLTAuNzE5MzM1NiBMIDM1LjAyMTQ2Myw5LjQ3NDYyMzYgViAxMC4xOTM5NTkgWiBNIDMzLjM3NjA4NCw4LjQwMzg4NzYgYyAtMC44ODQ3MDEsLTAuMDA1NTEgLTEuNTk3MTQ3LC0wLjcyNzYwNDIgLTEuNTkxNjM1LC0xLjYxMjMwNDYgMC4wMDQxLC0wLjg4NDcwMDQgMC43MjM0NywtMS41OTg1MjQ1IDEuNjA4MTcxLC0xLjU5NTc2ODYgMC44ODQ3LDAuMDA0MTMgMS41OTg1MjUsMC43MjM0NzA0IDEuNTk3MTQ1LDEuNjA4MTcwOCAtMC4wMDE0LDAuNDI1ODE0MSAtMC4xNzIyNTQsMC44MzUwOTE0IC0wLjQ3NTQyMiwxLjEzNTUwMzYgLTAuMzAxNzksMC4zMDA0MTI1IC0wLjcxMjQ0NiwwLjQ2NzE1NSAtMS4xMzgyNTksMC40NjQzOTg4IHogbSAwLDAiCiAgICAgICBzdHlsZT0iZmlsbDojZWIwZjE5O2ZpbGwtb3BhY2l0eToxO2ZpbGwtcnVsZTpub256ZXJvO3N0cm9rZTpub25lO3N0cm9rZS13aWR0aDowLjM1Mjc3OCIgLz4KICAgIDxwYXRoCiAgICAgICBpZD0icGF0aDEwMzc2IgogICAgICAgZD0iTSA0MC4yNjQ4OTgsMTAuMjAyMjI4IFYgOS40ODI4OTE2IGwgMC4xOTAxNjgsMC4xNjgxMjA5IGMgMC40ODM2OSwwLjQ2MzAyMDUgMS4xMjcyMzUsMC43MjA3MTQ1IDEuNzk2OTYyLDAuNzE5MzM1NSAxLjgyODY1NiwwIDMuMzczNDM4LC0xLjYyODg0MDggMy4zNzM0MzgsLTMuNTU5NDcyMyAwLC0xLjkzMDYzMTkgLTEuNTQ0NzgyLC0zLjU1NjcxNzEgLTMuMzczNDM4LC0zLjU1NjcxNzEgLTAuNjY5NzI3LC0wLjAwMTM4IC0xLjMxMzI3MiwwLjI1NjMxNTMgLTEuNzk2OTYyLDAuNzE5MzM2MiBMIDQwLjI2NDg5OCw0LjE0Mjk5MzYgViAwLjMwMjQwMDc4IEggMzguMTkwOTQ5IFYgMTAuMjAyMjI4IFogbSAwLjA0MjcyLC0zLjM5MTM1MjMgYyAtMC4wMDQxLC0wLjY1MDQzNDEgMC4zODMwOTUsLTEuMjM3NDc4NiAwLjk4MjU0MiwtMS40ODk2NTk3IDAuNTk4MDY4LC0wLjI1MjE4MDcgMS4yODg0NjUsLTAuMTE3MTMzMSAxLjc1MDExLDAuMzQwMzc1NiAwLjQ2MDI2MiwwLjQ1NzUwODcgMC41OTk0NDMsMS4xNDkyODQxIDAuMzUxMzk4LDEuNzUwMTA4NCAtMC4yNDY2NjksMC41OTk0NDY3IC0wLjgzMjMzNywwLjk5MjE4NzYgLTEuNDgxMzkxLDAuOTkyMTg3NiAtMC44ODMzMjQsMCAtMS41OTk5MDQsLTAuNzE2NTc5OSAtMS42MDI2NTksLTEuNTk5OTAyNCB6IG0gMCwwIgogICAgICAgc3R5bGU9ImZpbGw6I2ViMGYxOTtmaWxsLW9wYWNpdHk6MTtmaWxsLXJ1bGU6bm9uemVybztzdHJva2U6bm9uZTtzdHJva2Utd2lkdGg6MC4zNTI3NzgiIC8+CiAgICA8cGF0aAogICAgICAgaWQ9InBhdGgxMDM3NCIKICAgICAgIGQ9Ik0gNTMuNzgzNDUyLDEwLjIwMjIyOCBWIDMuNDE1Mzg5MyBIIDUxLjcxMzYzOCBWIDQuMTM0NzI1MSBMIDUxLjUxOTMzNSwzLjk2NjYwNDcgYyAtMC40ODM2OSwtMC40NjMwMjA5IC0xLjEyNzIzNCwtMC43MjA3MTQyIC0xLjc5Njk2MiwtMC43MTkzMzYyIC0xLjgyODY1NSwwIC0zLjM3MzQzOCwxLjYyODg0MTEgLTMuMzczNDM4LDMuNTU2NzE2NyAwLDEuOTI2NDk3NyAxLjU0ODkxNywzLjU1OTQ3MjggMy4zNzM0MzgsMy41NTk0NzI4IDAuNjY5NzI4LDAuMDAxNCAxLjMxMzI3MiwtMC4yNTYzMTUgMS43OTY5NjIsLTAuNzE5MzM1NiBMIDUxLjcxMzYzOCw5LjQ3NDYyMzYgViAxMC4xOTM5NTkgWiBNIDUwLjA4MjA0MSw4LjQwMzg4NzYgYyAtMC44ODYwNzksMC4wMDEzOCAtMS42MDU0MTQsLTAuNzE1MjAxNiAtMS42MDY3OTQsLTEuNjAxMjgwMyAtMC4wMDE0LC0wLjg4NjA3ODcgMC43MTY1OCwtMS42MDU0MTQ1IDEuNjAyNjU5LC0xLjYwNjc5MjkgMC44ODQ3MDMsMCAxLjYwMjY1OSwwLjcxNzk1ODMgMS42MDI2NTksMS42MDQwMzcgMCwwLjg4NDcwMDQgLTAuNzE1MiwxLjYwMTI4MDMgLTEuNTk4NTI0LDEuNjA0MDM2MiB6IG0gMCwwIgogICAgICAgc3R5bGU9ImZpbGw6I2ViMGYxOTtmaWxsLW9wYWNpdHk6MTtmaWxsLXJ1bGU6bm9uemVybztzdHJva2U6bm9uZTtzdHJva2Utd2lkdGg6MC4zNTI3NzgiIC8+CiAgICA8cGF0aAogICAgICAgaWQ9InBhdGgxMDM2MCIKICAgICAgIGQ9Im0gNTguMTkzMTc1LDUuMjQyNjY3OSBjIDAuNjk3Mjg2LDAuMDAyNzUgMS4yNjIyODEsMC41Njc3NTE4IDEuMjYzNjYxLDEuMjY2NDE3MyB2IDMuNjkzMTQyOCBoIDIuMTI0OTM2IFYgNi4yNDU4Nzk4IGMgMCwtMS43OTgzMzk5IC0xLjAzOTA0LC0yLjk2OTY3MjYgLTIuNjgxNjYyLC0yLjk2OTY3MjYgLTAuNjc1MjQxLDAgLTEuMzg2MzA3LDAuMjk0OTAwNCAtMS45NzE5NzUsMS4yNDQzNjg3IFYgMy40NDE1NzE4IGggLTIuMTI3NjkxIHYgNi43NjA2NTYyIGggMi4xMDk3NzcgViA2LjUwOTA4NTIgYyAwLC0wLjMzODk5NzYgMC4xMzY0MjYsLTAuNjYyODM2NyAwLjM3NzU4MSwtMC45MDEyMzcyIDAuMjQxMTU5LC0wLjIzNzAyMjYgMC41NjYzNzUsLTAuMzY5MzE0MyAwLjkwNTM3MywtMC4zNjUxODAxIHogbSAwLDAiCiAgICAgICBzdHlsZT0iZmlsbDojZWIwZjE5O2ZpbGwtb3BhY2l0eToxO2ZpbGwtcnVsZTpub256ZXJvO3N0cm9rZTpub25lO3N0cm9rZS13aWR0aDowLjM1Mjc3OCIgLz4KICAgIDxwYXRoCiAgICAgICBpZD0icGF0aDEwMzYyIgogICAgICAgZD0iTSA2OS4zMjQ5NjksMTAuMTkzOTU5IDY2LjcxNjM0Myw2LjgwNjc0MTUgNjkuMTQxNjksMy40MTUzODkzIEggNjYuNjU4NDYzIEwgNjQuNzA3MTYxLDYuMTYwNDQxNiBWIDAuMzAyNDAwNzggSCA2Mi41ODM2MDQgViAxMC4xOTM5NTkgaCAyLjEyMzU1NyBWIDcuNDAwNjc1NyBsIDIuMTQxNDc0LDIuNzkzMjgzMyB6IG0gMCwwIgogICAgICAgc3R5bGU9ImZpbGw6I2ViMGYxOTtmaWxsLW9wYWNpdHk6MTtmaWxsLXJ1bGU6bm9uemVybztzdHJva2U6bm9uZTtzdHJva2Utd2lkdGg6MC4zNTI3NzgiIC8+CiAgICA8cGF0aAogICAgICAgaWQ9InBhdGgxMDM2NiIKICAgICAgIGQ9Im0gNzAuODI0Mjc1LDcuODI1MTExOCBjIC0wLjQ4MDkzNSwtMC4wMDI3NSAtMC45MTUwMTgsMC4yODM4NzU4IC0xLjEwMTA1NSwwLjcyNjIyNiAtMC4xODYwMzQsMC40NDIzNTA1IC0wLjA4NjgyLDAuOTUzNjAyNCAwLjI1MDgwNCwxLjI5NTM1NTkgMC4zMzc2MTksMC4zNDE3NTMzIDAuODQ3NDkyLDAuNDQ1MTA2MyAxLjI5MjU5OSwwLjI2MzIwNTMgMC40NDM3MzEsLTAuMTgzMjc4OSAwLjczNDQ5NCwtMC42MTQ2MDUxIDAuNzM1ODczLC0xLjA5NTU0MDQgMC4wMDE0LC0wLjY1MzE5IC0wLjUyNTAzMiwtMS4xODUxMTI5IC0xLjE3ODIyMSwtMS4xODkyNDY4IHogbSAwLDIuMTMxODI1IEMgNzAuNDM5OCw5Ljk1ODMxMjYgNzAuMDkyNTM2LDkuNzI4MTgyNiA2OS45NDUwODUsOS4zNzQwMjY1IDY5Ljc5NjI1Niw5LjAxODQ5MjggNjkuODc3NTYsOC42MTA1OTM1IDcwLjE0NzY1Nyw4LjMzNzc0MTcgNzAuNDE5MTMxLDguMDY0ODkwMyA3MC44MjcwMyw3Ljk4MzU4NiA3MS4xODI1NjMsOC4xMzEwMzYyIGMgMC4zNTQxNTcsMC4xNDYwNzIyIDAuNTg1NjY3LDAuNDkxOTU5NSAwLjU4NTY2NywwLjg3NjQzMjMgMC4wMDE0LDAuMjUyMTgxMSAtMC4wOTc4NCwwLjQ5MzMzNzkgLTAuMjc1NjA3LDAuNjcxMTA0NyAtMC4xNzYzODksMC4xNzc3NjY5IC0wLjQxNzU0OCwwLjI3ODM2MzYgLTAuNjY4MzQ4LDAuMjc4MzYzNiB6IG0gMCwwIgogICAgICAgc3R5bGU9ImZpbGw6I2ViMGYxOTtmaWxsLW9wYWNpdHk6MTtmaWxsLXJ1bGU6bm9uemVybztzdHJva2U6bm9uZTtzdHJva2Utd2lkdGg6MC4zNTI3NzgiIC8+CiAgICA8cGF0aAogICAgICAgaWQ9InBhdGgxMDM2OCIKICAgICAgIGQ9Ik0gNzAuODIwMTQsOS4yMDU5MDYgSCA3MC42Mjk5NzIgViA5LjY1NTE0NjcgSCA3MC4zOTk4MzcgViA4LjM2MTE2ODYgaCAwLjQ5MTk1OSBjIDAuMjM4NDAxLDAgMC40MzEzMjgsMC4xOTI5MjU0IDAuNDMxMzI4LDAuNDMxMzI1OSAtMC4wMDQxLDAuMTYyNjA4NCAtMC4xMDA1OTgsMC4zMDg2ODA2IC0wLjI0ODA0OSwwLjM3NzU4MjcgbCAwLjI3Mjg1MiwwLjQ4NTA2OTUgSCA3MS4wNjgxODUgWiBNIDcwLjYyOTk3Miw4Ljk4OTU1NDEgaCAwLjI3Mjg0OSBjIDAuMTA4ODY3LDAgMC4xOTcwNjEsLTAuMDg4MTk0IDAuMTk3MDYxLC0wLjE5NzA1OTYgMCwtMC4xMTAyNDMgLTAuMDg4MTksLTAuMTk4NDM3NSAtMC4xOTcwNjEsLTAuMTk4NDM3NSBoIC0wLjI3Mjg0OSB6IG0gMCwwIgogICAgICAgc3R5bGU9ImZpbGw6I2ViMGYxOTtmaWxsLW9wYWNpdHk6MTtmaWxsLXJ1bGU6bm9uemVybztzdHJva2U6bm9uZTtzdHJva2Utd2lkdGg6MC4zNTI3NzgiIC8+CiAgPC9nPgogPC9zdmc+Cg==" alt="Scotiabank" /></div>
+          <span class="pdf-bank-tag">Crédito Hipotecario</span>
+        </div>
+        <div class="pdf-bank-card">
+          <div class="pdf-bank-logo"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxOS4yLjEsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4KCjxzdmcKICAgdmVyc2lvbj0iMS4xIgogICBpZD0ibGF5ZXIiCiAgIHg9IjBweCIKICAgeT0iMHB4IgogICB2aWV3Qm94PSIwIDAgMTkyMCAyMzUuMiIKICAgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIKICAgc29kaXBvZGk6ZG9jbmFtZT0iYmFub3J0ZS1sb2dvLXZlY3Rvci5zdmciCiAgIHdpZHRoPSIxOTIwIgogICBoZWlnaHQ9IjIzNS4yIgogICBpbmtzY2FwZTp2ZXJzaW9uPSIxLjEgKGM2OGUyMmMzODcsIDIwMjEtMDUtMjMpIgogICB4bWxuczppbmtzY2FwZT0iaHR0cDovL3d3dy5pbmtzY2FwZS5vcmcvbmFtZXNwYWNlcy9pbmtzY2FwZSIKICAgeG1sbnM6c29kaXBvZGk9Imh0dHA6Ly9zb2RpcG9kaS5zb3VyY2Vmb3JnZS5uZXQvRFREL3NvZGlwb2RpLTAuZHRkIgogICB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCiAgIHhtbG5zOnN2Zz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxkZWZzCiAgIGlkPSJkZWZzMjkiIC8+PHNvZGlwb2RpOm5hbWVkdmlldwogICBpZD0ibmFtZWR2aWV3MjciCiAgIHBhZ2Vjb2xvcj0iI2ZmZmZmZiIKICAgYm9yZGVyY29sb3I9IiM2NjY2NjYiCiAgIGJvcmRlcm9wYWNpdHk9IjEuMCIKICAgaW5rc2NhcGU6cGFnZXNoYWRvdz0iMiIKICAgaW5rc2NhcGU6cGFnZW9wYWNpdHk9IjAuMCIKICAgaW5rc2NhcGU6cGFnZWNoZWNrZXJib2FyZD0iMCIKICAgc2hvd2dyaWQ9ImZhbHNlIgogICBmaXQtbWFyZ2luLXRvcD0iMCIKICAgZml0LW1hcmdpbi1sZWZ0PSIwIgogICBmaXQtbWFyZ2luLXJpZ2h0PSIwIgogICBmaXQtbWFyZ2luLWJvdHRvbT0iMCIKICAgaW5rc2NhcGU6em9vbT0iMC4zMTkwMTg0MSIKICAgaW5rc2NhcGU6Y3g9Ijc2OS41NDgwOCIKICAgaW5rc2NhcGU6Y3k9IjI2LjY0NDIzMSIKICAgaW5rc2NhcGU6d2luZG93LXdpZHRoPSIxOTIwIgogICBpbmtzY2FwZTp3aW5kb3ctaGVpZ2h0PSIxMDE3IgogICBpbmtzY2FwZTp3aW5kb3cteD0iMTkxMiIKICAgaW5rc2NhcGU6d2luZG93LXk9Ii04IgogICBpbmtzY2FwZTp3aW5kb3ctbWF4aW1pemVkPSIxIgogICBpbmtzY2FwZTpjdXJyZW50LWxheWVyPSJsYXllciIgLz4KPHN0eWxlCiAgIHR5cGU9InRleHQvY3NzIgogICBpZD0ic3R5bGUyIj4KCS5zdDB7ZmlsbDojRUMxQzJEO30KPC9zdHlsZT4KPGcKICAgaWQ9ImcyNCIKICAgdHJhbnNmb3JtPSJtYXRyaXgoMy4yLDAsMCwzLjIsLTY1LjYsLTkxMS4wNCkiPgoJPHBhdGgKICAgY2xhc3M9InN0MCIKICAgZD0ibSAyMDYuMiwzMjUuNSBoIDAuNyBjIDMuOSwwIDcsLTMuMSA3LC03IHYgLTYuMSBjIDAsLTMuNiAtMC40LC01LjMgLTEuOCwtNy4yIC0yLC0yLjUgLTUuNSwtMy42IC04LjksLTMuNiBIIDE3MyAxNjAuOCB2IDkgMTAuNCA0LjUgNC41IDExIDkuOSBoIDEyLjIgMjYuNSBjIDQuNCwwIDkuNiwtMC42IDEyLjMsLTMuNSAyLjUsLTIuNyAyLjYsLTQuOCAyLjYsLTExLjQgdiAtMi4yIGMgMC4xLC00LjUgLTMuNiwtOC4zIC04LjIsLTguMyBtIC0zMy4xLC0xNC45IGggMjUuNiBjIDEuMywwIDQsMC41IDQsMi42IHYgNS40IGMgMCwxLjcgLTIuNSwyLjQgLTMuNSwyLjQgaCAtMjYuMSB6IG0gMjkuOCwyNy44IGMgMCwxLjUgLTEuMiwyLjcgLTIuNywyLjcgaCAtMjcuMSB2IC0xMSBIIDIwMCBjIDEuNiwwIDIuOSwxLjMgMi45LDIuOSB6IgogICBpZD0icGF0aDQiIC8+Cgk8cGF0aAogICBjbGFzcz0ic3QwIgogICBkPSJtIDI3NC4zLDM1MSBoIDE0IEwgMjYwLDMwMS43IEggMjQ4LjUgTCAyMjAuNywzNTEgaCAxMi41IGwgNS44LC0xMC43IGggMjkuNiB6IG0gLTMwLjEsLTIwLjMgOS43LC0xNy44IDkuNSwxNy44IHoiCiAgIGlkPSJwYXRoNiIgLz4KCTxwb2x5Z29uCiAgIGNsYXNzPSJzdDAiCiAgIHBvaW50cz0iMzA0LjEsMzAxLjcgMzAyLjMsMzAxLjcgMjk5LjUsMzAxLjcgMjk1LjcsMzAxLjcgMjk1LjcsMzUxIDMwNi45LDM1MSAzMDYuOSwzMjYuMiAzMDYuNiwzMTguNiAzNDQuOSwzNTEgMzQ2LjksMzUxIDM1MS44LDM1MSAzNTMuNSwzNTEgMzUzLjUsMzAxLjcgMzQyLjMsMzAxLjcgMzQyLjMsMzI2LjUgMzQyLjYsMzM0LjEgIgogICBpZD0icG9seWdvbjgiIC8+Cgk8cGF0aAogICBjbGFzcz0ic3QwIgogICBkPSJtIDQxNi42LDM1MSBoIC0zOC4xIGMgLTMuNCwwIC03LjEsLTAuOCAtOS4xLC0zLjIgLTEuNywtMS45IC0yLC01LjIgLTIsLTcuOSB2IC0yNy4xIGMgMCwtMy4xIDAuNCwtNi40IDIuNCwtOC40IDIsLTIgNS42LC0yLjcgOC43LC0yLjcgaCAzOC4xIGMgMy40LDAgNy4xLDAuNyA5LjEsMy4xIDEuNiwxLjkgMiw1LjMgMiw4IHYgMjcuMSBjIDAsMi44IC0wLjMsNiAtMiw3LjkgLTIsMi40IC01LjcsMy4yIC05LjEsMy4yIG0gLTM3LC0zOS40IHYgMjkuNSBoIDM1LjkgdiAtMjkuNSB6IgogICBpZD0icGF0aDEwIiAvPgoJPHBhdGgKICAgY2xhc3M9InN0MCIKICAgZD0ibSA0ODMuOSwzNTEgaCAxNy4zIGwgLTIyLjEsLTE4LjIgaCA2LjggYyA1LjIsMCA5LjUsLTQuMiA5LjUsLTkuNSB2IC0xMi4yIGMgMCwtNS4yIC00LjIsLTkuNSAtOS41LC05LjUgSCA0NTQuMiA0NDIgdiA5LjQgMTIuMiA5LjQgMTguNCBoIDEyLjIgdiAtMTguMiBoIDkuNyB6IE0gNDU0LjIsMzExLjEgSCA0ODEgYyAxLjMsMCAyLjMsMSAyLjMsMi4zIHYgNy43IGMgMCwxLjMgLTEsMi4zIC0yLjMsMi4zIGggLTI2LjggeiIKICAgaWQ9InBhdGgxMiIgLz4KCTxwb2x5Z29uCiAgIGNsYXNzPSJzdDAiCiAgIHBvaW50cz0iNTA0LjQsMzAxLjcgNTA0LjQsMzExLjUgNTI2LjUsMzExLjUgNTI2LjUsMzUxIDUzOC43LDM1MSA1MzguNywzMTEuNSA1NjAuNywzMTEuNSA1NjAuNywzMDEuNyA1MzguNywzMDEuNyA1MjYuNSwzMDEuNyAiCiAgIGlkPSJwb2x5Z29uMTQiIC8+Cgk8cG9seWdvbgogICBjbGFzcz0ic3QwIgogICBwb2ludHM9IjYwNS45LDMyMC41IDU4Mi44LDMyMC41IDU4Mi44LDMxMS4yIDYyMCwzMTEuMiA2MjAsMzAxLjcgNTgyLjgsMzAxLjcgNTcwLjYsMzAxLjcgNTcwLjYsMzExLjIgNTcwLjYsMzIwLjUgNTcwLjYsMzMwIDU3MC42LDM0MSA1NzAuNiwzNTEgNTgyLjgsMzUxIDYyMC41LDM1MSA2MjAuNSwzNDEgNTgyLjgsMzQxIDU4Mi44LDMzMCA2MDUuOSwzMzAgIgogICBpZD0icG9seWdvbjE2IiAvPgoJPHBhdGgKICAgY2xhc3M9InN0MCIKICAgZD0ibSA4NC41LDI4NC43IGMgLTI4LjUsMCAtNTEuNiw3LjUgLTUxLjYsMTYuOCAwLDcuOCAxNi4xLDE0LjMgMzgsMTYuMiBsIDksLTI3LjcgMS42LDI4LjIgYyAxLDAgMiwwIDMuMSwwIDI4LjUsMCA1MS42LC03LjUgNTEuNiwtMTYuOCAtMC4xLC05LjEgLTIzLjIsLTE2LjcgLTUxLjcsLTE2LjciCiAgIGlkPSJwYXRoMTgiIC8+Cgk8cGF0aAogICBjbGFzcz0ic3QwIgogICBkPSJtIDcwLjYsMzE4LjcgYyAtMjcuOCwwLjMgLTUwLjEsOS4xIC01MC4xLDIwIDAsOS4yIDE1LjgsMTYuOSAzNy40LDE5LjMgeiIKICAgaWQ9InBhdGgyMCIgLz4KCTxwYXRoCiAgIGNsYXNzPSJzdDAiCiAgIGQ9Im0gODEuNCwzMTkgMi4yLDM5LjIgYyAyMi45LC0yIDM5LjksLTEwIDM5LjksLTE5LjUgMC4xLC05LjggLTE4LjEsLTE4IC00Mi4xLC0xOS43IgogICBpZD0icGF0aDIyIiAvPgo8L2c+Cjwvc3ZnPgo=" alt="Banorte" /></div>
+          <span class="pdf-bank-tag">Crédito Hipotecario</span>
+        </div>
+        <div class="pdf-bank-card">
+          <div class="pdf-bank-logo"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCA1MjUuNSAxMDAiPgogIDwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyOS4zLjEsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiAyLjEuMCBCdWlsZCAxNTEpICAtLT4KICA8ZGVmcz4KICAgIDxzdHlsZT4KICAgICAgLnN0MCB7CiAgICAgICAgZmlsbDogIzAwMzc0NjsKICAgICAgfQoKICAgICAgLnN0MSB7CiAgICAgICAgZmlsbDogI2ZmMWI0NDsKICAgICAgfQogICAgPC9zdHlsZT4KICA8L2RlZnM+CiAgPHBhdGggY2xhc3M9InN0MSIgZD0iTTkwLjMsNDAuOGMtMS41LS41LTIuOS0uOS00LjItMS4yLDEuMy0xLjQsMi42LTMuMSwzLjktNC44LDMuNS00LjgsNS4zLTguNCw1LjMtMTEuNywwLTUuNS0zLjktOS4zLTExLjItMTUtNS42LTQuNC0xMC02LjgtMTQuMS02LjhzLTguOCwzLTEzLjYsOS41Yy0uOSwxLjMtMS44LDIuNC0yLjUsMy42LTEtMS42LTIuMi0zLjQtMy41LTUuMUM0NS43LDIuNyw0MS44LDAsMzcuNCwwcy04LjYsMi40LTE0LjcsNi40Yy03LjcsNS0xMS40LDktMTEuNCwxNC42czEuOSw3LjMsNS41LDEyLjFjLjksMS4zLDEuOCwyLjQsMi43LDMuNC0xLjkuNC0zLjksMS02LDEuN0MzLjQsNDEuNCwwLDQ1LjMsMCw1MS44cy45LDYuOSwyLjIsMTEuNWMzLDEwLjcsNi44LDE1LjcsMTQuNSwxNS43czUuOC0uNiw5LjYtMS44YzEuNS0uNSwyLjktMSw0LjEtMS40LS4yLDEuOS0uMyw0LS4zLDYuMiwwLDE1LjQsNiwxOC4yLDIzLjYsMTguMnMxOC0zLjEsMTgtMTguMiwwLTMtLjEtNC4zYzEuOC43LDMuOCwxLjUsNS45LDIuMSw0LjEsMS4zLDcuNCwxLjgsMTAuMSwxLjgsNi4zLDAsMTAtNS40LDEzLjktMTUuNiwxLjgtNC43LDIuNy04LjYsMi43LTExLjgsMC02LjUtNC4yLTEwLjEtMTMuOS0xMy4yWk02NywxOS4ybDEuNy0yLjNjMS0xLjMsMi43LTEuNiw0LS41LDYuOCw1LjgsMTAuOSwxNC40LDEwLjksMjIuNi00LS43LTYuOS0uNS05LjMsMSwwLS40LjEtLjkuMS0xLjMuMi00LjgtMi4yLTEwLTcuMS0xNS41LTEuMS0xLjItMS40LTIuNi0uNC0zLjlaTTYwLjcsMzYuM2M1LjgsNC4xLDkuMSw1LjgsMTEsNi0xLjgsMi4zLTMuMyw1LjctNC45LDEwLjUtMi4yLDYuNy0yLjgsMTAuMy0yLjQsMTIuMi0yLjgtMS02LjYtMS4zLTExLjYtMS4zcy0xMC44LjUtMTIuNSwxLjVjMC0yLjktLjctNi41LTIuMy0xMS4zLTIuMi02LjctMy45LTEwLTUuMy0xMS4yLDIuOC0uOCw2LjEtMi43LDEwLjItNS42LDUuOC00LjEsOC40LTYuNyw5LjItOC40LDEuNywyLjQsNC41LDQuOSw4LjYsNy44Wk0yNy4zLDE5LjZjNy43LTQuNSwxNy4zLTUuOCwyNS4zLTMuMi0yLDMuNS0yLjYsNi4zLTEuOSw5LS40LS4yLS44LS40LTEuMi0uNi00LjYtMS43LTEwLjQtMS0xNy4yLDEuOC0xLjUuNi0yLjkuNS0zLjktLjlsLTEuNy0yLjNjLTEtMS4zLS43LTMsLjgtMy45Wk0yOC4zLDQ0Yy0zLjEsMy44LTQuMiw5LjQtMy41LDE2LjcuMSwxLjYtLjQsMi44LTIsMy40bC0yLjguOWMtMS42LjUtMy4yLS4zLTMuNS0xLjktMi04LjYtLjItMTgsNC43LTI0LjYsMi44LDIuOSw1LjMsNC40LDguMSw0LjYtLjMuMy0uNi42LS45LDFaTTU4LDg0YzAsMS42LTEuMiwyLjktMi45LDIuNy04LjktLjgtMTcuNS01LjQtMjIuMy0xMiwzLjctMS43LDUuOS0zLjYsNi45LTYuMS4yLjQuNC44LjcsMS4yLDIuNyw0LjEsNy44LDYuOCwxNSw4LjUsMS42LjQsMi42LDEuMywyLjYsMi45djIuOWgwWk04OS45LDU3LjhjLTMuNSw4LjEtMTAuNiwxNC43LTE4LjUsMTcuMi0uNS00LTEuNy02LjYtMy44LTguNC40LDAsLjktLjIsMS4zLS4zLDQuOC0xLjMsOS01LjIsMTIuOC0xMS40LjgtMS40LDIuMS0yLjEsMy42LTEuNWwyLjguOWMxLjYuNSwyLjQsMiwxLjcsMy42WiIvPgogIDxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0yMTAuMiwyNy4yYy0xMC40LDAtMTguOCw2LjEtMjEuMSwxNC42LS40LDEuNC40LDIuMiwxLjgsMi4yaDYuOWMxLjIsMCwxLjktLjYsMi4yLTEuOSwxLTUuMSwzLjYtNi43LDEwLjMtNi43czkuNSwxLjMsOS41LDkuNXYuNWMwLDIuMi0uOCwyLjktMywyLjloLTljLTEyLjUsMC0yMC43LDUuNC0yMC43LDE1czcuNiwxNSwxNi45LDE1LDEyLjUtMi45LDE2LTguM2guNGwyLDYuMWMuMywxLjEsMS4xLDEuNywyLjIsMS43aDQuOGMxLjMsMCwyLS43LDItMnYtMjguNWMwLTEyLjEtOC4zLTIwLjEtMjAuOS0yMC4xWk0yMTkuNiw1Ny44YzAsOC43LTQsMTIuNi0xMywxMi42cy04LjUtMS44LTguNS03LjQsMS4zLTcuNCw5LjEtNy40aDEyLjR2Mi4yWk0xNjgsNDIuN3YtLjRjNi45LTMuNywxMC4yLTguNywxMC4yLTE1LjQsMC0xMC45LTguMi0xNy43LTIyLjItMTcuN2gtMjQuNWMtMS4zLDAtMiwuNy0yLDJ2NjQuN2MwLDEuMy43LDIsMiwyaDI1LjZjMTUuNCwwLDIzLjMtNi43LDIzLjMtMTguNCwwLTcuNi00LjUtMTMuNS0xMi40LTE2LjdaTTE0MS4yLDE4LjFoMTMuOWM4LjksMCwxMSwyLjEsMTEsMTAuM3MtMi4xLDEwLjMtMTEsMTAuM2gtMTMuOXYtMjAuNlpNMTU2LjcsNjguOWgtMTUuNnYtMjEuM2gxNS42YzkuMywwLDExLjUsMi4xLDExLjUsMTAuNnMtMi4yLDEwLjctMTEuNSwxMC43Wk01MjUuMSw3NS41bC0xNi4zLTIzLjd2LS40bDE0LjktMjEuMmMuOS0xLjQuMy0yLjQtMS4zLTIuNGgtNy41Yy0xLjEsMC0xLjkuNC0yLjQsMS4zbC05LjksMTZoLS40bC05LjgtMTUuOWMtLjUtLjktMS4zLTEuNC0yLjQtMS40aC04LjRjLTEuNiwwLTIuMiwxLjEtMS4zLDIuNGwxNC45LDIxLjl2LjRsLTE2LjEsMjNjLS45LDEuNC0uNCwyLjQsMS4yLDIuNGg3LjZjMS4xLDAsMS44LS4zLDIuNC0xLjNsMTEuMi0xNy43aC4zbDExLjMsMTcuN2MuNiwxLDEuMywxLjMsMi40LDEuM2g4LjNjMS42LDAsMi4yLTEuMSwxLjMtMi40Wk0yNjcuNiwyNy4yYy02LjQsMC0xMS41LDIuNC0xNS4yLDcuMWgtLjRsLTEuOS00LjljLS40LTEtMS4yLTEuNi0yLjMtMS42aC00LjhjLTEuMywwLTIsLjctMiwydjQ2LjFjMCwxLjMuNywyLDIsMmg3LjZjMS4zLDAsMi0uNywyLTJ2LTMxLjFjMC03LjcsMS44LTkuMywxMC43LTkuM3MxMCwxLjgsMTAsOS4zdjMxLjFjMCwxLjMuNywyLDIsMmg3LjVjMS4zLDAsMi0uNywyLTJ2LTI2YzAtMTQuNS02LjItMjIuNi0xNy4yLTIyLjZaTTQ1Mi44LDI3LjJjLTE0LjksMC0yNC41LDEwLjItMjQuNSwyNS42czkuNywyNS42LDI0LjUsMjUuNiwxOS42LTUuNiwyMi44LTE0LjFjLjUtMS4yLS4zLTItMS43LTJoLTcuMWMtMS4yLDAtMS45LjYtMi4zLDEuNy0xLjYsNC44LTQuNSw2LjItMTIsNi4ycy0xMi4xLTIuOC0xMi41LTE0LjNoMzQuNmMxLjMsMCwyLS43LDItMnYtMS4xYzAtMTUuOS05LjItMjUuNi0yMy45LTI1LjZaTTQ0MC4yLDQ5LjNjLjQtMTEuMSwzLjEtMTMuOCwxMi40LTEzLjhzMTIuMSwyLjksMTIuNSwxMy44aC0yNC44Wk00MDMuMywyNy4yYy02LjUsMC0xMS42LDIuMS0xNi4xLDcuMWgtLjNjLTMuNi00LjktNy45LTcuMS0xMy44LTcuMXMtMTEuMiwyLjQtMTQuOCw3LjFoLS40bC0xLjktNC45Yy0uNC0xLTEuMi0xLjYtMi4zLTEuNmgtNC44Yy0xLjMsMC0yLC43LTIsMnY0Ni4xYzAsMS4zLjcsMiwyLDJoNy42YzEuMywwLDItLjcsMi0ydi0zMS4xYzAtNy43LDEuOC05LjMsMTAuMy05LjNzOS42LDEuOCw5LjYsOS4zdjMxLjFjMCwxLjMuNywyLDIsMmg3LjVjMS4zLDAsMi0uNywyLTJ2LTMxLjFjMC03LjcsMS44LTkuMywxMC4zLTkuM3M5LjYsMS44LDkuNiw5LjN2MzEuMWMwLDEuMy43LDIsMiwyaDcuNWMxLjMsMCwyLS43LDItMnYtMjZjMC0xNC43LTUuOC0yMi42LTE4LTIyLjZaTTMxNi4xLDI3LjJjLTEwLjQsMC0xOC44LDYuMS0yMS4xLDE0LjYtLjQsMS40LjQsMi4yLDEuOCwyLjJoNi45YzEuMiwwLDEuOS0uNiwyLjItMS45LDEtNS4xLDMuNi02LjcsMTAuMy02LjdzOS41LDEuMyw5LjUsOS41di41YzAsMi4yLS44LDIuOS0zLDIuOWgtOWMtMTIuNSwwLTIwLjcsNS40LTIwLjcsMTVzNy42LDE1LDE2LjksMTUsMTIuNS0yLjksMTYtOC4zaC40bDIsNi4xYy4zLDEuMSwxLjEsMS43LDIuMiwxLjdoNC44YzEuMywwLDItLjcsMi0ydi0yOC41YzAtMTIuMS04LjMtMjAuMS0yMC45LTIwLjFaTTMyNS42LDU3LjhjMCw4LjctNCwxMi42LTEzLDEyLjZzLTguNS0xLjgtOC41LTcuNCwxLjMtNy40LDkuMS03LjRoMTIuNHYyLjJaIi8+Cjwvc3ZnPg==" alt="Banamex" /></div>
+          <span class="pdf-bank-tag">Crédito Hipotecario</span>
+        </div>
+        </div>
+        <div class="pdf-credit-perks">
+          <div class="pdf-credit-perk">✓ Precalificación y comparativa entre los 5 bancos</div>
+          <div class="pdf-credit-perk">✓ Integración de expediente y gestión de avalúo</div>
+          <div class="pdf-credit-perk">✓ Acompañamiento hasta firma en notaría</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 01 EXTERIOR Y CONDOMINIO (4 Horizontales completas) -->
+    <section id="exterior" class="section-block page-break">
+      <div class="section-header">
+        <div class="section-kicker">01 · Exterior y Fraccionamiento</div>
+        <h2 class="section-title">Fachada, Cochera y Áreas Verdes del Condominio</h2>
+        <p class="section-subtitle">Ubicada en la Privada "M" frente a áreas verdes arboladas y juegos infantiles, con calles adoquinadas y vigilancia.</p>
+      </div>
+
+      <div class="grid-2">
+        <figure class="photo-card">
+          <div class="photo-frame"><img src="fachada_principal_retocada_1792555180287.jpg" alt="Fachada Principal y Cochera Techada" /></div>
+          <figcaption>
+            <h4>Fachada Principal y Cochera Techada</h4>
+            <p>Arquitectura contemporánea con cochera techada para 2 autos y ventanal de doble altura.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="photo-card">
+          <div class="photo-frame"><img src="acceso_cochera_retocado_1792555202327.jpg" alt="Andador de Acceso Principal" /></div>
+          <figcaption>
+            <h4>Andador Peatonal de Acceso</h4>
+            <p>Acceso principal enmarcado por jardineras ornamentales perfectamente iluminadas.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="photo-card">
+          <div class="photo-frame"><img src="parque_areas_verdes_retocado_1792555242262.jpg" alt="Parque y Juegos Infantiles del Condominio" /></div>
+          <figcaption>
+            <h4>Parque y Juegos Infantiles del Fraccionamiento</h4>
+            <p>Áreas verdes arboladas y zona infantil frente a la privada.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="photo-card">
+          <div class="photo-frame"><img src="calle_condominio_retocada_1792555355309.jpg" alt="Vialidad Interna Adoquinada" /></div>
+          <figcaption>
+            <h4>Privada Residencial Adoquinada</h4>
+            <p>Ambiente seguro, tranquilo y familiar sobre Blvd. Esteban de Antuñano.</p>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 02 SALA, COMEDOR, DOBLE ALTURA, JARDÍN Y BAÑO DE VISITAS -->
+    <section id="social" class="section-block page-break">
+      <div class="section-header">
+        <div class="section-kicker">02 · Planta Baja · Área Social y Doble Altura</div>
+        <h2 class="section-title">Vestíbulo a Doble Altura, Sala, Comedor con Jardín y Baño de Visitas</h2>
+        <p class="section-subtitle">Espectacular vestíbulo de entrada con gran ventanal de piso a techo a doble altura, estancia corrida de sala-comedor e integración directa al jardín privado excedente.</p>
+      </div>
+
+      <div class="grid-2" style="margin-bottom: 18px;">
+        <figure class="photo-card">
+          <div class="photo-frame"><img src="40_vestibulo_doble_altura_entrada.jpg" alt="Vestíbulo a Doble Altura y Ventanal Frontal" /></div>
+          <figcaption>
+            <h4>Vestíbulo a Doble Altura y Gran Ventanal Frontal</h4>
+            <p>Imponente entrada principal bañada de luz natural con vista al puente de cristal superior.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="photo-card">
+          <div class="photo-frame"><img src="41_estancia_panoramica_planta_baja.jpg" alt="Panorámica de Sala, Comedor y Jardín" /></div>
+          <figcaption>
+            <h4>Panorámica de Estancia Social y Jardín</h4>
+            <p>Amplitud total que integra el vestíbulo a doble altura, la sala, el comedor y el jardín privado.</p>
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="grid-3" style="margin-bottom: 18px;">
+        <figure class="photo-card">
+          <div class="photo-frame portrait"><img src="39_doble_altura_vista_aerea.jpg" alt="Vista Aérea de la Doble Altura" /></div>
+          <figcaption>
+            <h4>Vista Aérea desde el Puente Superior</h4>
+            <p>Perspectiva cenital hacia el acceso principal y el gran ventanal frontal.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="photo-card">
+          <div class="photo-frame portrait"><img src="05_sala_1792555201074.jpg" alt="Estancia de Sala Principal" /></div>
+          <figcaption>
+            <h4>Estancia de Sala</h4>
+            <p>Plafones de iluminación cálida indirecta y pisos cerámicos de gran formato.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="photo-card">
+          <div class="photo-frame portrait"><img src="06_comedor_jardin_1792555234084.jpg" alt="Comedor con Salida al Jardín" /></div>
+          <figcaption>
+            <h4>Comedor Integrado al Jardín</h4>
+            <p>Vista verde desde el comedor hacia el jardín privado excedente.</p>
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="grid-2">
+        <figure class="photo-card">
+          <div class="photo-frame portrait"><img src="07_estancia_comedor_1792555309720.jpg" alt="Perspectiva del Comedor y Terraza" /></div>
+          <figcaption>
+            <h4>Amplitud y Luz Natural</h4>
+            <p>Conexión fluida entre la estancia social, la terraza exterior y la cocina.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="photo-card">
+          <div class="photo-frame portrait"><img src="08_bano_visitas_1792555360197.jpg" alt="Medio Baño de Visitas" /></div>
+          <figcaption>
+            <h4>Medio Baño de Visitas</h4>
+            <p>Cubierta de granito natural y lavabo de sobreponer contemporáneo.</p>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 03 COCINA INTEGRAL Y CUARTO DE LAVADO -->
+    <section id="cocina" class="section-block page-break">
+      <div class="section-header">
+        <div class="section-kicker">03 · Gastronomía y Servicios</div>
+        <h2 class="section-title">Cocina Integral Equipada y Cuarto de Lavado</h2>
+        <p class="section-subtitle">Barras de granito natural, alacenas de madera con puertas de cristal esmerilado, antecomedor central y cuarto de lavado independiente.</p>
+      </div>
+
+      <div class="grid-2" style="margin-bottom: 18px;">
+        <figure class="photo-card">
+          <div class="photo-frame"><img src="09_cocina_principal_1792555189835.jpg" alt="Cocina Integral con Desayunador" /></div>
+          <figcaption>
+            <h4>Cocina Integral con Antecomedor</h4>
+            <p>Equipada con estufa, campana extractora, extensas cubiertas de granito y gabinetes superiores e inferiores.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="photo-card">
+          <div class="photo-frame"><img src="11_cocina_alacenas_1792555252732.jpg" alt="Barra Auxiliar de Granito y Alacenas" /></div>
+          <figcaption>
+            <h4>Barra Auxiliar de Granito y Alacenas</h4>
+            <p>Gran capacidad de almacenamiento en cajoneras y alacenas con cristal esmerilado.</p>
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="grid-2">
+        <figure class="photo-card">
+          <div class="photo-frame portrait"><img src="10_cocina_vista_jardin_1792555212079.jpg" alt="Cocina con Vista al Jardín" /></div>
+          <figcaption>
+            <h4>Ventanales de Piso a Techo hacia el Jardín</h4>
+            <p>Área de tarja bañada por luz natural con vista directa a la vegetación del jardín.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="photo-card">
+          <div class="photo-frame portrait"><img src="12_cuarto_lavado_1792555316594.jpg" alt="Cuarto de Lavado y Servicio" /></div>
+          <figcaption>
+            <h4>Cuarto de Lavado y Servicio Independiente</h4>
+            <p>Barra de granito con gabinetes blancos, lavadero, calentador e instalaciones para centro de lavado.</p>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 04 SALA DE TV, ESCALERAS Y PASILLO DISTRIBUIDOR -->
+    <section id="salatv" class="section-block page-break">
+      <div class="section-header">
+        <div class="section-kicker">04 · Primer Piso · Circulación y Convivencia</div>
+        <h2 class="section-title">Sala de TV, Escaleras con Domos de Luz y Puente de Cristal</h2>
+        <p class="section-subtitle">Área familiar que articula la Recámara Principal con las Recámaras 2 y 3 mediante un luminoso puente con barandales de cristal templado y escaleras en madera con muro de piedra natural.</p>
+      </div>
+
+      <div class="grid-2" style="margin-bottom: 18px;">
+        <figure class="photo-card">
+          <div class="photo-frame"><img src="13_sala_tv_pasillo_1792555211796.jpg" alt="Sala de TV y Pasillo de Doble Altura" /></div>
+          <figcaption>
+            <h4>Sala de TV y Puente de Doble Altura</h4>
+            <p>Barandales de cristal templado con vista hacia la estancia de planta baja y escalera flotante.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="photo-card">
+          <div class="photo-frame"><img src="35_sala_tv_escaleras.jpg" alt="Sala de TV y Escalera Flotante" /></div>
+          <figcaption>
+            <h4>Sala de TV Familiar y Escalera en Madera</h4>
+            <p>Espacio de convivencia en planta alta con muro decorativo de piedra natural.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="photo-card">
+          <div class="photo-frame"><img src="36_sala_tv_puente_ventanal.jpg" alt="Puente de Cristal hacia el Ventanal" /></div>
+          <figcaption>
+            <h4>Conexión Visual hacia la Doble Altura</h4>
+            <p>Vista desde la Sala de TV hacia el gran ventanal frontal de doble altura.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="photo-card">
+          <div class="photo-frame"><img src="37_sala_tv_muro_piedra_pasillo.jpg" alt="Distribuidor entre Sala de TV y Recámaras" /></div>
+          <figcaption>
+            <h4>Distribuidor hacia las Recámaras</h4>
+            <p>Pasillo que conecta la Sala de TV con las Recámaras 2 y 3 y el puente de la Master Suite.</p>
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="grid-3">
+        <figure class="photo-card">
+          <div class="photo-frame portrait"><img src="38_puente_cristal_recamaras.jpg" alt="Puente con Barandal de Cristal Templado" /></div>
+          <figcaption>
+            <h4>Puente hacia la Recámara Principal</h4>
+            <p>Recorrido luminoso con barandales de cristal templado y pasamanos de acero.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="photo-card">
+          <div class="photo-frame portrait"><img src="34_escalera_flotante_vertical.jpg" alt="Escalera Flotante de Madera" /></div>
+          <figcaption>
+            <h4>Escalera Flotante en Madera</h4>
+            <p>Huellas de madera sólida e imponente muro de piedra natural de piso a techo.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="photo-card">
+          <div class="photo-frame portrait"><img src="33_escalera_domos_luz.jpg" alt="Domos Cenitales sobre Escalera" /></div>
+          <figcaption>
+            <h4>Domos Cenitales de Luz Natural</h4>
+            <p>Doble domo superior que baña de luz natural todo el cubo de escaleras.</p>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 05 RECÁMARA PRINCIPAL (MASTER SUITE) -->
+    <section id="recamaras" class="section-block page-break">
+      <div class="section-header">
+        <div class="section-kicker">05 · Primer Piso · Suite Principal</div>
+        <h2 class="section-title">Recámara Principal con Vestidor Walk-In y Doble Lavabo</h2>
+        <p class="section-subtitle">Privacidad absoluta para la suite principal, con amplias dimensiones para cama King Size y zona de lectura, cuarto vestidor independiente y baño completo con cubierta de granito y doble lavabo.</p>
+      </div>
+
+      <div class="grid-2" style="margin-bottom: 18px;">
+        <figure class="photo-card">
+          <div class="photo-frame"><img src="14_recamara_principal_1_1792555234084.jpg" alt="Recámara Principal Vista 1" /></div>
+          <figcaption>
+            <h4>Recámara Principal · Vista Principal</h4>
+            <p>Amplia suite principal con espacio para cama King Size, burós laterales y sillón de lectura.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="photo-card">
+          <div class="photo-frame"><img src="15_recamara_principal_2_1792555339515.jpg" alt="Recámara Principal Perspectiva Amplia" /></div>
+          <figcaption>
+            <h4>Recámara Principal · Perspectiva Amplia y Ventanal</h4>
+            <p>Proporción real de la habitación mostrando el área de descanso, cómodas laterales y gran ventanal.</p>
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="grid-2">
+        <figure class="photo-card">
+          <div class="photo-frame portrait"><img src="16_vestidor_principal_1792555389061.jpg" alt="Vestidor Walk-In de la Recámara Principal" /></div>
+          <figcaption>
+            <h4>Vestidor Independiente (Walk-In)</h4>
+            <p>Carpintería de madera en ambos lados y ventana con luz natural.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="photo-card">
+          <div class="photo-frame portrait"><img src="17_bano_principal_1792555448782.jpg" alt="Baño Principal con Doble Lavabo" /></div>
+          <figcaption>
+            <h4>Baño Principal con Doble Lavabo</h4>
+            <p>Cubierta extendida de granito con dos lavabos y ducha con cancel templado.</p>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 06 RECÁMARA 2 -->
+    <section id="recamara-2" class="section-block page-break">
+      <div class="section-header">
+        <div class="section-kicker">06 · Primer Piso · Segunda Suite</div>
+        <h2 class="section-title">Recámara 2 con Clóset de Piso a Techo y Baño Privado</h2>
+        <p class="section-subtitle">Habitación secundaria en tonos cálidos con amplio ventanal de piso a techo, clóset completo de madera y baño privado con domo de luz natural y cancel templado.</p>
+      </div>
+
+      <div class="grid-2" style="margin-bottom: 18px;">
+        <figure class="photo-card">
+          <div class="photo-frame"><img src="19_recamara_2_cama_1792555233518.jpg" alt="Recámara 2 Área de Descanso y Ventanal" /></div>
+          <figcaption>
+            <h4>Recámara 2 · Área de Descanso y Ventanal</h4>
+            <p>Amplia habitación con excelente entrada de luz natural por su ventanal de piso a techo.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="photo-card">
+          <div class="photo-frame"><img src="18_recamara_2_closet_1792555214101.jpg" alt="Recámara 2 y Clóset de Piso a Techo" /></div>
+          <figcaption>
+            <h4>Recámara 2 · Clóset de Piso a Techo en Madera</h4>
+            <p>Carpintería completa en madera con cajoneras centrales, maleteros y puertas abatibles.</p>
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="grid-2">
+        <figure class="photo-card">
+          <div class="photo-frame portrait"><img src="49_bano_recamara_2_lavabo.jpg" alt="Baño Privado de Recámara 2 Lavabo y Domo" /></div>
+          <figcaption>
+            <h4>Baño Privado (Recámara 2) · Lavabo de Granito y Domo</h4>
+            <p>Cubierta de granito natural, espejo e iluminación cenital natural por domo superior.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="photo-card">
+          <div class="photo-frame portrait"><img src="20_bano_recamara_2_1792555315898.jpg" alt="Baño Completo Privado de Recámara 2 Regadera" /></div>
+          <figcaption>
+            <h4>Baño Privado (Recámara 2) · Regadera con Cancel Templado</h4>
+            <p>Ducha revestida en cerámica con nicho empotrado, cancel de cristal templado y ventilación natural.</p>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 07 RECÁMARA 3 -->
+    <section id="recamara-3" class="section-block page-break">
+      <div class="section-header">
+        <div class="section-kicker">07 · Primer Piso · Tercera Suite</div>
+        <h2 class="section-title">Recámara 3 con Capacidad para Dos Camas, Clóset y Baño Privado</h2>
+        <p class="section-subtitle">Espaciosa tercera suite con capacidad holgada para dos camas individuales, ventanal con cortinas, clóset de madera de piso a techo y baño completo privado.</p>
+      </div>
+
+      <div class="grid-2" style="margin-bottom: 18px;">
+        <figure class="photo-card">
+          <div class="photo-frame"><img src="47_recamara_3_camas_ventanal.jpg" alt="Recámara 3 Vista Amplia con Dos Camas" /></div>
+          <figcaption>
+            <h4>Recámara 3 · Vista Amplia con Dos Camas y Ventanal</h4>
+            <p>Dimensiones generosas que alojan cómodamente dos camas individuales, buró central y ventanal.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="photo-card">
+          <div class="photo-frame"><img src="21_recamara_3_closet_1792555356189.jpg" alt="Recámara 3 con Clóset y Baño Propio" /></div>
+          <figcaption>
+            <h4>Recámara 3 · Clóset de Madera y Acceso a Baño</h4>
+            <p>Clóset de piso a techo en madera con cajoneras y puerta de acceso directo a su baño privado.</p>
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="grid-2">
+        <figure class="photo-card">
+          <div class="photo-frame portrait"><img src="48_recamara_3_perspectiva_ventana.jpg" alt="Recámara 3 Perspectiva hacia Ventanal y Cómoda" /></div>
+          <figcaption>
+            <h4>Recámara 3 · Perspectiva hacia Ventanal y Cómoda</h4>
+            <p>Iluminación natural abundante a través de su ventana con cortinas y espacio para cómoda lateral.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="photo-card">
+          <div class="photo-frame portrait"><img src="22_bano_recamara_3_1792555453975.jpg" alt="Baño Completo Privado de Recámara 3" /></div>
+          <figcaption>
+            <h4>Baño Completo Privado (Recámara 3)</h4>
+            <p>Lavabo sobre cubierta de granito, sanitario, domo de luz y regadera con cancel de cristal templado.</p>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 08 ROOF GARDEN -->
+    <section id="roofgarden" class="section-block page-break">
+      <div class="section-header">
+        <div class="section-kicker">08 · Segundo Nivel · Roof Garden Social</div>
+        <h2 class="section-title">Azotea Tipo Roof Garden con Terrazas, Cocineta y Baño Completo</h2>
+        <p class="section-subtitle">Un tercer nivel completamente equipado para reuniones y eventos sociales, con cocineta interior, baño completo con regadera y dos terrazas (techada y abierta).</p>
+      </div>
+
+      <div class="grid-2" style="margin-bottom: 18px;">
+        <figure class="photo-card">
+          <div class="photo-frame"><img src="26_terraza_techada_1792555358947.jpg" alt="Terraza Techada con Pérgola en Roof Garden" /></div>
+          <figcaption>
+            <h4>Terraza Techada con Pérgola</h4>
+            <p>Espacio techado ideal para comedor exterior o sala lounge con vista arbolada.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="photo-card">
+          <div class="photo-frame"><img src="27_terraza_abierta_1792555439020.jpg" alt="Terraza Abierta en Roof Garden" /></div>
+          <figcaption>
+            <h4>Terraza Abierta Panorámica</h4>
+            <p>Amplio solárium a cielo abierto con piso cerámico y domos de luz natural.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="photo-card">
+          <div class="photo-frame"><img src="28_roof_garden_panoramico_1.jpg" alt="Amplitud del Roof Garden hacia la Pérgola" /></div>
+          <figcaption>
+            <h4>Conexión de Solárium y Pérgola Techada</h4>
+            <p>Perspectiva completa de la terraza abierta conectada con el área pergolada.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="photo-card">
+          <div class="photo-frame"><img src="29_roof_garden_domos_pergola.jpg" alt="Roof Garden y Domos de Luz" /></div>
+          <figcaption>
+            <h4>Domos de Luz y Terraza Social</h4>
+            <p>Doble domo de iluminación cenital y acceso directo al área techada.</p>
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="grid-3" style="margin-bottom: 18px;">
+        <figure class="photo-card">
+          <div class="photo-frame"><img src="24_cocineta_roof_garden_1792555249849.jpg" alt="Cocineta en Roof Garden" /></div>
+          <figcaption>
+            <h4>Cocineta Equipada de Apoyo</h4>
+            <p>Barra con tarja y gabinetes inferiores para atender reuniones en el Roof Garden.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="photo-card">
+          <div class="photo-frame"><img src="31_cocineta_roof_ventana.jpg" alt="Área de Cocineta y Ventanal al Roof" /></div>
+          <figcaption>
+            <h4>Área Interior de Servicio y Bar</h4>
+            <p>Espacio techado junto a las terrazas con ventilación e iluminación natural.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="photo-card">
+          <div class="photo-frame"><img src="25_bano_roof_garden_1792555307962.jpg" alt="Baño Completo en Roof Garden" /></div>
+          <figcaption>
+            <h4>4.º Baño Completo en Roof Garden</h4>
+            <p>Lavabo sobre cubierta de granito y regadera completa con cancel.</p>
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="grid-3">
+        <figure class="photo-card">
+          <div class="photo-frame portrait"><img src="32_bano_roof_vertical.jpg" alt="Detalle Vertical del Baño de Roof Garden" /></div>
+          <figcaption>
+            <h4>Acabados del 4.º Baño Completo</h4>
+            <p>Sanitario de una pieza, cubierta de granito y cancel de cristal templado.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="photo-card">
+          <div class="photo-frame portrait"><img src="30_vista_cenital_jardin.jpg" alt="Vista Cenital hacia el Jardín Excedente" /></div>
+          <figcaption>
+            <h4>Vista Cenital al Jardín Privado</h4>
+            <p>Perspectiva desde la terraza superior que muestra las dimensiones del jardín y patio.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="photo-card">
+          <div class="photo-frame portrait"><img src="23_escalera_roof_garden_1792555213953.jpg" alt="Escalera Flotante al Roof Garden" /></div>
+          <figcaption>
+            <h4>Escalera de Acceso al Roof Garden</h4>
+            <p>Muro recubierto en piedra natural, pasamanos de acero y barandal de cristal.</p>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 09 PLANOS ARQUITECTÓNICOS -->
+    <section id="planos" class="section-block page-break">
+      <div class="section-header">
+        <div class="section-kicker">09 · Distribución y Proyecto Arquitectónico</div>
+        <h2 class="section-title">Planos Arquitectónicos por Nivel, Fachada y Corte</h2>
+        <p class="section-subtitle">Plantas arquitectónicas de los 3 niveles (Planta Baja, Planta Alta y Planta Azotea), alzado de fachada principal y corte longitudinal que ilustra la doble altura.</p>
+      </div>
+
+      <div class="grid-3" style="margin-bottom: 18px;">
+        <figure class="photo-card">
+          <div class="photo-frame portrait"><img src="42_plano_planta_baja.jpg" alt="Plano Arquitectónico Planta Baja" /></div>
+          <figcaption>
+            <h4>Plano de Planta Baja</h4>
+            <p>Cochera para 2 autos, vestíbulo a doble altura, sala, comedor, cocina, cuarto de lavado y jardín.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="photo-card">
+          <div class="photo-frame portrait"><img src="43_plano_planta_alta.jpg" alt="Plano Arquitectónico Planta Alta" /></div>
+          <figcaption>
+            <h4>Plano de Planta Alta</h4>
+            <p>Puente sobre doble altura, Sala de TV, Recámara Principal con vestidor y Recámaras 2 y 3 con baño.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="photo-card">
+          <div class="photo-frame portrait"><img src="44_plano_planta_azotea.jpg" alt="Plano Arquitectónico Planta Azotea" /></div>
+          <figcaption>
+            <h4>Plano de Planta Azotea (Roof Garden)</h4>
+            <p>Cocineta interior, 4.º baño completo, terraza techada y amplia terraza abierta.</p>
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="grid-2" style="margin-bottom: 18px;">
+        <figure class="photo-card">
+          <div class="photo-frame"><img src="45_plano_alzado_fachada.jpg" alt="Alzado Arquitectónico de Fachada Principal" /></div>
+          <figcaption>
+            <h4>Alzado de Fachada Principal</h4>
+            <p>Proporción arquitectónica de los tres niveles, cochera techada y ventanal de doble altura.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="photo-card">
+          <div class="photo-frame"><img src="46_plano_corte_longitudinal.jpg" alt="Corte Longitudinal de los 3 Niveles" /></div>
+          <figcaption>
+            <h4>Corte Arquitectónico Longitudinal</h4>
+            <p>Sección constructiva que muestra la doble altura en acceso, escaleras y niveles residenciales.</p>
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="footer-card">
+        <div>
+          <div class="section-kicker">Ubicación Privilegiada en Puebla</div>
+          <h3 class="section-title" style="font-size: 24px; margin-bottom: 8px;">Fraccionamiento Residencial Molino de Santo Domingo</h3>
+          <p class="hero-desc" style="margin-bottom: 6px;">
+            Ubicada sobre <strong>Blvd. Esteban de Antuñano</strong> (Zona Luz Obrera, Puebla, Pue.), con excelente conectividad hacia Av. Hermanos Serdán, Recta a Cholula, Autopista México–Puebla y Zavaleta.
+          </p>
+          <div class="pills">
+            <span class="pill">278.98 m² de Terreno</span>
+            <span class="pill">276.37 m² de Construcción</span>
+            <span class="pill">3 Recámaras con Baño</span>
+            <span class="pill">4.5 Baños</span>
+            <span class="pill">Jardín Excedente</span>
+            <span class="pill">Roof Garden con Cocineta y Baño</span>
+          </div>
+        </div>
+
+        <div class="summary-table">
+          <h4>Resumen General</h4>
+          <div class="summary-row"><span style="color: var(--gold); font-weight: 700;">Valor de la Propiedad</span><span style="color: var(--gold); font-size: 14px;">$5,490,000.00 MXN</span></div>
+          <div class="summary-row"><span>Crédito Hipotecario</span><span>Santander, HSBC, Scotiabank, Banorte, Banamex</span></div>
+          <div class="summary-row"><span>Superficie de Terreno</span><span>278.98 m²</span></div>
+          <div class="summary-row"><span>Superficie de Construcción</span><span>276.37 m²</span></div>
+          <div class="summary-row"><span>Recámaras</span><span>3 (Principal c/ Vestidor)</span></div>
+          <div class="summary-row"><span>Baños</span><span>4 Completos + 1 Medio Baño</span></div>
+          <div class="summary-row"><span>Estacionamiento</span><span>Cochera Techada (2 Autos)</span></div>
+          <div class="summary-row"><span>Niveles</span><span>Planta Baja + 1.er Piso + Roof Garden</span></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</body>
+</html>
