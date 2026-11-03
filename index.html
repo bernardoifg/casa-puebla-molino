@@ -377,10 +377,32 @@
       margin-top: 2px;
     }
 
-    .banks-grid {
+    .banks-featured-label,
+    .banks-sub-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+
+    .banks-sub-label {
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .banks-featured-grid {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 14px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-bottom: 14px;
+    }
+
+    .banks-secondary-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
       margin-bottom: 18px;
     }
 
@@ -388,48 +410,88 @@
       background: #ffffff;
       border: 1.5px solid var(--border);
       border-radius: 16px;
-      padding: 18px 14px;
+      padding: 13px 12px;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      min-height: 108px;
+      gap: 7px;
+      min-height: 86px;
       transition: all 0.2s ease;
       box-shadow: 0 3px 10px rgba(28, 25, 23, 0.03);
+    }
+
+    .bank-card.featured {
+      background: linear-gradient(180deg, #ffffff 0%, #fcf8ef 100%);
+      border: 2px solid var(--gold);
+      border-radius: 18px;
+      padding: 20px 22px;
+      min-height: 138px;
+      gap: 10px;
+      box-shadow: 0 8px 22px rgba(154, 111, 26, 0.10);
     }
 
     .bank-card:hover {
       border-color: var(--gold);
       transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(154, 111, 26, 0.12);
+      box-shadow: 0 8px 20px rgba(154, 111, 26, 0.14);
+    }
+
+    .bank-featured-badge {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--gold);
+      background: var(--gold-light);
+      border: 1px solid var(--gold-border);
+      padding: 3px 11px;
+      border-radius: 999px;
     }
 
     .bank-logo-wrap {
       width: 100%;
-      height: 46px;
+      height: 32px;
       display: flex;
       align-items: center;
       justify-content: center;
     }
 
+    .bank-card.featured .bank-logo-wrap {
+      height: 58px;
+    }
+
     .bank-logo-wrap svg,
     .bank-logo-wrap img {
-      max-width: 155px;
-      max-height: 42px;
+      max-width: 128px;
+      max-height: 28px;
       width: auto;
       height: auto;
       display: block;
     }
 
+    .bank-card.featured .bank-logo-wrap img {
+      max-width: 225px;
+      max-height: 52px;
+    }
+
     .bank-tag {
-      font-size: 10.5px;
+      font-size: 10px;
       font-weight: 600;
       color: var(--muted);
       background: var(--bg);
       border: 1px solid var(--border);
-      padding: 3px 10px;
+      padding: 2.5px 9px;
       border-radius: 999px;
+    }
+
+    .bank-card.featured .bank-tag {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text);
+      background: #ffffff;
+      border-color: var(--gold-border);
+      padding: 4px 13px;
     }
 
     .credit-perks {
@@ -1087,13 +1149,14 @@
         text-align: left;
       }
 
-      .banks-grid {
-        grid-template-columns: repeat(2, 1fr);
+      .banks-featured-grid {
+        grid-template-columns: 1fr;
         gap: 10px;
       }
 
-      .banks-grid .bank-card:last-child {
-        grid-column: span 2;
+      .banks-secondary-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
       }
 
       .credit-perks {
@@ -1274,7 +1337,7 @@
           <span class="brand-dot"></span>
           <span>Molino de Santo Domingo · Puebla</span>
         </a>
-        <a href="Brochure_Casa_Puebla_Molino_Santo_Domingo_Fotos_Completas.pdf?v=20261103_pdf2_pdf" target="_blank" download class="btn-pdf mobile-only-pdf">
+        <a href="Brochure_Casa_Puebla_Molino_Santo_Domingo_Fotos_Completas.pdf?v=20261103_v3" target="_blank" download class="btn-pdf mobile-only-pdf">
           📄 Descargar PDF
         </a>
       </div>
@@ -1294,7 +1357,7 @@
           <a href="#sec-roof">8. Roof Garden</a>
           <a href="#sec-planos">9. Planos</a>
         </nav>
-        <a href="Brochure_Casa_Puebla_Molino_Santo_Domingo_Fotos_Completas.pdf?v=20261103_pdf2_pdf" target="_blank" download class="btn-pdf desktop-only-pdf">
+        <a href="Brochure_Casa_Puebla_Molino_Santo_Domingo_Fotos_Completas.pdf?v=20261103_v3" target="_blank" download class="btn-pdf desktop-only-pdf">
           📄 Descargar PDF
         </a>
       </div>
@@ -1422,23 +1485,29 @@
         </div>
       </div>
 
-      <div class="banks-grid">
-        <!-- SANTANDER -->
-        <div class="bank-card" title="Santander Hipotecario">
-          <div class="bank-logo-wrap">
-            <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyMi4wLjEsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4KCjxzdmcKICAgdmVyc2lvbj0iMS4xIgogICBpZD0iU2FudGFuZGVyIgogICB4PSIwcHgiCiAgIHk9IjBweCIKICAgdmlld0JveD0iMCAwIDIzOC4yIDQxLjUiCiAgIHhtbDpzcGFjZT0icHJlc2VydmUiCiAgIHNvZGlwb2RpOmRvY25hbWU9IkJhbmNvX1NhbnRhbmRlcl9Mb2dvdGlwby5zdmciCiAgIHdpZHRoPSIyMzguMiIKICAgaGVpZ2h0PSI0MS41IgogICBpbmtzY2FwZTp2ZXJzaW9uPSIxLjEgKGM2OGUyMmMzODcsIDIwMjEtMDUtMjMpIgogICB4bWxuczppbmtzY2FwZT0iaHR0cDovL3d3dy5pbmtzY2FwZS5vcmcvbmFtZXNwYWNlcy9pbmtzY2FwZSIKICAgeG1sbnM6c29kaXBvZGk9Imh0dHA6Ly9zb2RpcG9kaS5zb3VyY2Vmb3JnZS5uZXQvRFREL3NvZGlwb2RpLTAuZHRkIgogICB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCiAgIHhtbG5zOnN2Zz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCiAgIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyIKICAgeG1sbnM6Y2M9Imh0dHA6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL25zIyIKICAgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIj48ZGVmcwogICBpZD0iZGVmczEzIiAvPjxzb2RpcG9kaTpuYW1lZHZpZXcKICAgaWQ9Im5hbWVkdmlldzExIgogICBwYWdlY29sb3I9IiNmZmZmZmYiCiAgIGJvcmRlcmNvbG9yPSIjNjY2NjY2IgogICBib3JkZXJvcGFjaXR5PSIxLjAiCiAgIGlua3NjYXBlOnBhZ2VzaGFkb3c9IjIiCiAgIGlua3NjYXBlOnBhZ2VvcGFjaXR5PSIwLjAiCiAgIGlua3NjYXBlOnBhZ2VjaGVja2VyYm9hcmQ9IjAiCiAgIHNob3dncmlkPSJmYWxzZSIKICAgZml0LW1hcmdpbi10b3A9IjAiCiAgIGZpdC1tYXJnaW4tbGVmdD0iMCIKICAgZml0LW1hcmdpbi1yaWdodD0iMCIKICAgZml0LW1hcmdpbi1ib3R0b209IjAiCiAgIGlua3NjYXBlOnpvb209IjIuMzU3NTg4NCIKICAgaW5rc2NhcGU6Y3g9IjEwNS44Mjg0OCIKICAgaW5rc2NhcGU6Y3k9IjQ2LjQ0NTc2NyIKICAgaW5rc2NhcGU6d2luZG93LXdpZHRoPSIxOTIwIgogICBpbmtzY2FwZTp3aW5kb3ctaGVpZ2h0PSIxMDE3IgogICBpbmtzY2FwZTp3aW5kb3cteD0iMTkxMiIKICAgaW5rc2NhcGU6d2luZG93LXk9Ii04IgogICBpbmtzY2FwZTp3aW5kb3ctbWF4aW1pemVkPSIxIgogICBpbmtzY2FwZTpjdXJyZW50LWxheWVyPSJTYW50YW5kZXIiIC8+CjxzdHlsZQogICB0eXBlPSJ0ZXh0L2NzcyIKICAgaWQ9InN0eWxlMiI+Cgkuc3Qwe2ZpbGw6I0VBMUQyNTt9Cjwvc3R5bGU+Cjx0aXRsZQogICBpZD0idGl0bGU0Ij5TYW50YW5kZXI8L3RpdGxlPiAgICAKPGcKICAgaWQ9Imc4IgogICB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwLC0wLjQpIj4KCTxwYXRoCiAgIGNsYXNzPSJzdDAiCiAgIGQ9Ik0gMzEuNSwxOS41IEMgMzEuNCwxOCAzMSwxNi41IDMwLjIsMTUuMiBMIDIzLjQsMy4zIEMgMjIuOSwyLjQgMjIuNSwxLjQgMjIuMywwLjQgTCAyMiwwLjkgYyAtMS43LDIuOSAtMS43LDYuNiAwLDkuNSBsIDUuNSw5LjUgYyAxLjcsMi45IDEuNyw2LjYgMCw5LjUgbCAtMC4zLDAuNSBjIC0wLjIsLTEgLTAuNiwtMiAtMS4xLC0yLjkgbCAtNSwtOC43IC0zLjIsLTUuNiBDIDE3LjQsMTEuOCAxNywxMC44IDE2LjgsOS44IGwgLTAuMywwLjUgYyAtMS43LDIuOSAtMS43LDYuNSAwLDkuNSB2IDAgbCA1LjUsOS41IGMgMS43LDIuOSAxLjcsNi42IDAsOS41IGwgLTAuMywwLjUgYyAtMC4yLC0xIC0wLjYsLTIgLTEuMSwtMi45IEwgMTMuNywyNC41IEMgMTIuOCwyMi45IDEyLjQsMjEuMSAxMi40LDE5LjMgNS4xLDIxLjIgMCwyNS4zIDAsMzAgMCwzNi42IDkuOCw0MS45IDIxLjksNDEuOSAzNCw0MS45IDQzLjgsMzYuNiA0My44LDMwIDQzLjksMjUuNSAzOC45LDIxLjQgMzEuNSwxOS41IFogbSAyMC43LDIwLjMgYyAwLjEsLTEuNyAwLjMsLTIuOCAwLjgsLTQuMiAyLjMsMS4xIDUuMywxLjYgNy41LDEuNiAzLjgsMCA2LC0xLjIgNiwtMy43IDAsLTIuNCAtMS42LC0zLjUgLTUuNCwtNS4yIEwgNTksMjcuNSBjIC0zLjksLTEuNyAtNi41LC0zLjkgLTYuNSwtOC4yIDAsLTQuNyAzLjMsLTcuNyA5LjksLTcuNyAyLjcsMCA1LjIsMC40IDcuNSwxLjIgLTAuMSwxLjYgLTAuNCwyLjkgLTAuOCw0LjEgLTIuMiwtMC44IC00LjksLTEuMiAtNi44LC0xLjIgLTMuNiwwIC01LjIsMS40IC01LjIsMy42IDAsMi4xIDEuNiwzLjQgNC41LDQuNiBsIDIuMiwwLjkgYyA1LjIsMi4yIDcuNCw0LjYgNy40LDguNiAwLDQuNyAtMy42LDggLTEwLjYsOCAtMy4zLDAgLTYuMSwtMC41IC04LjQsLTEuNiB6IE0gOTMuMywyMC4xIHYgMjAuNiBoIC00LjIgbCAtMC4yLC0yLjUgYyAtMS4yLDEuOCAtMi45LDMgLTUuOCwzIC01LjQsMCAtOS4xLC00IC05LjEsLTEwLjkgMCwtNy4yIDMuOSwtMTEuNCAxMS41LC0xMS40IDMsMC4xIDUuNSwwLjQgNy44LDEuMiB6IE0gODguOCwzNiBWIDIzLjEgYyAtMC45LC0wLjIgLTIsLTAuMiAtMy4zLC0wLjIgLTQuNywwIC02LjksMi45IC02LjksNy41IDAsNC4yIDEuNyw3LjIgNS43LDcuMiAxLjksLTAuMSAzLjMsLTAuNyA0LjUsLTEuNiB6IG0gMjcuNywtOS4xIFYgNDAuNyBIIDExMiB2IC0xMyBjIDAsLTMuMyAtMS4xLC00LjggLTUuNiwtNC44IC0xLjEsMCAtMi4zLDAuMSAtMy42LDAuMyBWIDQwLjcgSCA5OC4zIFYgMjAuMSBjIDIuOSwtMC43IDYuMSwtMS4yIDguMiwtMS4yIDcuNiwwLjEgMTAsMyAxMCw4IHogbSAxMi42LDEwLjUgYyAxLjMsMCAyLjYsLTAuMiAzLjUsLTAuNiAtMC4xLDEuMiAtMC4zLDIuNiAtMC41LDMuOCAtMS4yLDAuNSAtMi42LDAuNyAtMy44LDAuNyAtNC40LDAgLTcuMiwtMiAtNy4yLC03IFYgMTIuNiBjIDEuNCwtMC41IDMuMSwtMC43IDQuNSwtMC43IHYgNy44IGggNy4yIGMgLTAuMSwxLjQgLTAuMiwyLjcgLTAuNCwzLjkgaCAtNi44IHYgMTAuMSBjIDAsMi42IDEuMywzLjcgMy41LDMuNyB6IG0gMjQuMywtMTcuMyB2IDIwLjYgaCAtNC4yIEwgMTQ5LDM4LjIgYyAtMS4yLDEuOCAtMi45LDMgLTUuOCwzIC01LjQsMCAtOS4xLC00IC05LjEsLTEwLjkgMCwtNy4yIDMuOSwtMTEuNCAxMS41LC0xMS40IDMsMC4xIDUuNCwwLjQgNy44LDEuMiB6IE0gMTQ4LjgsMzYgViAyMy4xIGMgLTAuOSwtMC4yIC0yLC0wLjIgLTMuMywtMC4yIC00LjcsMCAtNi45LDIuOSAtNi45LDcuNSAwLDQuMiAxLjcsNy4yIDUuNyw3LjIgMS45LC0wLjEgMy40LC0wLjcgNC41LC0xLjYgeiBtIDI3LjgsLTkuMSBWIDQwLjcgSCAxNzIgdiAtMTMgYyAwLC0zLjMgLTEuMSwtNC44IC01LjYsLTQuOCAtMS4xLDAgLTIuMywwLjEgLTMuNiwwLjMgdiAxNy41IGggLTQuNSBWIDIwLjEgYyAyLjksLTAuNyA2LjEsLTEuMiA4LjIsLTEuMiA3LjYsMC4xIDEwLjEsMyAxMC4xLDggeiBtIDIyLjksLTE1IHYgMjguOCBoIC00LjIgbCAtMC4yLC0yLjYgYyAtMS4yLDEuOSAtMi45LDMuMSAtNS45LDMuMSAtNS40LDAgLTkuMSwtNCAtOS4xLC0xMC45IDAsLTcuMiAzLjksLTExLjQgMTEuNSwtMTEuNCAxLjIsMCAyLjMsMC4xIDMuNCwwLjMgdiAtNi44IGMgMS40LC0wLjQgMywtMC41IDQuNSwtMC41IHogTSAxOTUsMzYgViAyMy4zIGMgLTEuMiwtMC4yIC0yLjQsLTAuNCAtMy42LC0wLjQgLTQuNSwwIC02LjYsMi44IC02LjYsNy41IDAsNC4yIDEuNyw3LjIgNS43LDcuMiAxLjgsLTAuMSAzLjMsLTAuNyA0LjUsLTEuNiB6IG0gMjcuMywtNC4xIGggLTE0LjUgYyAwLjYsMy43IDIuNyw1LjQgNi44LDUuNCAyLjUsMCA1LC0wLjUgNy4yLC0xLjYgLTAuMiwxLjIgLTAuNCwyLjggLTAuNyw0LjEgLTIuMSwwLjkgLTQuMiwxLjMgLTYuNywxLjMgLTcuNiwwIC0xMS4yLC00LjIgLTExLjIsLTExLjIgMCwtNi4xIDIuOCwtMTEgMTAsLTExIDYuNSwwIDkuMyw0LjIgOS4zLDkuNCAwLDEuNCAwLDIuNCAtMC4yLDMuNiB6IE0gMjA3LjgsMjguMSBIIDIxOCBjIDAsLTMuNCAtMS44LC01LjQgLTQuOSwtNS40IC0zLjMsMC4xIC01LDEuOSAtNS4zLDUuNCB6IG0gMzAuNCwtOC45IGMgMCwxLjQgLTAuMiwzIC0wLjQsMy45IC0xLjEsLTAuMSAtMi4xLC0wLjIgLTMuNCwtMC4yIC0xLjEsMCAtMi4yLDAuMSAtMy4zLDAuMiB2IDE3LjYgaCAtNC41IFYgMjAuMSBjIDEuOSwtMC43IDUuMiwtMS4yIDcuNywtMS4yIDEuMywwLjEgMi45LDAuMSAzLjksMC4zIHoiCiAgIGlkPSJwYXRoNiIgLz4KPC9nPgo8bWV0YWRhdGEKICAgaWQ9Im1ldGFkYXRhODMwIj48cmRmOlJERj48Y2M6V29yawogICAgICAgcmRmOmFib3V0PSIiPjxkYzp0aXRsZT5TYW50YW5kZXI8L2RjOnRpdGxlPjwvY2M6V29yaz48L3JkZjpSREY+PC9tZXRhZGF0YT48L3N2Zz4K" alt="Santander" />
-          </div>
-          <span class="bank-tag">Crédito Hipotecario</span>
-        </div>
-
-        <!-- HSBC -->
-        <div class="bank-card" title="HSBC Hipotecario">
+            <div class="banks-featured-label">★ Bancos Preferentes · Gestión Prioritaria</div>
+      <div class="banks-featured-grid">
+        <!-- HSBC DESTACADO -->
+        <div class="bank-card featured" title="HSBC Hipotecario Preferente">
+          <span class="bank-featured-badge">★ Alianza Principal</span>
           <div class="bank-logo-wrap">
             <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxOS4yLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iSFNCQ19NQVNURVJCUkFORF9MT0dPX1dXX1JHQiINCgkgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiIHZpZXdCb3g9IjAgMCAzMTUuOSA4NSINCgkgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMzE1LjkgODU7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxyZWN0IHg9IjQyLjYiIHdpZHRoPSI4NSIgaGVpZ2h0PSI4NSIgZmlsbD0iI2ZmZmZmZiIvPg0KPHRpdGxlPkhTQkNfTUFTVEVSQlJBTkRfTE9HT19XV19SR0I8L3RpdGxlPg0KPHBvbHlnb24gcG9pbnRzPSIxNzAuMSw0Mi42IDEyNy42LDAgMTI3LjYsODUuMSIgZmlsbD0iI2RiMDAxMSIvPg0KPHBvbHlnb24gcG9pbnRzPSI4NS4xLDQyLjYgMTI3LjYsMCA0Mi42LDAiIGZpbGw9IiNkYjAwMTEiLz4NCjxwb2x5Z29uIHBvaW50cz0iMCw0Mi42IDQyLjYsODUuMSA0Mi42LDAiIGZpbGw9IiNkYjAwMTEiLz4NCjxwb2x5Z29uIHBvaW50cz0iODUuMSw0Mi42IDQyLjYsODUuMSAxMjcuNiw4NS4xIiBmaWxsPSIjZGIwMDExIi8+DQo8cGF0aCBkPSJNMjA3LjQsNDUuMUgxOTJ2MTUuMmgtNy43VjI0LjdoNy43djE0LjZoMTUuNFYyNC43aDcuN3YzNS42aC03LjdWNDUuMXoiLz4NCjxwYXRoIGQ9Ik0yMzMuNyw2MWMtNy43LDAtMTQtMy4xLTE0LjEtMTEuNmg3LjdjMC4xLDMuOCwyLjMsNi4xLDYuNSw2LjFjMy4xLDAsNi43LTEuNiw2LjctNS4xYzAtMi44LTIuNC0zLjYtNi40LTQuOGwtMi42LTAuNw0KCWMtNS42LTEuNi0xMS4yLTMuOC0xMS4yLTEwLjJjMC03LjksNy40LTEwLjYsMTQuMS0xMC42YzYuOSwwLDEyLjksMi40LDEzLDEwLjNoLTcuN2MtMC4zLTMuMi0yLjItNS4xLTUuOC01LjENCgljLTIuOSwwLTUuNywxLjUtNS43LDQuN2MwLDIuNiwyLjQsMy40LDcuNCw1bDMsMC45YzYuMSwxLjksMTAsNCwxMCwxMEMyNDguNSw1Ny45LDI0MC43LDYxLDIzMy43LDYxeiIvPg0KPHBhdGggZD0iTTI1Mi45LDI0LjhoMTIuNGMyLjMtMC4xLDQuNywwLDcsMC40YzQuMywxLDcuNiwzLjgsNy42LDguNmMwLDQuNi0yLjksNi45LTcuMSw4YzQuOCwwLjksOC40LDMuMyw4LjQsOC42DQoJYzAsOC4xLTgsOS45LTE0LjIsOS45aC0xNEwyNTIuOSwyNC44eiBNMjY1LjMsMzkuNmMzLjQsMCw2LjktMC43LDYuOS00LjhjMC0zLjctMy4yLTQuNy02LjQtNC43aC01LjR2OS41SDI2NS4zeiBNMjY2LDU1DQoJYzMuNiwwLDcuMS0wLjgsNy4xLTUuMnMtMy01LjItNi43LTUuMmgtNi4xVjU1SDI2NnoiLz4NCjxwYXRoIGQ9Ik0zMDEuMiw2MWMtMTEuNSwwLTE2LjYtNy4zLTE2LjYtMTguMnM1LjctMTguOCwxNy0xOC44YzcuMSwwLDE0LDMuMiwxNC4yLDExLjJoLThjLTAuNC0zLjYtMi44LTUuNC02LjItNS40DQoJYy03LDAtOS4xLDcuNS05LjEsMTMuMmMwLDUuNywyLjEsMTIuMyw4LjgsMTIuM2MzLjUsMCw2LjEtMS45LDYuNi01LjVoOEMzMTUuMSw1OCwzMDguNiw2MSwzMDEuMiw2MXoiLz4NCjwvc3ZnPg0K" alt="HSBC" />
           </div>
-          <span class="bank-tag">Crédito Hipotecario</span>
+          <span class="bank-tag">Crédito Hipotecario · Tasa Preferencial</span>
         </div>
 
+        <!-- SANTANDER DESTACADO -->
+        <div class="bank-card featured" title="Santander Hipotecario Preferente">
+          <span class="bank-featured-badge">★ Alianza Principal</span>
+          <div class="bank-logo-wrap">
+            <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyMi4wLjEsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4KCjxzdmcKICAgdmVyc2lvbj0iMS4xIgogICBpZD0iU2FudGFuZGVyIgogICB4PSIwcHgiCiAgIHk9IjBweCIKICAgdmlld0JveD0iMCAwIDIzOC4yIDQxLjUiCiAgIHhtbDpzcGFjZT0icHJlc2VydmUiCiAgIHNvZGlwb2RpOmRvY25hbWU9IkJhbmNvX1NhbnRhbmRlcl9Mb2dvdGlwby5zdmciCiAgIHdpZHRoPSIyMzguMiIKICAgaGVpZ2h0PSI0MS41IgogICBpbmtzY2FwZTp2ZXJzaW9uPSIxLjEgKGM2OGUyMmMzODcsIDIwMjEtMDUtMjMpIgogICB4bWxuczppbmtzY2FwZT0iaHR0cDovL3d3dy5pbmtzY2FwZS5vcmcvbmFtZXNwYWNlcy9pbmtzY2FwZSIKICAgeG1sbnM6c29kaXBvZGk9Imh0dHA6Ly9zb2RpcG9kaS5zb3VyY2Vmb3JnZS5uZXQvRFREL3NvZGlwb2RpLTAuZHRkIgogICB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCiAgIHhtbG5zOnN2Zz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCiAgIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyIKICAgeG1sbnM6Y2M9Imh0dHA6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL25zIyIKICAgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIj48ZGVmcwogICBpZD0iZGVmczEzIiAvPjxzb2RpcG9kaTpuYW1lZHZpZXcKICAgaWQ9Im5hbWVkdmlldzExIgogICBwYWdlY29sb3I9IiNmZmZmZmYiCiAgIGJvcmRlcmNvbG9yPSIjNjY2NjY2IgogICBib3JkZXJvcGFjaXR5PSIxLjAiCiAgIGlua3NjYXBlOnBhZ2VzaGFkb3c9IjIiCiAgIGlua3NjYXBlOnBhZ2VvcGFjaXR5PSIwLjAiCiAgIGlua3NjYXBlOnBhZ2VjaGVja2VyYm9hcmQ9IjAiCiAgIHNob3dncmlkPSJmYWxzZSIKICAgZml0LW1hcmdpbi10b3A9IjAiCiAgIGZpdC1tYXJnaW4tbGVmdD0iMCIKICAgZml0LW1hcmdpbi1yaWdodD0iMCIKICAgZml0LW1hcmdpbi1ib3R0b209IjAiCiAgIGlua3NjYXBlOnpvb209IjIuMzU3NTg4NCIKICAgaW5rc2NhcGU6Y3g9IjEwNS44Mjg0OCIKICAgaW5rc2NhcGU6Y3k9IjQ2LjQ0NTc2NyIKICAgaW5rc2NhcGU6d2luZG93LXdpZHRoPSIxOTIwIgogICBpbmtzY2FwZTp3aW5kb3ctaGVpZ2h0PSIxMDE3IgogICBpbmtzY2FwZTp3aW5kb3cteD0iMTkxMiIKICAgaW5rc2NhcGU6d2luZG93LXk9Ii04IgogICBpbmtzY2FwZTp3aW5kb3ctbWF4aW1pemVkPSIxIgogICBpbmtzY2FwZTpjdXJyZW50LWxheWVyPSJTYW50YW5kZXIiIC8+CjxzdHlsZQogICB0eXBlPSJ0ZXh0L2NzcyIKICAgaWQ9InN0eWxlMiI+Cgkuc3Qwe2ZpbGw6I0VBMUQyNTt9Cjwvc3R5bGU+Cjx0aXRsZQogICBpZD0idGl0bGU0Ij5TYW50YW5kZXI8L3RpdGxlPiAgICAKPGcKICAgaWQ9Imc4IgogICB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwLC0wLjQpIj4KCTxwYXRoCiAgIGNsYXNzPSJzdDAiCiAgIGQ9Ik0gMzEuNSwxOS41IEMgMzEuNCwxOCAzMSwxNi41IDMwLjIsMTUuMiBMIDIzLjQsMy4zIEMgMjIuOSwyLjQgMjIuNSwxLjQgMjIuMywwLjQgTCAyMiwwLjkgYyAtMS43LDIuOSAtMS43LDYuNiAwLDkuNSBsIDUuNSw5LjUgYyAxLjcsMi45IDEuNyw2LjYgMCw5LjUgbCAtMC4zLDAuNSBjIC0wLjIsLTEgLTAuNiwtMiAtMS4xLC0yLjkgbCAtNSwtOC43IC0zLjIsLTUuNiBDIDE3LjQsMTEuOCAxNywxMC44IDE2LjgsOS44IGwgLTAuMywwLjUgYyAtMS43LDIuOSAtMS43LDYuNSAwLDkuNSB2IDAgbCA1LjUsOS41IGMgMS43LDIuOSAxLjcsNi42IDAsOS41IGwgLTAuMywwLjUgYyAtMC4yLC0xIC0wLjYsLTIgLTEuMSwtMi45IEwgMTMuNywyNC41IEMgMTIuOCwyMi45IDEyLjQsMjEuMSAxMi40LDE5LjMgNS4xLDIxLjIgMCwyNS4zIDAsMzAgMCwzNi42IDkuOCw0MS45IDIxLjksNDEuOSAzNCw0MS45IDQzLjgsMzYuNiA0My44LDMwIDQzLjksMjUuNSAzOC45LDIxLjQgMzEuNSwxOS41IFogbSAyMC43LDIwLjMgYyAwLjEsLTEuNyAwLjMsLTIuOCAwLjgsLTQuMiAyLjMsMS4xIDUuMywxLjYgNy41LDEuNiAzLjgsMCA2LC0xLjIgNiwtMy43IDAsLTIuNCAtMS42LC0zLjUgLTUuNCwtNS4yIEwgNTksMjcuNSBjIC0zLjksLTEuNyAtNi41LC0zLjkgLTYuNSwtOC4yIDAsLTQuNyAzLjMsLTcuNyA5LjksLTcuNyAyLjcsMCA1LjIsMC40IDcuNSwxLjIgLTAuMSwxLjYgLTAuNCwyLjkgLTAuOCw0LjEgLTIuMiwtMC44IC00LjksLTEuMiAtNi44LC0xLjIgLTMuNiwwIC01LjIsMS40IC01LjIsMy42IDAsMi4xIDEuNiwzLjQgNC41LDQuNiBsIDIuMiwwLjkgYyA1LjIsMi4yIDcuNCw0LjYgNy40LDguNiAwLDQuNyAtMy42LDggLTEwLjYsOCAtMy4zLDAgLTYuMSwtMC41IC04LjQsLTEuNiB6IE0gOTMuMywyMC4xIHYgMjAuNiBoIC00LjIgbCAtMC4yLC0yLjUgYyAtMS4yLDEuOCAtMi45LDMgLTUuOCwzIC01LjQsMCAtOS4xLC00IC05LjEsLTEwLjkgMCwtNy4yIDMuOSwtMTEuNCAxMS41LC0xMS40IDMsMC4xIDUuNSwwLjQgNy44LDEuMiB6IE0gODguOCwzNiBWIDIzLjEgYyAtMC45LC0wLjIgLTIsLTAuMiAtMy4zLC0wLjIgLTQuNywwIC02LjksMi45IC02LjksNy41IDAsNC4yIDEuNyw3LjIgNS43LDcuMiAxLjksLTAuMSAzLjMsLTAuNyA0LjUsLTEuNiB6IG0gMjcuNywtOS4xIFYgNDAuNyBIIDExMiB2IC0xMyBjIDAsLTMuMyAtMS4xLC00LjggLTUuNiwtNC44IC0xLjEsMCAtMi4zLDAuMSAtMy42LDAuMyBWIDQwLjcgSCA5OC4zIFYgMjAuMSBjIDIuOSwtMC43IDYuMSwtMS4yIDguMiwtMS4yIDcuNiwwLjEgMTAsMyAxMCw4IHogbSAxMi42LDEwLjUgYyAxLjMsMCAyLjYsLTAuMiAzLjUsLTAuNiAtMC4xLDEuMiAtMC4zLDIuNiAtMC41LDMuOCAtMS4yLDAuNSAtMi42LDAuNyAtMy44LDAuNyAtNC40LDAgLTcuMiwtMiAtNy4yLC03IFYgMTIuNiBjIDEuNCwtMC41IDMuMSwtMC43IDQuNSwtMC43IHYgNy44IGggNy4yIGMgLTAuMSwxLjQgLTAuMiwyLjcgLTAuNCwzLjkgaCAtNi44IHYgMTAuMSBjIDAsMi42IDEuMywzLjcgMy41LDMuNyB6IG0gMjQuMywtMTcuMyB2IDIwLjYgaCAtNC4yIEwgMTQ5LDM4LjIgYyAtMS4yLDEuOCAtMi45LDMgLTUuOCwzIC01LjQsMCAtOS4xLC00IC05LjEsLTEwLjkgMCwtNy4yIDMuOSwtMTEuNCAxMS41LC0xMS40IDMsMC4xIDUuNCwwLjQgNy44LDEuMiB6IE0gMTQ4LjgsMzYgViAyMy4xIGMgLTAuOSwtMC4yIC0yLC0wLjIgLTMuMywtMC4yIC00LjcsMCAtNi45LDIuOSAtNi45LDcuNSAwLDQuMiAxLjcsNy4yIDUuNyw3LjIgMS45LC0wLjEgMy40LC0wLjcgNC41LC0xLjYgeiBtIDI3LjgsLTkuMSBWIDQwLjcgSCAxNzIgdiAtMTMgYyAwLC0zLjMgLTEuMSwtNC44IC01LjYsLTQuOCAtMS4xLDAgLTIuMywwLjEgLTMuNiwwLjMgdiAxNy41IGggLTQuNSBWIDIwLjEgYyAyLjksLTAuNyA2LjEsLTEuMiA4LjIsLTEuMiA3LjYsMC4xIDEwLjEsMyAxMC4xLDggeiBtIDIyLjksLTE1IHYgMjguOCBoIC00LjIgbCAtMC4yLC0yLjYgYyAtMS4yLDEuOSAtMi45LDMuMSAtNS45LDMuMSAtNS40LDAgLTkuMSwtNCAtOS4xLC0xMC45IDAsLTcuMiAzLjksLTExLjQgMTEuNSwtMTEuNCAxLjIsMCAyLjMsMC4xIDMuNCwwLjMgdiAtNi44IGMgMS40LC0wLjQgMywtMC41IDQuNSwtMC41IHogTSAxOTUsMzYgViAyMy4zIGMgLTEuMiwtMC4yIC0yLjQsLTAuNCAtMy42LC0wLjQgLTQuNSwwIC02LjYsMi44IC02LjYsNy41IDAsNC4yIDEuNyw3LjIgNS43LDcuMiAxLjgsLTAuMSAzLjMsLTAuNyA0LjUsLTEuNiB6IG0gMjcuMywtNC4xIGggLTE0LjUgYyAwLjYsMy43IDIuNyw1LjQgNi44LDUuNCAyLjUsMCA1LC0wLjUgNy4yLC0xLjYgLTAuMiwxLjIgLTAuNCwyLjggLTAuNyw0LjEgLTIuMSwwLjkgLTQuMiwxLjMgLTYuNywxLjMgLTcuNiwwIC0xMS4yLC00LjIgLTExLjIsLTExLjIgMCwtNi4xIDIuOCwtMTEgMTAsLTExIDYuNSwwIDkuMyw0LjIgOS4zLDkuNCAwLDEuNCAwLDIuNCAtMC4yLDMuNiB6IE0gMjA3LjgsMjguMSBIIDIxOCBjIDAsLTMuNCAtMS44LC01LjQgLTQuOSwtNS40IC0zLjMsMC4xIC01LDEuOSAtNS4zLDUuNCB6IG0gMzAuNCwtOC45IGMgMCwxLjQgLTAuMiwzIC0wLjQsMy45IC0xLjEsLTAuMSAtMi4xLC0wLjIgLTMuNCwtMC4yIC0xLjEsMCAtMi4yLDAuMSAtMy4zLDAuMiB2IDE3LjYgaCAtNC41IFYgMjAuMSBjIDEuOSwtMC43IDUuMiwtMS4yIDcuNywtMS4yIDEuMywwLjEgMi45LDAuMSAzLjksMC4zIHoiCiAgIGlkPSJwYXRoNiIgLz4KPC9nPgo8bWV0YWRhdGEKICAgaWQ9Im1ldGFkYXRhODMwIj48cmRmOlJERj48Y2M6V29yawogICAgICAgcmRmOmFib3V0PSIiPjxkYzp0aXRsZT5TYW50YW5kZXI8L2RjOnRpdGxlPjwvY2M6V29yaz48L3JkZjpSREY+PC9tZXRhZGF0YT48L3N2Zz4K" alt="Santander" />
+          </div>
+          <span class="bank-tag">Crédito Hipotecario · Tasa Preferencial</span>
+        </div>
+      </div>
+
+      <div class="banks-sub-label">Otras instituciones bancarias y esquemas cofinanciados:</div>
+      <div class="banks-secondary-grid">
         <!-- SCOTIABANK -->
         <div class="bank-card" title="Scotiabank Hipotecario">
           <div class="bank-logo-wrap">
@@ -1462,12 +1531,20 @@
           </div>
           <span class="bank-tag">Crédito Hipotecario</span>
         </div>
+
+        <!-- COFINAVIT -->
+        <div class="bank-card" title="Cofinavit (Infonavit + Banco)">
+          <div class="bank-logo-wrap">
+            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzNDAgNTQiIHdpZHRoPSIzNDAiIGhlaWdodD0iNTQiPgogIDwhLS0gRW1ibGVtOiBSZWQgSW5mb25hdml0LXN0eWxlIGdlb21ldHJpYyBob3VzZS9maWd1cmUgLS0+CiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMiwgMSkiPgogICAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjUyIiBoZWlnaHQ9IjUyIiByeD0iMTEiIGZpbGw9IiNEMzEyMkEiLz4KICAgIDwhLS0gUm9vZiAvIENoZXZyb24gLS0+CiAgICA8cGF0aCBkPSJNOCAyNCBMMjYgOC41IEw0NCAyNCBMMzkgMjkgTDI2IDE3LjUgTDEzIDI5IFoiIGZpbGw9IiNGRkZGRkYiLz4KICAgIDwhLS0gQ2VudHJhbCBwZXJzb24gLyBwaWxsYXIgLS0+CiAgICA8Y2lyY2xlIGN4PSIyNiIgY3k9IjI2IiByPSI0LjIiIGZpbGw9IiNGRkZGRkYiLz4KICAgIDxwYXRoIGQ9Ik0xNSA0MyBMMTkuNSAzMiBMMzIuNSAzMiBMMzcgNDMgSDMwLjggTDI4LjggMzcgSDIzLjIgTDIxLjIgNDMgWiIgZmlsbD0iI0ZGRkZGRiIvPgogIDwvZz4KICA8IS0tIFdvcmRtYXJrIGZpbGxpbmcgZnVsbCB3aWR0aCAtLT4KICA8dGV4dCB4PSI2NCIgeT0iMzQiIGZvbnQtZmFtaWx5PSInUGx1cyBKYWthcnRhIFNhbnMnLCAnSGVsdmV0aWNhIE5ldWUnLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIzOCIgZm9udC13ZWlnaHQ9IjgwMCIgbGV0dGVyLXNwYWNpbmc9IjEuMiIgZmlsbD0iI0QzMTIyQSI+Q09GSU5BVklUPC90ZXh0PgogIDx0ZXh0IHg9IjY2IiB5PSI0OSIgZm9udC1mYW1pbHk9IidQbHVzIEpha2FydGEgU2FucycsICdIZWx2ZXRpY2EgTmV1ZScsIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjEyLjUiIGZvbnQtd2VpZ2h0PSI3MDAiIGxldHRlci1zcGFjaW5nPSIzLjYiIGZpbGw9IiM0NDQwM0MiPklORk9OQVZJVCArIEJBTkNPPC90ZXh0Pgo8L3N2Zz4K" alt="Cofinavit" />
+          </div>
+          <span class="bank-tag">Cofinavit · Apoyo Infonavit</span>
+        </div>
       </div>
 
       <div class="credit-perks">
         <div class="credit-perk">
           <span class="check">✓</span>
-          <span>Precalificación y comparativa entre los 5 bancos</span>
+          <span>Precalificación bancaria y esquema Cofinavit</span>
         </div>
         <div class="credit-perk">
           <span class="check">✓</span>
@@ -1490,7 +1567,7 @@
         <h3>Brochure Descargable en PDF (Imágenes Completas + Planos Arquitectónicos)</h3>
         <p>Descarga el documento editorial en formato PDF listo para enviar por WhatsApp, correo electrónico o imprimir.</p>
       </div>
-      <a href="Brochure_Casa_Puebla_Molino_Santo_Domingo_Fotos_Completas.pdf?v=20261103_pdf2_pdf" target="_blank" download class="btn-pdf" style="padding: 11px 20px; font-size: 13px;">
+      <a href="Brochure_Casa_Puebla_Molino_Santo_Domingo_Fotos_Completas.pdf?v=20261103_v3" target="_blank" download class="btn-pdf" style="padding: 11px 20px; font-size: 13px;">
         📄 Descargar Brochure en PDF
       </a>
     </section>
