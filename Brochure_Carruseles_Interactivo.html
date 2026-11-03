@@ -262,6 +262,208 @@
       color: var(--muted);
     }
 
+    .hero-badges-wrap {
+      display: flex;
+      align-items: stretch;
+      gap: 12px;
+      flex-wrap: wrap;
+      flex-shrink: 0;
+    }
+
+    .price-pill-box {
+      background: linear-gradient(135deg, #1c1917 0%, #2c2620 100%);
+      border: 1.5px solid var(--gold);
+      border-radius: 14px;
+      padding: 10px 20px;
+      text-align: right;
+      flex-shrink: 0;
+      box-shadow: 0 6px 18px rgba(28, 25, 23, 0.14);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .price-pill-box .kicker {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #e8c27c;
+    }
+
+    .price-pill-box .price-val {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(24px, 3.2vw, 30px);
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.1;
+      margin: 2px 0;
+    }
+
+    .price-pill-box .price-val span {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      color: #e8c27c;
+      letter-spacing: 0.06em;
+    }
+
+    .price-pill-box .small {
+      font-size: 11px;
+      color: #d6d0c6;
+    }
+
+    /* ==========================================
+       SECCIÓN DE CRÉDITO HIPOTECARIO Y BANCOS
+       ========================================== */
+    .credit-section {
+      background: linear-gradient(180deg, #ffffff 0%, #fcfaf5 100%);
+      border: 1.5px solid var(--gold-border);
+      border-radius: 22px;
+      padding: 24px 26px;
+      margin-bottom: 24px;
+      box-shadow: 0 8px 24px rgba(154, 111, 26, 0.07);
+      scroll-margin-top: 86px;
+    }
+
+    .credit-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .credit-title {
+      font-size: clamp(22px, 3.6vw, 28px);
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.15;
+      margin-top: 3px;
+    }
+
+    .credit-desc {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 6px;
+      max-width: 720px;
+      line-height: 1.5;
+    }
+
+    .credit-price-tag {
+      background: var(--gold-light);
+      border: 1px solid var(--gold-border);
+      border-radius: 12px;
+      padding: 10px 16px;
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    .credit-price-tag .lbl {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--gold);
+    }
+
+    .credit-price-tag .val {
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--text);
+      margin-top: 2px;
+    }
+
+    .banks-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .bank-card {
+      background: #ffffff;
+      border: 1.5px solid var(--border);
+      border-radius: 16px;
+      padding: 18px 14px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 108px;
+      transition: all 0.2s ease;
+      box-shadow: 0 3px 10px rgba(28, 25, 23, 0.03);
+    }
+
+    .bank-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(154, 111, 26, 0.12);
+    }
+
+    .bank-logo-wrap {
+      width: 100%;
+      height: 46px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .bank-logo-wrap svg {
+      max-width: 155px;
+      max-height: 42px;
+      width: auto;
+      height: auto;
+      display: block;
+    }
+
+    .bank-tag {
+      font-size: 10.5px;
+      font-weight: 600;
+      color: var(--muted);
+      background: var(--bg);
+      border: 1px solid var(--border);
+      padding: 3px 10px;
+      border-radius: 999px;
+    }
+
+    .credit-perks {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .credit-perk {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 10px 14px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .credit-perk span.check {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--gold);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
     .metrics-row {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -854,6 +1056,50 @@
         padding: 10px 14px;
       }
 
+      .hero-badges-wrap {
+        width: 100%;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .price-pill-box {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        text-align: left;
+        padding: 12px 16px;
+      }
+
+      .credit-section {
+        padding: 16px;
+        border-radius: 18px;
+        margin-bottom: 18px;
+      }
+
+      .credit-price-tag {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        text-align: left;
+      }
+
+      .banks-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+
+      .banks-grid .bank-card:last-child {
+        grid-column: span 2;
+      }
+
+      .credit-perks {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
       .highlight-pill-box .big {
         font-size: 16px;
       }
@@ -1034,7 +1280,9 @@
 
       <div class="nav-wrapper">
         <nav class="nav-pills">
-          <a href="#inicio">Ficha</a>
+          <a href="#inicio">Ficha y Precio</a>
+          <a href="#sec-video" class="video-pill">🎬 Video Recorrido</a>
+          <a href="#sec-credito" class="video-pill">🏦 Crédito Bancario</a>
           <a href="#sec-exterior">1. Exterior</a>
           <a href="#sec-social">2. Sala y Doble Altura</a>
           <a href="#sec-cocina">3. Cocina</a>
@@ -1062,12 +1310,21 @@
           <h1 class="hero-title">Fraccionamiento Molino de Santo Domingo</h1>
           <p class="hero-sub">Blvd. Esteban de Antuñano, Zona Luz Obrera · Heroica Puebla de Zaragoza, Pue.</p>
         </div>
-        <div class="highlight-pill-box">
-          <div>
-            <div class="kicker">★ Diferenciador Único</div>
-            <div class="big">+65% Terreno Excedente</div>
+        <div class="hero-badges-wrap">
+          <div class="price-pill-box">
+            <div>
+              <div class="kicker">Valor de la Propiedad</div>
+              <div class="price-val">$5,490,000.00 <span>MXN</span></div>
+            </div>
+            <div class="small">Aceptamos y tramitamos tu crédito bancario</div>
           </div>
-          <div class="small">278.98 m² vs ~168 m² lote tipo</div>
+          <div class="highlight-pill-box">
+            <div>
+              <div class="kicker">★ Diferenciador Único</div>
+              <div class="big">+65% Terreno Excedente</div>
+            </div>
+            <div class="small">278.98 m² vs ~168 m² lote tipo</div>
+          </div>
         </div>
       </div>
 
@@ -1118,6 +1375,139 @@
           </div>
           <h3>Azotea Social Equipada</h3>
           <p>Escalera en madera con domos de luz y muro de piedra, cocineta interior con tarja y ventana, 4.º baño completo con regadera, terraza techada con pérgola y terraza abierta.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN DE VIDEO RECORRIDO ARQUITECTÓNICO (1080p 60 FPS) -->
+    <section id="sec-video" class="video-section">
+      <div class="video-header">
+        <div>
+          <div class="sec-kicker">Recorrido Cinematográfico · Full HD 1080p 60 FPS</div>
+          <h2 class="sec-title">Video Recorrido Arquitectónico de la Residencia</h2>
+          <p class="sec-desc">Recorrido continuo por el parque central del fraccionamiento, privada, vestíbulo a doble altura, estancia social, jardín privado, las 3 suites con baño y el Roof Garden panorámico.</p>
+        </div>
+        <a href="Video_Premium_Dron_Casa_Puebla_Horizontal.mp4?v=20261103" download class="btn-pdf">
+          🎬 Descargar Video MP4
+        </a>
+      </div>
+      <div class="video-stage">
+        <video
+          id="main-tour-video"
+          controls
+          playsinline
+          preload="metadata"
+          poster="fachada_principal_retocada_1792555180287.jpg?v=20261103"
+        >
+          <source src="Video_Premium_Dron_Casa_Puebla_Horizontal.mp4?v=20261103" type="video/mp4" />
+          Tu navegador no soporta la reproducción de video HTML5.
+        </video>
+      </div>
+    </section>
+
+    <!-- APARTADO DE TRÁMITE DE CRÉDITO HIPOTECARIO Y BANCOS PARTICIPANTES -->
+    <section id="sec-credito" class="credit-section">
+      <div class="credit-top">
+        <div>
+          <div class="sec-kicker">Asesoría y Gestión Hipotecaria · Sin Costo</div>
+          <h2 class="credit-title">Te Ayudamos a Tramitar tu Crédito Hipotecario</h2>
+          <p class="credit-desc">
+            Contamos con asesoría especializada para gestionar y tramitar tu crédito hipotecario de principio a fin con las principales instituciones bancarias del país, comparando opciones de tasa, plazo y mensualidad para que adquieras tu residencia con total certeza y rapidez.
+          </p>
+        </div>
+        <div class="credit-price-tag">
+          <div class="lbl">Valor de Venta</div>
+          <div class="val">$5,490,000.00 MXN</div>
+        </div>
+      </div>
+
+      <div class="banks-grid">
+        <!-- 1. SANTANDER -->
+        <div class="bank-card" title="Santander Hipotecario">
+          <div class="bank-logo-wrap">
+            <svg viewBox="0 0 230 54" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Santander">
+              <path d="M29.5 7.5c-1.8 4.4-5.7 7.3-5.7 11.9 0 3.2 2.2 5.6 5.1 7.6-4.5-1.2-8.4-4.2-8.4-8.8 0-4.8 4.6-8.4 9-10.7zm6.1 5.2c-1.6 3.8-4.8 6.4-4.8 10.3 0 2.8 1.9 4.9 4.5 6.7 2.6-1.8 4.5-3.9 4.5-6.7 0-3.9-3.2-6.5-4.2-10.3zm6.2 4.8c2.9 2 5.1 4.4 5.1 7.6 0 4.6-3.9 7.6-8.4 8.8 2.9-2 5.1-4.4 5.1-7.6 0-3.1-1.1-5.6-1.8-8.8z" fill="#EC0000"/>
+              <ellipse cx="33.7" cy="36.2" rx="19.5" ry="5.5" fill="none" stroke="#EC0000" stroke-width="3.2"/>
+              <path d="M25.2 12.2c-3.5 3.6-6.2 6.8-6.2 11.4 0 5.3 5.2 8.7 14.7 8.7s14.7-3.4 14.7-8.7c0-4.1-2.3-7.1-5.5-10.6 1 2.2 1.5 4.2 1.5 6.3 0 4.7-4.5 7.9-10.7 7.9s-10.7-3.2-10.7-7.9c0-2.5.8-4.7 2.2-7.1z" fill="#EC0000"/>
+              <text x="62" y="36" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-size="27" font-weight="800" fill="#EC0000" letter-spacing="-0.6">Santander</text>
+            </svg>
+          </div>
+          <span class="bank-tag">Crédito Hipotecario</span>
+        </div>
+
+        <!-- 2. HSBC -->
+        <div class="bank-card" title="HSBC Hipotecario">
+          <div class="bank-logo-wrap">
+            <svg viewBox="0 0 210 54" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="HSBC">
+              <polygon points="10,27 27,10 27,44" fill="#DB0011"/>
+              <polygon points="27,10 61,10 44,27" fill="#DB0011"/>
+              <polygon points="27,44 61,44 44,27" fill="#DB0011"/>
+              <polygon points="78,27 61,10 61,44" fill="#DB0011"/>
+              <polygon points="27,10 44,27 27,44" fill="#FFFFFF"/>
+              <polygon points="61,10 44,27 61,44" fill="#FFFFFF"/>
+              <rect x="27" y="10" width="34" height="34" fill="none" stroke="#DB0011" stroke-width="0.6"/>
+              <text x="90" y="37" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-size="30" font-weight="800" fill="#1C1917" letter-spacing="1.2">HSBC</text>
+            </svg>
+          </div>
+          <span class="bank-tag">Crédito Hipotecario</span>
+        </div>
+
+        <!-- 3. SCOTIABANK -->
+        <div class="bank-card" title="Scotiabank Hipotecario">
+          <div class="bank-logo-wrap">
+            <svg viewBox="0 0 240 54" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Scotiabank">
+              <circle cx="31" cy="27" r="9.5" fill="#EC111A"/>
+              <path d="M38 11c-9.5 0-16.5 4.8-18.5 11.8h7.2c1.6-3.5 5.6-5.8 11.3-5.8h9V11h-9zm-14 32c9.5 0 16.5-4.8 18.5-11.8h-7.2c-1.6 3.5-5.6 5.8-11.3 5.8h-9V43h9z" fill="#EC111A"/>
+              <text x="58" y="36" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-size="27" font-weight="800" fill="#EC111A" letter-spacing="-0.5">Scotiabank</text>
+            </svg>
+          </div>
+          <span class="bank-tag">Crédito Hipotecario</span>
+        </div>
+
+        <!-- 4. BANORTE -->
+        <div class="bank-card" title="Banorte Hipotecario">
+          <div class="bank-logo-wrap">
+            <svg viewBox="0 0 235 54" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Banorte">
+              <circle cx="28" cy="27" r="17.5" fill="#EB0029"/>
+              <path d="M13 22.5c8-4.5 19-4.5 30 0M11.5 27.5c9.5-4.5 21.5-4.5 33 0M14 32.5c8-4 18-4 28 0" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" fill="none"/>
+              <text x="54" y="36" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-size="27" font-weight="800" fill="#EB0029" letter-spacing="0.8">BANORTE</text>
+            </svg>
+          </div>
+          <span class="bank-tag">Crédito Hipotecario</span>
+        </div>
+
+        <!-- 5. BANAMEX -->
+        <div class="bank-card" title="Banamex Hipotecario">
+          <div class="bank-logo-wrap">
+            <svg viewBox="0 0 230 54" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Banamex">
+              <!-- Roseta Citibanamex / Banamex -->
+              <g transform="translate(28, 27)">
+                <circle cx="0" cy="-10" r="5.2" fill="#E31837"/>
+                <circle cx="9.5" cy="-3.1" r="5.2" fill="#E31837"/>
+                <circle cx="5.9" cy="8.1" r="5.2" fill="#E31837"/>
+                <circle cx="-5.9" cy="8.1" r="5.2" fill="#E31837"/>
+                <circle cx="-9.5" cy="-3.1" r="5.2" fill="#E31837"/>
+                <circle cx="0" cy="0" r="4.2" fill="#FFFFFF"/>
+              </g>
+              <text x="52" y="36" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-size="28" font-weight="800" fill="#004B87" letter-spacing="-0.4">Banamex</text>
+            </svg>
+          </div>
+          <span class="bank-tag">Crédito Hipotecario</span>
+        </div>
+      </div>
+
+      <div class="credit-perks">
+        <div class="credit-perk">
+          <span class="check">✓</span>
+          <span>Precalificación y comparativa entre los 5 bancos</span>
+        </div>
+        <div class="credit-perk">
+          <span class="check">✓</span>
+          <span>Integración de expediente y gestión de avalúo</span>
+        </div>
+        <div class="credit-perk">
+          <span class="check">✓</span>
+          <span>Acompañamiento personalizado hasta firma en notaría</span>
         </div>
       </div>
     </section>
@@ -1467,8 +1857,23 @@
       }
     ];
 
-    const CACHE_BUST = '?v=20261028b';
+    const CACHE_BUST = '?v=20261103';
+    const ASSET_DIR = window.location.pathname.includes('/casa_puebla/Brochure_Carruseles_Interactivo.html') ? 'fotos_retocadas/' : '';
     const state = {};
+
+    if (ASSET_DIR) {
+      document.addEventListener('DOMContentLoaded', () => {
+        const vid = document.getElementById('main-tour-video');
+        if (vid) {
+          vid.poster = ASSET_DIR + 'fachada_principal_retocada_1792555180287.jpg' + CACHE_BUST;
+          const srcEl = vid.querySelector('source');
+          if (srcEl) {
+            srcEl.src = 'Video_Premium_Dron_Casa_Puebla_Horizontal.mp4' + CACHE_BUST;
+            vid.load();
+          }
+        }
+      });
+    }
 
     function renderCarousels() {
       const root = document.getElementById('carousels-root');
@@ -1491,7 +1896,7 @@
                   ${hasMultiple ? `<button class="stage-arrow prev" onclick="prevSlide(${sIdx})" aria-label="Foto anterior">‹</button>` : ''}
                   <img
                     id="main-img-${sIdx}"
-                    src="${first.src}${CACHE_BUST}"
+                    src="${ASSET_DIR}${first.src}${CACHE_BUST}"
                     alt="${first.title}"
                     onclick="openLightbox(this.src, document.getElementById('title-${sIdx}').textContent)"
                   />
@@ -1527,7 +1932,7 @@
                       onclick="goToSlide(${sIdx}, ${i})"
                     >
                       <div class="thumb-img-box">
-                        <img src="${sl.src}${CACHE_BUST}" alt="${sl.title}" loading="lazy" />
+                        <img src="${ASSET_DIR}${sl.src}${CACHE_BUST}" alt="${sl.title}" loading="lazy" />
                       </div>
                       <div class="thumb-info">
                         <div class="thumb-num">Vista ${String(i + 1).padStart(2, '0')}</div>
@@ -1575,7 +1980,7 @@
       const slide = sec.slides[idx];
 
       const img = document.getElementById(`main-img-${sIdx}`);
-      img.src = slide.src + CACHE_BUST;
+      img.src = ASSET_DIR + slide.src + CACHE_BUST;
       img.alt = slide.title;
 
       document.getElementById(`title-${sIdx}`).textContent = slide.title;
