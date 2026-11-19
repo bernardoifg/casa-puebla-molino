@@ -722,6 +722,159 @@
       color: var(--text);
     }
 
+    /* Sección de Contacto WhatsApp en Portada y Cierre */
+    .hero-contact-bar {
+      margin-top: 14px;
+      background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+      border: 1.5px solid #86efac;
+      border-radius: 14px;
+      padding: 12px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .hero-contact-title {
+      display: flex;
+       flex-direction: column;
+      gap: 2px;
+    }
+    .hero-contact-title .kicker {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #15803d;
+    }
+    .hero-contact-title .main {
+      font-size: 15px;
+      font-weight: 700;
+      color: #14532d;
+    }
+    .hero-contact-cards {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .wa-contact-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #ffffff;
+      border: 1.5px solid #22c55e;
+      border-radius: 999px;
+      padding: 7px 16px 7px 10px;
+      text-decoration: none;
+      color: var(--text);
+      box-shadow: 0 2px 8px rgba(22, 163, 74, 0.10);
+    }
+    .wa-icon-circle {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: #25D366;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .wa-icon-circle svg {
+      width: 18px;
+      height: 18px;
+      fill: #ffffff;
+      display: block;
+    }
+    .wa-info {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.18;
+    }
+    .wa-name {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #15803d;
+    }
+    .wa-phone {
+      font-size: 14.5px;
+      font-weight: 800;
+      color: #1c1917;
+      letter-spacing: 0.02em;
+    }
+
+    /* Tarjeta de Contacto Grande al Final del Brochure */
+    .contact-section-card {
+      margin-top: 18px;
+      background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%);
+      border: 2px solid #22c55e;
+      border-radius: 20px;
+      padding: 22px 26px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+    .contact-section-left {
+      flex: 1 1 320px;
+    }
+    .contact-section-kicker {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: #15803d;
+      margin-bottom: 4px;
+    }
+    .contact-section-title {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+    .contact-section-desc {
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .contact-section-grid {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .wa-contact-card-lg {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: #ffffff;
+      border: 2px solid #22c55e;
+      border-radius: 16px;
+      padding: 12px 20px 12px 14px;
+      text-decoration: none;
+      color: var(--text);
+      min-width: 225px;
+      box-shadow: 0 4px 14px rgba(22, 163, 74, 0.12);
+    }
+    .wa-contact-card-lg .wa-icon-circle {
+      width: 40px;
+      height: 40px;
+    }
+    .wa-contact-card-lg .wa-icon-circle svg {
+      width: 23px;
+      height: 23px;
+    }
+    .wa-contact-card-lg .wa-name {
+      font-size: 12px;
+    }
+    .wa-contact-card-lg .wa-phone {
+      font-size: 17px;
+    }
+
     @media print {
       @page {
         size: letter;
@@ -745,25 +898,34 @@
       }
       /* Ajuste de Portada (Página 1 completa en una sola hoja) */
       .hero {
-        padding: 22px 26px;
+        padding: 18px 22px;
         margin-bottom: 0;
       }
       .hero-top {
-        margin-bottom: 14px;
-        padding-bottom: 12px;
+        margin-bottom: 10px;
+        padding-bottom: 10px;
       }
       .hero-title {
-        font-size: 34px;
+        font-size: 32px;
       }
       .hero-image-full {
-        margin-bottom: 14px;
+        margin-bottom: 10px;
       }
       .hero-image-full img {
-        max-height: 390px;
+        max-height: 335px;
       }
       .hero-desc {
-        margin-bottom: 14px;
-        line-height: 1.5;
+        margin-bottom: 10px;
+        line-height: 1.44;
+        font-size: 12.5px;
+      }
+      .hero-contact-bar {
+        margin-top: 10px;
+        padding: 9px 14px;
+      }
+      .contact-section-card {
+        margin-top: 12px;
+        padding: 14px 18px;
       }
       /* Ajuste de Ficha Técnica + Niveles + Crédito Hipotecario (Página 2 completa en una sola hoja) */
       .highlight-banner {
@@ -874,7 +1036,8 @@
       <a href="#cocina">3. Cocina</a>
       <a href="#recamaras">4. Recámaras</a>
       <a href="#roofgarden">5. Roof Garden</a>
-      <a href="Brochure_Casa_Puebla_Molino_Santo_Domingo_Fotos_Completas.pdf" target="_blank" class="btn-print" style="text-decoration: none;">📄 Descargar PDF</a>
+      <a href="#contacto" style="border-color: #22c55e; background: #f0fdf4; color: #15803d; font-weight: 700;">💬 Contacto WhatsApp</a>
+      <a href="Brochure_Casa_Puebla_Molino_Santo_Domingo_Fotos_Completas.pdf?v=20261119_contacto" target="_blank" class="btn-print" style="text-decoration: none;">📄 Descargar PDF</a>
     </nav>
   </header>
 
@@ -923,6 +1086,35 @@
           <div class="stat-label">Baños Totales</div>
           <div class="stat-value">4.5 <span>Baños</span></div>
           <div class="stat-note">4 Completos + 1 Visitas</div>
+        </div>
+      </div>
+
+      <!-- Barra de Contacto Directo en Portada -->
+      <div class="hero-contact-bar">
+        <div class="hero-contact-title">
+          <span class="kicker">Atención Directa · Informes y Citas</span>
+          <span class="main">Agenda tu visita por WhatsApp o llamada directa:</span>
+        </div>
+        <div class="hero-contact-cards">
+          <a href="https://wa.me/525518441995?text=Hola%20Bernardo,%20me%20interesa%20la%20residencia%20en%20venta%20en%20Molino%20de%20Santo%20Domingo,%20Puebla%20($5,490,000%20MXN)." target="_blank" class="wa-contact-pill">
+            <span class="wa-icon-circle" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm5.82 14.01c-.24.68-1.41 1.3-1.95 1.38-.5.08-1.13.11-1.83-.11-.42-.13-.97-.31-1.67-.61-2.94-1.27-4.86-4.23-5.01-4.43-.15-.2-1.2-1.59-1.2-3.04 0-1.45.76-2.16 1.03-2.46.27-.3.59-.37.79-.37.2 0 .4 0 .57.01.18.01.43-.07.67.51.24.59.83 2.04.9 2.19.07.15.12.32.02.52-.1.2-.15.32-.3.49-.15.17-.31.38-.44.51-.15.15-.3.31-.13.61.17.3.76 1.26 1.64 2.04 1.13 1 2.08 1.31 2.38 1.46.3.15.47.12.64-.07.17-.2.74-.86.94-1.16.2-.3.4-.25.67-.15.27.1 1.73.82 2.03.97.3.15.49.22.57.35.07.12.07.72-.17 1.4z"/></svg>
+            </span>
+            <span class="wa-info">
+              <span class="wa-name">Bernardo</span>
+              <span class="wa-phone">55 1844 1995</span>
+            </span>
+          </a>
+
+          <a href="https://wa.me/525517263669?text=Hola%20Diego,%20me%20interesa%20la%20residencia%20en%20venta%20en%20Molino%20de%20Santo%20Domingo,%20Puebla%20($5,490,000%20MXN)." target="_blank" class="wa-contact-pill">
+            <span class="wa-icon-circle" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm5.82 14.01c-.24.68-1.41 1.3-1.95 1.38-.5.08-1.13.11-1.83-.11-.42-.13-.97-.31-1.67-.61-2.94-1.27-4.86-4.23-5.01-4.43-.15-.2-1.2-1.59-1.2-3.04 0-1.45.76-2.16 1.03-2.46.27-.3.59-.37.79-.37.2 0 .4 0 .57.01.18.01.43-.07.67.51.24.59.83 2.04.9 2.19.07.15.12.32.02.52-.1.2-.15.32-.3.49-.15.17-.31.38-.44.51-.15.15-.3.31-.13.61.17.3.76 1.26 1.64 2.04 1.13 1 2.08 1.31 2.38 1.46.3.15.47.12.64-.07.17-.2.74-.86.94-1.16.2-.3.4-.25.67-.15.27.1 1.73.82 2.03.97.3.15.49.22.57.35.07.12.07.72-.17 1.4z"/></svg>
+            </span>
+            <span class="wa-info">
+              <span class="wa-name">Diego</span>
+              <span class="wa-phone">55 1726 3669</span>
+            </span>
+          </a>
         </div>
       </div>
     </section>
@@ -1590,6 +1782,39 @@
           <div class="summary-row"><span>Baños</span><span>4 Completos + 1 Medio Baño</span></div>
           <div class="summary-row"><span>Estacionamiento</span><span>Cochera Techada (2 Autos)</span></div>
           <div class="summary-row"><span>Niveles</span><span>Planta Baja + 1.er Piso + Roof Garden</span></div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN DE CONTACTO DIRECTO WHATSAPP -->
+      <div id="contacto" class="contact-section-card">
+        <div class="contact-section-left">
+          <div class="contact-section-kicker">Atención Personalizada · Informes y Citas</div>
+          <h3 class="contact-section-title">Contacto Directo por WhatsApp</h3>
+          <p class="contact-section-desc">
+            Contáctanos directamente por WhatsApp o llamada telefónica para agendar tu visita a la propiedad o solicitar asesoría sobre tu crédito hipotecario.
+          </p>
+        </div>
+
+        <div class="contact-section-grid">
+          <a href="https://wa.me/525518441995?text=Hola%20Bernardo,%20me%20interesa%20la%20residencia%20en%20venta%20en%20Molino%20de%20Santo%20Domingo,%20Puebla%20($5,490,000%20MXN)." target="_blank" class="wa-contact-card-lg">
+            <span class="wa-icon-circle" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm5.82 14.01c-.24.68-1.41 1.3-1.95 1.38-.5.08-1.13.11-1.83-.11-.42-.13-.97-.31-1.67-.61-2.94-1.27-4.86-4.23-5.01-4.43-.15-.2-1.2-1.59-1.2-3.04 0-1.45.76-2.16 1.03-2.46.27-.3.59-.37.79-.37.2 0 .4 0 .57.01.18.01.43-.07.67.51.24.59.83 2.04.9 2.19.07.15.12.32.02.52-.1.2-.15.32-.3.49-.15.17-.31.38-.44.51-.15.15-.3.31-.13.61.17.3.76 1.26 1.64 2.04 1.13 1 2.08 1.31 2.38 1.46.3.15.47.12.64-.07.17-.2.74-.86.94-1.16.2-.3.4-.25.67-.15.27.1 1.73.82 2.03.97.3.15.49.22.57.35.07.12.07.72-.17 1.4z"/></svg>
+            </span>
+            <span class="wa-info">
+              <span class="wa-name">Bernardo</span>
+              <span class="wa-phone">55 1844 1995</span>
+            </span>
+          </a>
+
+          <a href="https://wa.me/525517263669?text=Hola%20Diego,%20me%20interesa%20la%20residencia%20en%20venta%20en%20Molino%20de%20Santo%20Domingo,%20Puebla%20($5,490,000%20MXN)." target="_blank" class="wa-contact-card-lg">
+            <span class="wa-icon-circle" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm5.82 14.01c-.24.68-1.41 1.3-1.95 1.38-.5.08-1.13.11-1.83-.11-.42-.13-.97-.31-1.67-.61-2.94-1.27-4.86-4.23-5.01-4.43-.15-.2-1.2-1.59-1.2-3.04 0-1.45.76-2.16 1.03-2.46.27-.3.59-.37.79-.37.2 0 .4 0 .57.01.18.01.43-.07.67.51.24.59.83 2.04.9 2.19.07.15.12.32.02.52-.1.2-.15.32-.3.49-.15.17-.31.38-.44.51-.15.15-.3.31-.13.61.17.3.76 1.26 1.64 2.04 1.13 1 2.08 1.31 2.38 1.46.3.15.47.12.64-.07.17-.2.74-.86.94-1.16.2-.3.4-.25.67-.15.27.1 1.73.82 2.03.97.3.15.49.22.57.35.07.12.07.72-.17 1.4z"/></svg>
+            </span>
+            <span class="wa-info">
+              <span class="wa-name">Diego</span>
+              <span class="wa-phone">55 1726 3669</span>
+            </span>
+          </a>
         </div>
       </div>
     </section>
